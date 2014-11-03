@@ -1,0 +1,461 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+
+*{
+
+    
+    font-family: 'Roboto', sans-serif;
+    
+}
+#map-canvas{
+
+    padding: 0;height: 100%; 
+  width: 100%; 
+  position:absolute; 
+  top: 0; 
+  left: 0; 
+  z-index: 0; /* Set z-index to 0 as it will be on a layer below the contact form */
+
+}
+a{
+
+text-decoration: none;
+    color: black;
+}
+
+body,html{
+    
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: #FAFAFA;
+    padding: 0;
+    border: 0;
+
+}
+
+.header{
+      position: relative; 
+  z-index: 1; /* The z-index should be higher than Google Maps */
+ width: 100%;
+ height: 90px;
+    background-color: white;
+    border-bottom: 2px #9F123A solid;
+         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+    
+    margin-bottom: 30px;
+    padding-top: 14px;
+    padding-bottom: 5px;
+}
+#profileHeader{
+height: 50px;    
+}
+
+
+.logout
+
+{
+    width: 200px;
+    height: 40px;
+    float: right;
+    margin-right: 10px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    background-color: #00BCD4;
+    cursor: pointer;   
+}
+
+.logoProfile{
+       width: 205px;
+    height: 40px;
+ float: left;  
+    padding: 5px;
+    background-color: #ebebeb;
+}
+
+
+#wrapper{
+top:10%;
+   
+    width: 700px;
+  height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; 
+  z-index: 1; /* The z-index should be higher than Google Maps */
+}
+
+#logo{
+    
+    width: 229px;
+    height: 84px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.forms{
+width: 200px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 10px;
+    
+}
+.forms > h2{
+  text-align: center;   
+    
+}
+
+.forms>input[type=submit]{
+    width: 190px;
+    
+    border: 1px #5677fc solid ;
+    height: 45px;
+ background-color: #5677fc;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 1.1em;
+}
+
+.forms>input[type=submit]:hover{
+ background-color: #DD2C00;   
+        border: 1px #DD2C00 solid ;
+}
+.forms>input[type=text],.forms>input[type=password],.forms>input[type=email]{
+ 
+    width: 190px;
+    height: 25px;
+    border: 2px #ebebeb solid;
+    border-radius: 3px #ebebeb solid;
+    margin-bottom: 20px;
+    
+}
+.orRegister{
+ cursor: pointer;
+}
+#left{
+
+    margin-right: 100px;
+    width: 300px;
+   min-height: 500px; 
+    height: auto;
+    background-color: white;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+    float: left;
+}
+#register{
+ display: none;
+}
+.bookingPhoto{
+ background-color: red;   
+    width: 100px;
+    height: 150px;
+    border-radius: 5px;
+}
+
+.twitter-timeline{
+    margin-top: 40px;
+    
+}
+#right{
+
+    width: 300px;
+height: 500px;
+    float: left;
+}
+
+
+
+#wrapperProfile{
+ width: 100%;
+    margin-top: -30px;
+    height: 100%;
+    
+        position: relative; 
+  z-index: 1; /* The z-index should be higher than Google Maps */
+}
+
+
+#leftProfile{
+    float: left;
+    background-color: #B51845;
+    width: 250px;  
+    height: 100%;
+}
+
+
+
+#leftProfile> ul{
+    list-style: none;
+    width: 150px;
+    height: 400px;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+#leftProfile> ul>li {
+    height: 50px;
+    margin-bottom: 30px;
+    line-height: 50px;
+    text-align: center;
+    
+    
+        border: 0;
+    background-color: #EEEEEE;
+
+    border-radius: 5px;
+    height: 50px;
+    
+    cursor: pointer;
+}
+
+
+#leftProfile >ul> li:hover {
+    border: 0;
+    background-color: #4285F4;
+
+    border-radius: 5px;
+    height: 50px;
+    
+    cursor: pointer;
+}
+
+
+#leftProfile> ul>li:nth-child(2),#leftProfile> ul>li:nth-child(2):hover{
+    
+    background-color: #B51845;
+}
+
+#leftProfile> ul> li:first-child ,#leftProfile> ul> li> img ,#leftProfile> ul> li> a>img { 
+width: 150px;
+    border: 0;
+    height: 150px;
+    background-color: green;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 150px;  
+    
+}
+
+
+#rightProfile{
+   margin-left: 200px;
+  width: 800px; 
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+}
+
+.overflow{
+    
+ overflow: auto;   
+}
+
+#trainers{
+    
+    width: 100%;
+    height: 100%;
+
+    
+    list-style: none;
+    
+    
+}
+
+
+#trainers>li{
+ width: 180px;
+padding: 10px;
+    height: 300px;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.fliped > .front
+{
+	position: absolute;
+	-ms-transform: rotateY( 0deg );
+    border-radius: 5px;
+	-webkit-transform: rotateY( 0deg );
+	transform: rotateY( 0deg );
+	-webkit-perspective: 600px;
+	perspective: 600px;
+	width: 180px;
+	height: 300px;
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+	background-color: #d8e3eb;
+	border-radius: 5px;
+	backface-visibility: hidden;
+	transition: transform .5s linear 0s;
+}
+
+.fliped > .back
+{
+	position: absolute;
+        border-radius: 5px;
+	transform: rotateY( 180deg );
+	-ms-transform: rotateY( 180deg );
+	-webkit-transform: rotateY( 180deg );
+	-webkit-perspective: 600px;
+	perspective: 600px;
+	background-color: #d8e3eb;
+	width: 180px;
+	height: 300px;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	backface-visibility: hidden;
+	transition: transform .5s linear 0s;
+}
+
+.fliped:hover > .front
+{
+	-ms-transform: rotateY( -180deg );
+	-webkit-transform: rotateY( -180deg );
+	transform: rotateY( -180deg );
+	-webkit-perspective: 600px;
+	perspective: 600px; 
+}
+
+.fliped:hover > .back
+{
+	-ms-transform: rotateY( 0deg );
+	-webkit-transform: rotateY( 0deg );
+	transform: rotateY( 0deg );
+	-webkit-perspective: 600px;
+	perspective: 600px; 
+}
+
+
+
+
+
+
+
+
+
+
+#settings
+{
+  
+
+ width: 300px;
+    height: auto;
+
+
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+.Settingforms{
+width: 200px;
+margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 10px;
+    
+    border-bottom: 1px solid red;
+}
+.Settingforms > h2{
+  text-align: center;   
+    
+}
+
+.Settingforms>input[type=submit]{
+    width: 190px;
+    
+    border: 1px #5677fc solid ;
+    height: 45px;
+ background-color: #5677fc;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 1.1em;
+}
+
+.Settingforms>input[type=submit]:hover{
+ background-color: #DD2C00;   
+        border: 1px #DD2C00 solid ;
+}
+.Settingforms>input[type=text],.Settingforms>input[type=password],.Settingforms>input[type=email]{
+ 
+    width: 190px;
+    height: 25px;
+    border: 2px #ebebeb solid;
+    border-radius: 3px #ebebeb solid;
+    margin-bottom: 20px;
+    
+}
+
+
+
+
+.book{
+    padding: 0;
+ width: 100%;
+    height: 40px;
+     background-color: #DD2C00;   
+        border: 1px #DD2C00 solid ;
+}
+.Settingforms>input[type=color]{
+ width: 180px;
+    margin-bottom: 20px;
+    height: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
