@@ -14,6 +14,12 @@
             <li><a href="index.php?settings=true">Settings</a></li>
             <li><a href="index.php?workout=true">Workout</a></li>
             <li><a href="index.php?booking=true">Book </a></li>
+            <?php
+            if ($_SESSION["status"] == 3)
+            {
+                echo' <li><a href="index.php?admin=true">Admin</a></li>';
+            }
+            ?>
         </ul>
     </div>
 

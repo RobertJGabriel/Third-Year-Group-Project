@@ -38,7 +38,26 @@ class databases {
 VALUES ('" . $id . "','" . $date . "','" . $miles . "','" . $run  . "')" );
     }
 
+    public function updateUser() {
 
+
+            $id =  $_POST ['memberId'];
+            $fName = $_POST ['fName'];
+            $lName = $_POST ['lName'];
+            $address = $_POST ['address'];
+            $phone = $_POST ['phone'];
+            $email = $_POST ['email'];
+            $status = $_POST ['status'];
+            $password = $_POST ['password'];
+
+            $results = mysqli_query ( $this->con, " UPDATE members
+SET fName='$fName', lName='$lName',address='$address',phone='$phone',email='$email',status = '$status',password='$password'
+WHERE memberId='$id';" );
+
+
+
+
+    }
 
 
 
@@ -94,6 +113,13 @@ VALUES ('$Id','$fName','$lName','$address','$phone','$email','$password')" );
         $results = mysqli_query ( $this->con, "SELECT * FROM members WHERE status = 2 " );
         return $results;
     }
+
+    public function getAll() {
+        $results = mysqli_query ( $this->con, "SELECT * FROM members " );
+        return $results;
+    }
+
+
     public function colors() {
         $id = $_SESSION ["id"];
 

@@ -132,6 +132,60 @@ class student{
     }
 
     public
+    function updateuser(){
+
+$this->database->updateUser();
+
+
+        header("Location: {$_SERVER['HTTP_REFERER']}
+
+			");
+
+    }
+
+
+
+    public
+    function getStudentsAll(){
+        $result =    $this->database->getAll();
+        $count=mysqli_num_rows($result);
+
+        if($count!=0){
+            while ($row = $result->fetch_assoc()) {
+                echo '<li class = "fliped">';
+                echo ' <div class="back">';
+                echo '  <form id="booknow" action="index.php?updateuser=true" type="input" method="post" >';
+                echo '    <input  type="text" name="memberId" value="'.  $row['memberId'] . '" >';
+                echo '    <input  type="text" name="fName" value="'.  $row['fName'] . '" >';
+                echo '    <input  type="text" name="lName" value="'.  $row['lName'] . '" >';
+                echo '    <input  type="text" name="address" value="'.  $row['address'] . '" >';
+                echo '    <input  type="text" name="phone" value="'.  $row['phone'] . '" >';
+                echo '    <input  type="text" name="email" value="'.  $row['email'] . '" >';
+                echo '    <input  type="text" name="status" value="'.  $row['status'] . '" >';
+                echo '    <input  type="text" name="status" value="'.  $row['password'] . '" >';
+                echo '    <input type="submit" value="Update">';
+                echo '   </form>';
+
+
+
+
+                echo '   </div>';
+                echo '  <div class="front">';
+                echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="300" />';
+                echo '  </div>';
+                echo '</li>';
+
+            }
+
+        } else {
+            echo 'No Trainers :(';
+        }
+
+
+    }
+
+
+    public
     function getTrainers(){
         $result =    $this->database->getTrainers();
         $count=mysqli_num_rows($result);
@@ -151,8 +205,7 @@ class student{
                 echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="300" />';
                 echo '  </div>';
                 echo '</li>';
-                //                $this->phone = $row['phone'];
-                //              $this->email = $row['email'];
+
             }
 
         } else {
