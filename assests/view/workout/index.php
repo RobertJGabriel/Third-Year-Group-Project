@@ -53,6 +53,26 @@
 
 
 
+            <br>
+
+
+
+            <div id="chart_cardio" style=" width: 700px; margin: 0 auto"></div>
+
+
+            <form name="cardioDetails" class="Settingforms" action="index.php?cardioInput=true" method="post">
+                <h1>Distance Run</h1>
+
+                <input type="number" placeholder="Distance Ran"  name="miles">
+
+                <input type="number" placeholder="Time Ran"      name="run">
+
+
+
+                <input type="submit" value="Submit">
+            </form>
+
+
 
         </div>
 

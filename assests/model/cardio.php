@@ -22,7 +22,7 @@ class cardio{
     function __construct()    {
 
         $this->database = new databases();
-        $this->bookingId = $_SESSION["id"];
+     //   $this->bookingId = $_SESSION["id"];
 
     }
 
@@ -42,10 +42,7 @@ class cardio{
 	function getDistance(){
 		return $this->distance;
 	}
-	function
-	public setDistance($distance){
-		$this->distance = $distance;
-	}
+
 	public
 	function getDuration(){
 		return $this->duration;
@@ -56,6 +53,13 @@ class cardio{
 	}
 	
 
+
+    public
+    function setCardio(){
+
+$this->database->setCardio();
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
 
 }
 

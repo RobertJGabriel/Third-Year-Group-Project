@@ -4,10 +4,12 @@ include_once("assests/model/student.php");
 include_once("assests/model/weight.php");
 include_once("assests/model/schedules.php");
 include_once("assests/model/database.php");
+include_once("assests/model/cardio.php");
 class Controller {
     var $student;
     var $schedules;
     var $weight;
+    var $cardio;
     var $database;
     
     public
@@ -15,6 +17,7 @@ class Controller {
         $this->student = new student();
         $this->schedules = new schedules();
         $this->weight = new weight();
+        $this->cardio = new cardio();
     }
 
     public
@@ -58,6 +61,12 @@ class Controller {
 
                                                     $this->weight->setWeight();
                                                 }
+                                                else if(isset($_GET['cardioInput'])){
+
+                                               $this->cardio->setCardio();
+                                                }
+
+
                                                 else {
                                                 include('assests/view/profile.php');
                                                 }

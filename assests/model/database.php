@@ -22,6 +22,27 @@ class databases {
             echo "Failed to connect to MySQL: " . mysqli_connect_error ();
         }
     }
+
+
+
+    public function setCardio() {
+        $id = $_SESSION ["id"];
+
+            $mydate = getdate ( date ( "U" ) );
+
+        $date = $mydate [year] . $mydate [mon] . $mydate [mday];
+        $miles = $_POST ['miles'];
+        $run = $_POST ['run'];
+
+        return mysqli_query ( $this->con, "INSERT INTO cardio (memberId, date, distance,duration)
+VALUES ('" . $id . "','" . $date . "','" . $miles . "','" . $run  . "')" );
+    }
+
+
+
+
+
+
     public function setWeight() {
         $id = $_SESSION ["id"];
 

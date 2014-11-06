@@ -10,5 +10,9 @@
     <script src="assests/javascript/exporting.js"></script>
     <script src="assests/javascript/data.js"></script>
 
+
+
+    <script src="assests/javascript/cardio.js"></script>
+
 </head>
 <body>

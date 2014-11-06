@@ -3,7 +3,7 @@ $(function() {
     var months = [];
     var days = [];
     var switch1 = true;
-    $.get('assests/model/values.php', function(data) {
+    $.get('assests/model/cardioValues.php', function(data) {
 
         data = data.split('/');
         for (var i in data) {
@@ -18,7 +18,7 @@ $(function() {
         }
         months.pop();
 
-        $('#chart').highcharts({
+        $('#chart_cardio').highcharts({
             chart : {
                 type : 'spline'
             },
@@ -30,13 +30,13 @@ $(function() {
             },
             xAxis : {
                 title : {
-                    text : 'Date'
+                    text : 'Amount of miles run'
                 },
                 categories : months
             },
             yAxis : {
                 title : {
-                    text : 'Amount of Reps'
+                    text : 'About of time running ( Mins)'
                 },
                 labels : {
                     formatter : function() {
@@ -60,7 +60,7 @@ $(function() {
             },
             series : [{
 
-                name : ' Weight Lifted',
+                name : 'Miles Ran',
                 data : days
             }]
         });
