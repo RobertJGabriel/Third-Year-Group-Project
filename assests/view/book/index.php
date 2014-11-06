@@ -1,6 +1,6 @@
 
 <div class="header" id="profileHeader">
-    <div class="logoProfile"><img src="http://www.cit.ie/images/layout/logo.png" width="" height=""></div>
+    <div class="logoProfile">     <img src="assests/img/logo.jpg" alt="Cit Logo"></div>
     <div class="logout"><a href="index.php?logout=true"> Logout</a></div>
 </div>
 

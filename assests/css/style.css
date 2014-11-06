@@ -48,7 +48,8 @@ body,html{
     padding-bottom: 5px;
 }
 #profileHeader{
-height: 50px;    
+height: 90px;
+    padding-bottom: 10px;
 }
 
 
@@ -67,10 +68,14 @@ height: 50px;
 }
 
 .logoProfile{
-       width: 205px;
-    height: 40px;
- float: left;  
-    padding: 5px;
+
+
+    width: 229px;
+    height: 84px;
+
+ float: left;
+    margin-left: 10px;
+
     background-color: #ebebeb;
 }
 

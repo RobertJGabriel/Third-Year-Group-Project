@@ -21,6 +21,16 @@ switchBack();
 		}
 
 
+        $("img").each(function () {
+
+            $(this).attr("onerror", "this.src='https://s3.amazonaws.com/uifaces/faces/twitter/brandclay/128.jpg'");
+
+        });
+
+
+
+
+
 
 
 

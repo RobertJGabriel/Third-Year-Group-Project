@@ -1,5 +1,5 @@
 <div class="header" id="profileHeader">
-    <div class="logoProfile"><img src="" width="" height=""></div>
+    <div class="logoProfile">     <img src="assests/img/logo.jpg" alt="Cit Logo"></div>
     <div class="logout"><a href="index.php?logout=true"> Logout</a></div>
 
 </div>
