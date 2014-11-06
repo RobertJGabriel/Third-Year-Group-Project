@@ -41,7 +41,7 @@ class schedules {
         $result = $this->database->getTraniersSchedule ( $date, $trainer );
 
         //counter for number of returned rows
-       echo $count = mysqli_num_rows ( $result );
+   $count = mysqli_num_rows ( $result );
 
         // stores all returned rows as array elements
         $hourlySchedule = array ();
@@ -73,7 +73,7 @@ class schedules {
             }
         }
 
-        echo ' <table width="600">';
+        echo ' <table width="600" id="table">';
 
         echo '<tr>';
         echo '<th bgcolor="silver">' . 'Time' . '</th> ';
@@ -87,7 +87,7 @@ class schedules {
         foreach ( $arr as &$value ) {
 
             echo '<tr>';
-            echo '<td bgcolor="silver">' . $value . '</td> ';
+            echo '<td>' . $value . '</td> ';
 
             //starts column for every trainer
             foreach ( $uniqueTrainers as $trId ) {

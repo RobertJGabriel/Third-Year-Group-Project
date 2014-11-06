@@ -18,6 +18,7 @@
             if ($_SESSION["status"] == 3)
             {
                 echo' <li><a href="index.php?admin=true">Admin</a></li>';
+                echo' <li><a href="index.php?timetable=true">Time Table</a></li>';
             }
             ?>
         </ul>
@@ -27,33 +28,35 @@
 
     <div id="rightProfile">
 
-        <form name="input" action="demo_form_action.asp" method="get">
-          Trainer Id <input type="text" name="user" value="<?php echo $_GET['id']; ?>">
+        <?php
+
+        if ($_SESSION["status"] == 3)
+        {
 
 
 
-            <select>
-
-
-
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+            echo '<li>' . $this->student->setBooking() . '</li>';
 
 
 
 
-            </select>
+        }
+
+        ?>
+        <li id="system">
+
+
+            <div id="date">
+
+                <input type="text" name="date" id="dateBox" hidden>
+                <input type="text" name="id" id="idtrainer" hidden>
+            </div></li>
+        <script src="assests/javascript/jqueryui/external/jquery/jquery.js"></script>
+        <script src="assests/javascript/jqueryui/jquery-ui.min.js"></script>
+        <script src="assests/javascript/calendarScript.js"></script>
 
 
 
-
-
-
-            Username: <input type="text" name="user">
-            <input type="submit" value="Submit">
-        </form>
 
     </div>
 

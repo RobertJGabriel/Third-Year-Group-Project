@@ -62,7 +62,7 @@ class student{
 
                 header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' . $this->folder.  'index.php?profile=true');
             } else {
-                echo 'failed login';
+                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' . $this->folder.  'index.php');
             }
 
         }
@@ -162,7 +162,7 @@ $this->database->updateUser();
                 echo '    <input  type="text" name="phone" value="'.  $row['phone'] . '" >';
                 echo '    <input  type="text" name="email" value="'.  $row['email'] . '" >';
                 echo '    <input  type="text" name="status" value="'.  $row['status'] . '" >';
-                echo '    <input  type="text" name="status" value="'.  $row['password'] . '" >';
+                echo '    <input  type="text" name="password" value="'.  $row['password'] . '" >';
                 echo '    <input type="submit" value="Update">';
                 echo '   </form>';
 
@@ -185,6 +185,35 @@ $this->database->updateUser();
     }
 
 
+
+    public
+    function setBooking(){
+        $result =    $this->database->getTrainers();
+        $count=mysqli_num_rows($result);
+
+
+
+        echo '  <form id="setTime" action="index.php?setTimeTable=true" method="post" >';
+        echo '   <select name="trainerId" required>';
+        echo '<option value="" >Select a Trainer</option>';
+        if($count!=0){
+            while ($row = $result->fetch_assoc()) {
+
+             echo   ' <option value="'. $row['memberId']  .'">' .  $row['fName'] . '' . $row['lName']   .'</option>';
+
+            }
+        }else{
+            echo 'No Trainers :(';
+
+        }
+        echo'</select>';
+echo '<input type="number" name="start">';
+        echo '<input type="number" name="hours">';
+        echo'<input type="submit">';
+        echo '   </form>';
+
+    }
+
     public
     function getTrainers(){
         $result =    $this->database->getTrainers();
@@ -198,7 +227,7 @@ $this->database->updateUser();
                 echo '   <p>' .  $row['email'] . '</p>';
                 echo '  <form id="booknow" type="input" method="post" >';
                 echo '    <input  type="text" name="scrap" value="'.  $row['memberId'] . '" hidden>';
-                echo '    <a href="index.php?booking=true">Booking</a>';
+              //  echo '    <a href="index.php?booking=true">Booking</a>';
                 echo '   </form>';
                 echo '   </div>';
                 echo '  <div class="front">';

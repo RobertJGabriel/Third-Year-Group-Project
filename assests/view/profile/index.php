@@ -22,6 +22,7 @@
             if ($_SESSION["status"] == 3)
             {
                 echo' <li><a href="index.php?admin=true">Admin</a></li>';
+                echo' <li><a href="index.php?timetable=true">Time Table</a></li>';
             }
             ?>
         </ul>
