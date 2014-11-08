@@ -6,8 +6,7 @@
 
 <div id="wrapperProfile">
 
-
-    <div id="leftProfile">
+	<div id="mobileHeader">
 		<img id="mobileLogo" src="assests/img/gplogo2.png" width="150" height="50">
 		<div id="mobileButton">
 			<div id="mobileMenu">
@@ -21,6 +20,8 @@
 				</ul>
 			</div>
 		</div>
+	</div>
+    <div id="leftProfile">
         <ul id="profileMenu">
        <li><a href="index.php?profile=true"><img src="<?php  echo 'assests/img/profilePhotos/' . $_SESSION['id'] . '.png' ?>"  width="150" height="150" alt="Profile Picture"></a></li>
             <li><h1><?php echo $_SESSION["fname"] ;  ?></h1></li>

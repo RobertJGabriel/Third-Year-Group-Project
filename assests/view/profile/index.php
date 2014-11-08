@@ -1,6 +1,6 @@
 
 <div class="header" id="profileHeader">
-    <div class="logoProfile"><img src="" width="" height=""></div>
+    <div class="logoProfile"><img src="assests/img/gplogo2.png" width="250" height="69"></div>
       <div class="logout"><a href="index.php?logout=true"> Logout</a></div>
 </div>
 
@@ -9,7 +9,8 @@
 
 
 <div id="wrapperProfile">
-	<img id="mobileLogo" src="assests/img/gplogo2.png" width="150" height="50">
+	<div id="mobileHeader">
+		<img id="mobileLogo" src="assests/img/gplogo2.png" width="150" height="50">
 		<div id="mobileButton">
 			<div id="mobileMenu">
 				<ul>
@@ -22,6 +23,7 @@
 				</ul>
 			</div>
 		</div>
+	</div>
     <div id="leftProfile">
         <ul id="profileMenu">
           <li><a href="index.php?profile=true"><img src="<?php  echo 'assests/img/profilePhotos/' . $_SESSION['id'] . '.png' ?>"  width="150" height="150" alt="Profile Picture"></a></li>
