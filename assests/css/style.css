@@ -1,0 +1,481 @@
+@import "http://fonts.googleapis.com/css?family=Roboto";
+
+* {
+    font-family:'Roboto',sans-serif
+}
+
+a {
+    text-decoration:none;
+    color:#000
+}
+
+body,html {
+    width:100%;
+    height:100%;
+    margin:0;
+    background-color:#EDEDED;
+    padding:0;
+    border:0
+}
+
+#register {
+    display:none
+}
+
+#map-canvas {
+    padding:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:0
+    /* Set z-index to 0 as it will be on a layer below the contact form */
+}
+
+/*    all import styles */
+.forms {
+    width:200px;
+    margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+    height:auto;
+    padding:10px
+}
+
+.forms > h2 {
+    text-align:center
+}
+
+.forms>input[type=submit] {
+    width:190px;
+    border:1px #5677fc solid;
+    height:45px;
+    background-color:#5677fc;
+    color:#fff;
+    cursor:pointer;
+    border-radius:3px;
+    font-size:1.1em
+}
+
+.forms>input[type=submit]:hover {
+    background-color:#DD2C00;
+    border:1px #DD2C00 solid
+}
+
+.forms>input[type=text],.forms>input[type=password],.forms>input[type=email],.forms>input[type=text],.forms>input[type=number],.forms>input[type=select] {
+    width:190px;
+    height:25px;
+    border:2px #ebebeb solid;
+    border-radius:3px;
+    margin-bottom:20px
+}
+
+.orRegister {
+    cursor:pointer
+}
+
+.settings {
+    margin-left:auto;
+    margin-right:auto;
+    width:460px;
+    height:auto;
+    margin-bottom:40px;
+    list-style:none
+}
+
+.settings>li {
+    float:left;
+    margin-right:10px
+}
+
+.settings>li>form {
+    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+    margin-left:auto;
+    margin-right:auto;
+    background-color:#fff;
+    border-bottom:2px solid #206276
+}
+
+#trainers {
+    width:100%;
+    height:100%;
+    list-style:none
+}
+
+#trainers>li {
+    width:180px;
+    padding:10px;
+    height:300px;
+    float:left;
+    margin-left:20px;
+    margin-right:20px;
+    margin-bottom:10px
+}
+
+.fliped > .front {
+    position:absolute;
+    -ms-transform:rotateY(0deg);
+    border-radius:5px;
+    -webkit-transform:rotateY(0deg);
+    transform:rotateY(0deg);
+    -webkit-perspective:600px;
+    perspective:600px;
+    width:180px;
+    height:300px;
+    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+    background-color:#d8e3eb;
+    border-radius:5px;
+    backface-visibility:hidden;
+    transition:transform .5s linear 0
+}
+
+.fliped > .back {
+    position:absolute;
+    border-radius:5px;
+    transform:rotateY(180deg);
+    -ms-transform:rotateY(180deg);
+    -webkit-transform:rotateY(180deg);
+    -webkit-perspective:600px;
+    perspective:600px;
+    background-color:#d8e3eb;
+    width:180px;
+    height:300px;
+    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+    border-radius:5px;
+    backface-visibility:hidden;
+    transition:transform .5s linear 0
+}
+
+.fliped > .back>form {
+    width:180px;
+    height:300px
+}
+
+.fliped > .back>form>input {
+    width:150px;
+    height:15px;
+    border:2px #ebebeb solid;
+    border-radius:3px;
+    margin-bottom:10px
+}
+
+.fliped > .back>form>input[type=submit] {
+    width:60px;
+    border:1px #5677fc solid;
+    height:20px;
+    background-color:#5677fc;
+    color:#fff;
+    cursor:pointer;
+    border-radius:3px;
+    font-size:13px
+}
+
+.fliped:hover > .front {
+    -ms-transform:rotateY(-180deg);
+    -webkit-transform:rotateY(-180deg);
+    transform:rotateY(-180deg);
+    -webkit-perspective:600px;
+    perspective:600px
+}
+
+.fliped:hover > .back {
+    -ms-transform:rotateY(0deg);
+    -webkit-transform:rotateY(0deg);
+    transform:rotateY(0deg);
+    -webkit-perspective:600px;
+    perspective:600px
+}
+
+#alert {
+    width:100%;
+    min-height:30px;
+    height:auto;
+    margin-bottom:20px;
+    background-color: #ffffff;
+    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2)
+}
+
+#alert>h2 {
+    line-height:30px;
+    text-align:center
+}
+
+.workout {
+    width:700px;
+    list-style:none;
+    height:auto;
+    min-height:400px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:#fff;
+    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2)
+}
+
+.workout>li {
+    float:left;
+    margin-right:10px
+}
+
+.workout>li:first-child {
+    width:400px;
+    border-right:2px solid red
+}
+
+#booking {
+    width:700px;
+    list-style:none;
+    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+    min-height:400px;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:#fff
+}
+
+#booking>li {
+    position:static;
+    float:left;
+    margin-right:30px
+}
+
+#booking>li>table {
+    width:400px;
+    background-color:red
+}
+
+#booking>li:not(:first-child) {
+    width:400px;
+    height:auto;
+    margin-bottom:30px
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 480px) and (max-width: 10009px) {
+    .workout {
+        width:700px;
+        list-style:none;
+        height:auto;
+        min-height:400px;
+        margin-left:auto;
+        margin-right:auto;
+        background-color:#fff
+    }
+
+    .workout>li {
+        float:left;
+        margin-right:10px
+    }
+
+    .workout>li:first-child {
+        width:400px;
+        border-right:2px solid red
+    }
+
+    #wrapperProfile {
+        padding:5px;
+        width:800px;
+        min-height:500px;
+        height:auto;
+        margin-left:auto;
+        margin-right:auto
+    }
+
+    #nav {
+        width:800px;
+        height:80px;
+        margin-left:auto;
+        margin-right:auto
+    }
+
+    #menu {
+        list-style:none
+    }
+
+    #menu li:Not(:first-child) {
+        float:left;
+        margin-left:10px;
+        line-height:80px;
+        margin-right:10px
+    }
+
+    #menu li > a> img {
+        border-radius:100px;
+        margin-right:50px
+    }
+
+    .header {
+        position:relative;
+        z-index:1;
+        /* The z-index should be higher than Google Maps */
+        width:100%;
+        height:90px;
+        background-color:#fff;
+        border-bottom:2px;
+        box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+        margin-bottom:30px;
+        padding-top:15px;
+        padding-bottom:5px;
+        border-bottom:5px solid #206276
+    }
+
+    /*           Hompage       */
+    #logo {
+        width:229px;
+        height:84px;
+        margin-left:auto;
+        margin-right:auto
+    }
+
+    #wrapper {
+        top:10%;
+        width:700px;
+        height:600px;
+        margin-left:auto;
+        margin-right:auto;
+        position:relative;
+        z-index:1
+        /* The z-index should be higher than Google Maps */
+    }
+
+    #right {
+        width:300px;
+        height:500px;
+        float:left
+    }
+
+    #left {
+        margin-right:100px;
+        width:300px;
+        min-height:500px;
+        height:auto;
+        background-color:#fff;
+        box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+        float:left
+    }
+
+    #register {
+        display:none
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+    #wrapperProfile {
+        width:440px;
+        min-height:500px;
+        background-color:#fff;
+        margin-left:auto;
+        margin-right:auto
+    }
+
+    #menuButton {
+        width:45px;
+        height:45px;
+        float:right;
+        margin-right:10px;
+        background-image:url(../img/icons/menu.png);
+        background-size:cover;
+        cursor:pointer
+    }
+
+    #menuButtona {
+        width:45px;
+        height:45px;
+        float:right;
+        background-color:#E9E9E9;
+        margin-right:10px;
+        background-image:url(../img/icons/menu.png);
+        background-size:cover;
+        cursor:pointer
+    }
+
+    .menuItem {
+        float:right;
+        display:none
+    }
+
+    .menuItema {
+        float:right;
+        display:block
+    }
+
+    #menu {
+        text-decoration:none;
+        margin-top:15px;
+        list-style:none;
+        padding:0;
+        float:right;
+        height:auto;
+        width:100%
+    }
+
+    #menu li:Not(:first-child) {
+        background-color:#E9E9E9;
+        text-align:center;
+        font-family:'Roboto',sans-serif;
+        line-height:60px;
+        float:right;
+        width:100%;
+        height:60px
+    }
+
+    #menu li:Not(:first-child) a {
+        display:block;
+        color:#000;
+        box-shadow:0 2px 5px 0 rgba(0,0,0,0.26);
+        text-decoration:none
+    }
+
+    .header {
+        position:relative;
+        z-index:1;
+        /* The z-index should be higher than Google Maps */
+        width:100%;
+        height:90px;
+        background-color:#fff;
+        border-bottom:2px;
+        box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+        margin-bottom:30px;
+        padding-top:15px;
+        padding-bottom:5px
+    }
+
+    #logo {
+        width:229px;
+        height:84px;
+        margin-left:auto;
+        margin-right:auto
+    }
+
+    /*           Hompage       */
+    #wrapper {
+        top:10%;
+        width:300px;
+        height:auto;
+        margin-left:auto;
+        margin-right:auto;
+        position:relative;
+        background-color:#fff;
+        z-index:1
+        /* The z-index should be higher than Google Maps */
+    }
+
+    #right {
+        display:none
+    }
+
+    #left {
+        margin-right:100px;
+        width:300px;
+        min-height:500px;
+        height:auto;
+        background-color:#fff;
+        box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+        float:left
+    }
+
+    #register {
+        display:none
+    }
+}
