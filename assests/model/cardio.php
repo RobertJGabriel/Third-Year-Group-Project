@@ -1,63 +1,72 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: RobertGabriel
- * Date: 02/10/14
- * Time: 23:55
- */
-
-
-
 
 
 class cardio{
+
 
     var $bookingId;
     var $distance;
     var $duration;
     var $database;
 
-
+    // -- Function Name : __construct
+    // -- Params :
+    // -- Purpose :
     public
     function __construct()    {
-
         $this->database = new databases();
-     //   $this->bookingId = $_SESSION["id"];
-
     }
 
+
+    // -- Function Name : __destruct
+    // -- Params :
+    // -- Purpose :
     public
     function __destruct()    {
-
     }
-	/**
-	* Setters and getters.
-	*
-	*/
-	public
-	function getId(){
-		return $this->bookingId;
-	}
-	public
-	function getDistance(){
-		return $this->distance;
-	}
-
-	public
-	function getDuration(){
-		return $this->duration;
-	}
-	public
-	function setDuration($duration){
-		$this->duration = $duration;
-	}
-	
 
 
+    // -- Function Name : getId
+    // -- Params :
+    // -- Purpose :
+    public
+    function getId(){
+        return $this->bookingId;
+    }
+
+
+
+    // -- Function Name : getDistance
+    // -- Params :
+    // -- Purpose :
+    public
+    function getDistance(){
+        return $this->distance;
+    }
+
+    // -- Function Name : getDuration
+    // -- Params :
+    // -- Purpose :
+    public
+    function getDuration(){
+        return $this->duration;
+    }
+
+    // -- Function Name : setDuration
+    // -- Params : $duration
+    // -- Purpose :
+    public
+    function setDuration($duration){
+        $this->duration = $duration;
+    }
+
+
+    // -- Function Name : setCardio
+    // -- Params :
+    // -- Purpose :
     public
     function setCardio(){
-
-$this->database->setCardio();
+        $this->database->setCardio();
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 

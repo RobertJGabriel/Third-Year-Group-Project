@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assests/css/calendarstyle.css">
     <script src="assests/javascript/jqueryui/external/jquery/jquery.js"></script>
     <script src="assests/javascript/jqueryui/jquery-ui.min.js"></script>
+    <script src="assests/javascript/menu.js"></script>
     <script src="assests/javascript/calendarScript.js"></script>
 
 </head>

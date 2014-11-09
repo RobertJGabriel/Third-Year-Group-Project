@@ -20,17 +20,28 @@ class student{
     var $folder = 'project/';
 
 
-
-
+    // -- Function Name : __construct
+    // -- Params :
+    // -- Purpose :
     public
     function __construct()    {
-            $this->database = new databases();
+        $this->database = new databases();
     }
 
+
+    // -- Function Name : __destruct
+    // -- Params :
+    // -- Purpose :
     public
     function __destruct()    {
     }
 
+
+
+
+    // -- Function Name : login
+    // -- Params :
+    // -- Purpose :
     public
     function login(){
 
@@ -69,6 +80,10 @@ class student{
 
     }
 
+
+    // -- Function Name : logout
+    // -- Params :
+    // -- Purpose :
     public
     function logout(){
         $_SESSION = array();
@@ -85,6 +100,11 @@ class student{
         header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' . $this->folder.  'index.php');
     }
 
+
+
+    // -- Function Name : registration
+    // -- Params :
+    // -- Purpose :
     public
     function registration(){
 
@@ -109,42 +129,44 @@ class student{
 
     }
 
+
+    // -- Function Name : backgroundColor
+    // -- Params :
+    // -- Purpose :
     public
     function backgroundColor(){
         $this->database->colors();
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
+
+
+    // -- Function Name : updateDetails
+    // -- Params :
+    // -- Purpose :
     public
     function updateDetails(){
         $this->database->updateMember();
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
-    public
-    function getInformation(){
-        //THIS WILL BE THE LOGIN AND WILL SPIT THE ROWS BACK INTO THE VARABLES
-        //WILL SET THE COOKIES.
-    }
 
-    public
-    function checkStatus(){
-    }
 
+
+    // -- Function Name : updateuser
+    // -- Params :
+    // -- Purpose :
     public
     function updateuser(){
-
-$this->database->updateUser();
-
-
-        header("Location: {$_SERVER['HTTP_REFERER']}
-
-			");
-
+        $this->database->updateUser();
+        header("Location: {$_SERVER['HTTP_REFERER']}");
     }
 
 
 
+    // -- Function Name : getStudentsAll
+    // -- Params :
+    // -- Purpose :
     public
     function getStudentsAll(){
         $result =    $this->database->getAll();
@@ -164,56 +186,64 @@ $this->database->updateUser();
                 echo '    <input  type="text" name="status" value="'.  $row['status'] . '" >';
                 echo '    <input  type="text" name="password" value="'.  $row['password'] . '" >';
                 echo '    <input type="submit" value="Update">';
+                echo ' <input type="submit" formaction="index.php?deleteuser=true" value="Delete">';
                 echo '   </form>';
-
-
-
-
                 echo '   </div>';
                 echo '  <div class="front">';
                 echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="300" />';
                 echo '  </div>';
                 echo '</li>';
-
             }
 
         } else {
             echo 'No Trainers :(';
         }
 
-
     }
 
 
 
+    // -- Function Name : deleteUser
+    // -- Params :
+    // -- Purpose :
+    public
+    function deleteUser(){
+        $result =    $this->database->deleteUser();
+        header("Location: {$_SERVER['HTTP_REFERER']}");
+    }
+
+
+    // -- Function Name : setBooking
+// -- Params :
+// -- Purpose :
     public
     function setBooking(){
         $result =    $this->database->getTrainers();
         $count=mysqli_num_rows($result);
-
-
-
-        echo '  <form id="setTime" action="index.php?setTimeTable=true" method="post" >';
+        echo '  <form id="setTime" class="forms" action="index.php?setTimeTable=true" method="post" >';
+        echo '     <input type="text" placeholder="Date" name="date" id="dateBox" required>';
         echo '   <select name="trainerId" required>';
         echo '<option value="" >Select a Trainer</option>';
+
         if($count!=0){
             while ($row = $result->fetch_assoc()) {
-
-             echo   ' <option value="'. $row['memberId']  .'">' .  $row['fName'] . '' . $row['lName']   .'</option>';
-
+                echo   ' <option value="'. $row['memberId']  .'">' .  $row['fName'] . '' . $row['lName']   .'</option>';
             }
-        }else{
-            echo 'No Trainers :(';
 
+        } else {
+            echo 'No Trainers :(';
         }
+
         echo'</select>';
-echo '<input type="number" name="start">';
-        echo '<input type="number" name="hours">';
+        echo '<input type="number" name="start" placeholder="Start Times" required>';
+        echo '<input type="number" name="hours" placeholder="Amount of Hours" required>';
         echo'<input type="submit">';
         echo '   </form>';
-
     }
 
+    // -- Function Name : getTrainers
+// -- Params :
+// -- Purpose :
     public
     function getTrainers(){
         $result =    $this->database->getTrainers();
@@ -227,14 +257,13 @@ echo '<input type="number" name="start">';
                 echo '   <p>' .  $row['email'] . '</p>';
                 echo '  <form id="booknow" type="input" method="post" >';
                 echo '    <input  type="text" name="scrap" value="'.  $row['memberId'] . '" hidden>';
-              //  echo '    <a href="index.php?booking=true">Booking</a>';
+                //  echo '    <a href="index.php?booking=true">Booking</a>';
                 echo '   </form>';
                 echo '   </div>';
                 echo '  <div class="front">';
                 echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="300" />';
                 echo '  </div>';
                 echo '</li>';
-
             }
 
         } else {
@@ -243,6 +272,12 @@ echo '<input type="number" name="start">';
 
     }
 
+
+
+
+    // -- Function Name : uploadPhoto
+// -- Params :
+// -- Purpose :
     public
     function uploadPhoto(){
         $allowed =  array('png' ,'jpg');
@@ -253,6 +288,7 @@ echo '<input type="number" name="start">';
             copy ( $_FILES['file']['tmp_name'], 'assests/img/profilePhotos/' .    $_SESSION["id"] .".png")   or die( "Could not copy file" );
             header("Location: {$_SERVER['HTTP_REFERER']}
 
+	
 			");
         } else {
             die( "No file specified" );
@@ -260,10 +296,43 @@ echo '<input type="number" name="start">';
 
     }
 
+
+    // -- Function Name : getAlert
+// -- Params :
+// -- Purpose :
     public
-    function saveSettings(){
+    function getAlert(){
+        $result =    $this->database->getUserS();
+        $count=mysqli_num_rows($result);
+
+        if($count!=0){
+            while ($row = $result->fetch_assoc()) {
+                echo('<h2>Upcoming Training ' . $row['date']  .'  at '  .  $row['startTimes']  . ':00</h2>');
+            }
+
+        } else {
+            echo('<h2>No Upcoming classes</h2>');
+        }
+
     }
 
+
+    // -- Function Name : weight
+// -- Params :
+// -- Purpose :
+    public
+    function weight(){
+        $this->database->setWeights();
+        header("Location: {$_SERVER['HTTP_REFERER']}
+
+");
+    }
+
+
+
+    // -- Function Name : sessionCookies
+// -- Params :
+// -- Purpose :
     public
     function sessionCookies(){
         $_SESSION["id"] = $this->memberId;

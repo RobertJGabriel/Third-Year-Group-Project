@@ -6,12 +6,22 @@
  * Time: 23:38
  */
 class databases {
+
+
     var $user = "root";
     var $password = "";
     var $host = "127.0.0.1";
     var $database = "gym";
     var $con;
-    public function __construct() {
+
+
+
+    // -- Function Name : __construct
+    // -- Params :
+    // -- Purpose :
+    public
+    function __construct() {
+
         if (! isset ( $_SESSION )) {
             session_start ();
         }
@@ -21,71 +31,101 @@ class databases {
         if (mysqli_connect_errno ()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error ();
         }
+
+    }
+
+    // -- Function Name : __destruct
+    // -- Params :
+    // -- Purpose :
+    public
+    function __destruct() {
+        mysqli_close ( $this->con );
     }
 
 
 
-    public function setCardio() {
+    // -- Function Name : setCardio
+    // -- Params :
+    // -- Purpose :
+    public
+    function setCardio() {
         $id = $_SESSION ["id"];
-
-            $mydate = getdate ( date ( "U" ) );
-
+        $mydate = getdate ( date ( "U" ) );
         $date = $mydate [year] . $mydate [mon] . $mydate [mday];
         $miles = $_POST ['miles'];
         $run = $_POST ['run'];
-
         return mysqli_query ( $this->con, "INSERT INTO cardio (memberId, date, distance,duration)
 VALUES ('" . $id . "','" . $date . "','" . $miles . "','" . $run  . "')" );
     }
 
-    public function updateUser() {
 
 
-            $id =  $_POST ['memberId'];
-            $fName = $_POST ['fName'];
-            $lName = $_POST ['lName'];
-            $address = $_POST ['address'];
-            $phone = $_POST ['phone'];
-            $email = $_POST ['email'];
-            $status = $_POST ['status'];
-            $password = $_POST ['password'];
-
-            $results = mysqli_query ( $this->con, " UPDATE members
+    // -- Function Name : updateUser
+    // -- Params :
+    // -- Purpose :
+    public
+    function updateUser() {
+        $id =  $_POST ['memberId'];
+        $fName = $_POST ['fName'];
+        $lName = $_POST ['lName'];
+        $address = $_POST ['address'];
+        $phone = $_POST ['phone'];
+        $email = $_POST ['email'];
+        $status = $_POST ['status'];
+        $password = $_POST ['password'];
+         mysqli_query ( $this->con, " UPDATE members
 SET fName='$fName', lName='$lName',address='$address',phone='$phone',email='$email',status = '$status',password='$password'
 WHERE memberId='$id';" );
-
-
-
-
     }
 
 
 
 
-    public function setWeight() {
+    // -- Function Name : setWeight
+    // -- Params :
+    // -- Purpose :
+    public
+    function setWeight() {
         $id = $_SESSION ["id"];
-
         $mydate = getdate ( date ( "U" ) );
-
-        $date = $mydate [year] . $mydate [mon] . $mydate [mday];
+        $date = $mydate [year] .'-' . $mydate [mon] .'-'. $mydate [mday];
         $reps = $_POST ['reps'];
         $weight = $_POST ['weight'];
         $type = $_POST ['type'];
-
         return mysqli_query ( $this->con, "INSERT INTO workout (memberId, date, exerciseType, reps,weight)
-VALUES ('" . $id . "','" . $date . "','" . $type . "','" . $reps . "','" . $weight . "')" );
+                                           VALUES ('" . $id . "','" . $date . "','" . $type . "','" . $reps . "','" . $weight . "')" );
     }
-    public function __destruct() {
-        mysqli_close ( $this->con );
-    }
-    public function addStudent($fName, $lName, $studentId, $email, $password) {
+
+
+
+
+
+    // -- Function Name : addStudent
+    // -- Params : $fName, $lName, $studentId, $email, $password
+    // -- Purpose :
+    public
+    function addStudent($fName, $lName, $studentId, $email, $password) {
         return mysqli_query ( $this->con, "INSERT INTO members (CustomerName, ContactName, Address, City, PostalCode, Country)
-VALUES ('" . $fName . "','" . $lName . "','" . $studentId . "')" );
+                                           VALUES ('" . $fName . "','" . $lName . "','" . $studentId . "')" );
     }
-    public function removeMember($memberId) {
+
+
+
+    // -- Function Name : removeMember
+    // -- Params : $memberId
+    // -- Purpose :
+    public
+    function removeMember($memberId) {
         return mysqli_query ( $this->con, 'DELETE FROM student WHERE memberId = {$memberId};' );
     }
-    public function updateMember() {
+
+
+
+    // -- Function Name : updateMember
+    // -- Params :
+    // -- Purpose :
+    public
+    function updateMember() {
         $id = $_SESSION ["id"];
         $fName = $_POST ['fname'];
         $lName = $_POST ['lname'];
@@ -93,56 +133,99 @@ VALUES ('" . $fName . "','" . $lName . "','" . $studentId . "')" );
         $phone = $_POST ['phone'];
         $email = $_POST ['email'];
         $password = $_POST ['password'];
-
         $results = mysqli_query ( $this->con, " UPDATE members
-SET fName='$fName', lName='$lName',address='$address',phone='$phone',email='$email',password='$password'
-WHERE memberId='$id';" );
-
+                                                SET fName='$fName', lName='$lName',address='$address',phone='$phone',email='$email',password='$password'
+                                                WHERE memberId='$id';" );
         return $results;
     }
-    public function login($email, $password) {
+
+
+
+    // -- Function Name : login
+    // -- Params : $email, $password
+    // -- Purpose :
+    public
+    function login($email, $password) {
         $results = mysqli_query ( $this->con, "SELECT memberId,fName,lName,address,phone,email,password,height,status FROM members WHERE email='" . $email . "' AND password='" . $password . "'" );
         return $results;
     }
-    public function register($fName, $lName, $Id, $address, $phone, $email, $password) {
+
+
+
+
+
+    // -- Function Name : register
+    // -- Params : $fName, $lName, $Id, $address, $phone, $email, $password
+    // -- Purpose :
+    public
+    function register($fName, $lName, $Id, $address, $phone, $email, $password) {
         $results = mysqli_query ( $this->con, "INSERT INTO members (memberId,fName,lName,address,phone,email,password)
-VALUES ('$Id','$fName','$lName','$address','$phone','$email','$password')" );
+                                              VALUES ('$Id','$fName','$lName','$address','$phone','$email','$password')" );
         return $results;
     }
-    public function getTrainers() {
+
+
+
+    // -- Function Name : getTrainers
+    // -- Params :
+    // -- Purpose :
+    public
+    function getTrainers() {
         $results = mysqli_query ( $this->con, "SELECT * FROM members WHERE status = 2 " );
         return $results;
     }
 
-    public function getAll() {
+
+
+
+    // -- Function Name : getAll
+    // -- Params :
+    // -- Purpose :
+    public
+    function getAll() {
         $results = mysqli_query ( $this->con, "SELECT * FROM members " );
         return $results;
     }
 
 
-    public function colors() {
+
+    // -- Function Name : colors
+    // -- Params :
+    // -- Purpose :
+    public
+    function colors() {
         $id = $_SESSION ["id"];
-
         $color = $_POST ['favcolor'];
-
         $result = mysqli_query ( $this->con, "SELECT * FROM settings FROM memberId='$id'" );
-
         echo $count = mysqli_num_rows ( $result );
 
         if ($count == 1) {
-
             $result = mysqli_query ( $this->con, "INSERT INTO settings (memberId,color) VALUES ('$id','$color')" );
         } else {
-
             $result = mysqli_query ( $this->con, " UPDATE settings SET color='$color' WHERE memberId='$id';" );
         }
-    }
-    public function getdata() {
-        $results = mysqli_query ( $this->con, "Select * FROM workout where memberId = 'R00102430'" );
 
+    }
+
+
+
+    // -- Function Name : getdata
+    // -- Params :
+    // -- Purpose :
+    public
+    function getdata() {
+        $results = mysqli_query ( $this->con, "Select * FROM workout where memberId = 'R00102430'" );
         return $results;
     }
-    public function getTraniersSchedule($s, $trainer) {
+
+
+
+
+    // -- Function Name : getTraniersSchedule
+    // -- Params : $s, $trainer
+    // -- Purpose :
+    public
+    function getTraniersSchedule($s, $trainer) {
 
         $results = mysqli_query ( $this->con, "SELECT *
 FROM members as m
@@ -159,14 +242,73 @@ WHERE EXISTS (SELECT *
 
 
 
+    // -- Function Name : deleteUser
+    // -- Params :
+    // -- Purpose :
+    public
+    function deleteUser(){
+        $id = $_POST ['memberId'];
+        $results = mysqli_query ( $this->con, "DELETE FROM members
+                                              WHERE memberId= '$id' " );
+        return $results;
+    }
+
+
+
+    // -- Function Name : getUserS
+    // -- Params :
+    // -- Purpose :
+    public
+    function getUserS(){
+        $id = $_SESSION ["id"];
+        $results = mysqli_query ( $this->con, "Select * FROM schedules where studentId= '$id' ORDER BY date and startTimes ASC limit 1" );
+        return $results;
+    }
+
+
+
+
+    // -- Function Name : setTimeTable
+    // -- Params :
+    // -- Purpose :
+    public
+    function setTimeTable(){
+        $start = $_POST ['start'];
+        $hours = $_POST ['hours'];
+        $trainerId = $_POST ['trainerId'];
+        $dates = $_POST ['date'];
+        $results = mysqli_query ( $this->con, "INSERT INTO trainerSchedule (trainerId,date,startTime,noOfHours)
+                                              VALUES ('$trainerId','$dates','$start','$hours')" );
+    }
+
+
+
+    // -- Function Name : setWeights
+    // -- Params :
+    // -- Purpose :
+    public
+    function setWeights(){
+        $id = $_SESSION ["id"];
+        $weight = $_POST ['weight'];
+        $mydate = getdate ( date ( "U" ) );
+        $date = $mydate [year] . '-'.  $mydate [mon] .'-' . $mydate [mday];
+         mysqli_query ( $this->con, "INSERT INTO bmi (memberId,date,weight)
+                                              VALUES ('$id','$date','$weight')" );
+    }
+
+
+
+    // -- Function Name : bookTrainer
+    // -- Params : $trainer,$date,$time,$student
+    // -- Purpose :
+
     public
     function bookTrainer($trainer,$date,$time,$student){
-
         $results = mysqli_query ( $this->con, "INSERT INTO schedules (date,startTimes,trainerId,studentId)
-VALUES ('$date','$time','$trainer','$student')" );
+                                              VALUES ('$date','$time','$trainer','$student')" );
         return $results;
-
     }
+
 }
 
 ?>

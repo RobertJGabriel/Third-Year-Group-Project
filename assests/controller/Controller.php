@@ -4,11 +4,14 @@ include_once("assests/model/student.php");
 include_once("assests/model/weight.php");
 include_once("assests/model/schedules.php");
 include_once("assests/model/database.php");
+include_once("assests/model/cardio.php");
+
 
 class Controller {
     var $student;
     var $schedules;
     var $weight;
+    var $cardio;
 
     var $database;
     
@@ -17,6 +20,7 @@ class Controller {
         $this->student = new student();
         $this->schedules = new schedules();
         $this->weight = new weight();
+        $this->cardio = new cardio();
     }
 
     public
@@ -71,6 +75,22 @@ class Controller {
                                                 else if(isset($_GET['updateuser'])){
 
                                               $this->student->updateuser();
+                                                }
+                                                else if(isset($_GET['timetable'])){
+
+                                                    include('assests/view/booked.php');
+                                                }
+                                                else if(isset($_GET['deleteuser'])){
+
+$this->student->deleteUser();
+                                                }
+                                                else if (isset($_GET['setTimeTable'])){
+
+                                                    $this->schedules->setTimeTable();
+                                                }
+                                                else if (isset($_GET['weight'])){
+
+                                                    $this->student->weight();
                                                 }
 
                                                 else {

@@ -1,11 +1,11 @@
 $(document).ready(function() {
 
     $( ".orRegister" ).click(function() {
-     switchBetween();
+            switchBetween();
     });
     
      $( ".orSign" ).click(function() {
-switchBack();
+            switchBack();
     });
     
 
@@ -26,6 +26,7 @@ switchBack();
             $(this).attr("onerror", "this.src='https://s3.amazonaws.com/uifaces/faces/twitter/brandclay/128.jpg'");
 
         });
+
 
 
 

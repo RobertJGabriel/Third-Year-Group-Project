@@ -12,43 +12,89 @@ class schedules {
     var $endTime;
     var $trainerId;
     var $database;
-    public function __construct() {
+
+
+    // -- Function Name : __construct
+    // -- Params :
+    // -- Purpose :
+    public
+    function __construct() {
         $this->database = new databases ();
     }
-    public function __destruct() {
+
+
+    // -- Function Name : __destruct
+    // -- Params :
+    // -- Purpose :
+    public
+    function __destruct() {
     }
 
-    public function getDate() {
+    // -- Function Name : getDate
+    // -- Params :
+    // -- Purpose :
+    public
+    function getDate() {
         return $this->date;
     }
-    public function setDate($date) {
+
+
+    // -- Function Name : setDate
+    // -- Params : $date
+    // -- Purpose :
+    public
+    function setDate($date) {
         $this->date = $date;
     }
-    public function getStartTime() {
+
+
+    // -- Function Name : getStartTime
+    // -- Params :
+    // -- Purpose :
+    public
+    function getStartTime() {
         return $this->startTime;
     }
-    public function setStertTime($startTime) {
+
+
+
+    // -- Function Name : setStertTime
+    // -- Params : $startTime
+    // -- Purpose :
+    public
+    function setStertTime($startTime) {
         $this->startTime = $startTime;
     }
-    public function getEndTime() {
+
+
+
+    public
+    function getEndTime() {
         return $this->endTime;
     }
-    public function setEndTime($endTime) {
+
+    public
+
+        // -- Function Name : setEndTime
+        // -- Params : $endTime
+        // -- Purpose :
+    function setEndTime($endTime) {
         $this->endTime = $endTime;
     }
+
     public function getTrainertimes($date, $trainer) {
         //stores results set from DB
         $result = $this->database->getTraniersSchedule ( $date, $trainer );
 
         //counter for number of returned rows
-   $count = mysqli_num_rows ( $result );
+       $count = mysqli_num_rows ( $result );
 
         // stores all returned rows as array elements
         $hourlySchedule = array ();
         while ( $row = $result->fetch_assoc () ) {
             array_push ( $hourlySchedule, $row );
         }
-        
+
         // stores trainers ids including duplicates
         $trainersIds = array ();
 
@@ -73,7 +119,7 @@ class schedules {
             }
         }
 
-        echo ' <table width="600" id="table">';
+        echo ' <table >';
 
         echo '<tr>';
         echo '<th bgcolor="silver">' . 'Time' . '</th> ';
@@ -87,7 +133,7 @@ class schedules {
         foreach ( $arr as &$value ) {
 
             echo '<tr>';
-            echo '<td>' . $value . '</td> ';
+            echo '<td bgcolor="silver">' . $value . '</td> ';
 
             //starts column for every trainer
             foreach ( $uniqueTrainers as $trId ) {
@@ -107,7 +153,7 @@ class schedules {
                                 echo '<td bgcolor="silver">' . 'Booked' . '</td> ';
                                 break; // for loop
                             } else if ($hourlySchedule [$c] ['startTimes'] >= $value) {
-                              echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
+                                echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
                                 break;
                             } else if ($countUniqueId == $noOfRowsForEachTrainer [$trId]) {
                                 echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="100" height="150" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
@@ -125,21 +171,27 @@ class schedules {
         echo ' </table>';
     }
 
-
-
-
-
     public
-    function bookTrainer($trainer,$time,$date){
 
-        $student =  $_SESSION["id"];
-
-$this->database->bookTrainer($trainer,$date,$time,$student);
+        // -- Function Name : setTimeTable
+        // -- Params :
+        // -- Purpose :
+    function setTimeTable(){
+        $this->database->setTimeTable();
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
+    public
 
-
+        // -- Function Name : bookTrainer
+        // -- Params : $trainer,$time,$date
+        // -- Purpose :
+    function bookTrainer($trainer,$time,$date){
+        $student =  $_SESSION["id"];
+        $this->database->bookTrainer($trainer,$date,$time,$student);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
 
 }
+
 ?>
