@@ -55,14 +55,13 @@
 
     <ul id="booking">
 
-<li>
-    <div id="date">
+        <li>
+         <div id="date">
 
-        <input type="text" name="date" id="dateBox" hidden>
-        <input type="text" name="id" id="idtrainer" hidden>
-    </div>
-
-</li>
+            <input type="text" name="date" id="dateBox" hidden>
+            <input type="text" name="id" id="idtrainer" hidden>
+         </div>
+        </li>
 
         <li>
 

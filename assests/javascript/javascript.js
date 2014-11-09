@@ -7,7 +7,9 @@ $(document).ready(function() {
      $( ".orSign" ).click(function() {
             switchBack();
     });
-    
+    $( "#pass2" ).keyup(function() {
+        checkPass(); return false;
+    });
 
     	function switchBetween()
 		{
@@ -30,12 +32,38 @@ $(document).ready(function() {
 
 
 
+    function checkPass()
+    {
+        var pass1 = document.getElementById('pass1');
+        var pass2 = document.getElementById('pass2');
+
+        if(pass2.value == "")
+        {
+            pass2.style.backgroundColor = "#ffffff";
+            confirmButton.style.display = "none";
+            notWorkingButton.style.display = "block";
+        }
+        else if(pass1.value == pass2.value)
+        {
+            pass2.style.backgroundColor = "#ffffff";
+            confirmButton.style.display = "block";
+            notWorkingButton.style.display = "none";
+        }
+        else
+        {
+            pass2.style.backgroundColor = "#ff6666";
+            confirmButton.style.display = "none";
+            notWorkingButton.style.display = "block";
+        }
+    }
+
 
 
 
 
 
 });
+
 
 
 

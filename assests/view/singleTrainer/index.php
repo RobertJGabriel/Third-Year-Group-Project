@@ -55,22 +55,14 @@
 
 
 
-        <ul id="trainers">
+<?php
 
-            <?php
+$this->student->getSingleTrainers(htmlspecialchars($_GET["id"]));
 
-            //Gets all users from the database.
-            $this->student->getStudentsAll();
-
-            ?>
-
-        </ul>
-
-
-
+?>
 
 
 </div>
-    
-    
-    
+
+
+

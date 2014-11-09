@@ -31,9 +31,10 @@
             <input type="email" name="email" placeholder="Email" required><br>
             <input type="text" name="address" placeholder="Address"required><br>
             <input type="text" name="phone" placeholder="phone"required><br>
-            <input type="password" name="password" placeholder="Password"><br>
-            <input type="password" name="rpassword" placeholder="Re-enter Password"><br>
-            <input type="submit" value="Sign Up">
+            <input id="pass1" type="password" name="password" placeholder="Password" required><br>
+            <input id="pass2" type="password" name="rpassword" placeholder="Re-enter Password" required><br>
+            <div id="notWorkingButton">Sign Up</div>
+            <input id="confirmButton" type="submit" value="Sign Up">
             <p class="orSign">log in</p>
         </form>
 

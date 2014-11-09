@@ -92,6 +92,12 @@ $this->student->deleteUser();
 
                                                     $this->student->weight();
                                                 }
+                                                else if (isset($_GET['singleTrainer'])){
+
+                                                    include('assests/view/singleTrainer.php');
+                                                }
+
+
 
                                                 else {
                                                 include('assests/view/profile.php');

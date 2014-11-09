@@ -16,6 +16,7 @@ class student{
     var $status;
     var $height;
     var $weight;
+    var $color;
     var $database;
     var $folder = 'project/';
 
@@ -162,7 +163,21 @@ class student{
         header("Location: {$_SERVER['HTTP_REFERER']}");
     }
 
+public
+    function getColors(){
 
+
+    $result =    $this->database->getColor();
+    $count=mysqli_num_rows($result);
+
+    if($count!=0){
+        while ($row = $result->fetch_assoc()) {
+
+
+            $_SESSION["color"] =  $row['color'];
+            }
+    }
+}
 
     // -- Function Name : getStudentsAll
     // -- Params :
@@ -257,7 +272,7 @@ class student{
                 echo '   <p>' .  $row['email'] . '</p>';
                 echo '  <form id="booknow" type="input" method="post" >';
                 echo '    <input  type="text" name="scrap" value="'.  $row['memberId'] . '" hidden>';
-                //  echo '    <a href="index.php?booking=true">Booking</a>';
+                echo '    <a href="index.php?singleTrainer=true&id='.  $row['memberId'] . '">Booking</a>';
                 echo '   </form>';
                 echo '   </div>';
                 echo '  <div class="front">';
@@ -271,6 +286,45 @@ class student{
         }
 
     }
+
+
+
+
+
+    public
+    function getSingleTrainers($trainer){
+
+        $result =    $this->database->getSingleTrainers( $trainer  );
+     $count=mysqli_num_rows($result);
+
+        if($count!=0){
+            while ($row = $result->fetch_assoc()) {
+echo '<li>';
+/// john this is for you :)
+
+        echo '<h3> Start Time '. $row['startTime'] .'</h3>';
+        echo '<h3> Date '. $row['date'] . '</h3>';
+
+        echo '   <a href="index.php?booked='. $row['memberId']  .'&time=' . $row['startTime']    .'&dates='.$row['date'].'" >Book </a>';
+
+        echo '</li>';
+
+            }
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -175,17 +175,21 @@ WHERE memberId='$id';" );
     function colors() {
         $id = $_SESSION ["id"];
         $color = $_POST ['favcolor'];
-        $result = mysqli_query ( $this->con, "SELECT * FROM settings FROM memberId='$id'" );
-        echo $count = mysqli_num_rows ( $result );
+             $result = mysqli_query ( $this->con, "INSERT INTO settings (memberId,color) VALUES ('$id','$color')" );
 
-        if ($count == 1) {
-            $result = mysqli_query ( $this->con, "INSERT INTO settings (memberId,color) VALUES ('$id','$color')" );
-        } else {
-            $result = mysqli_query ( $this->con, " UPDATE settings SET color='$color' WHERE memberId='$id';" );
-        }
 
     }
 
+
+
+    public
+    function getColor(){
+
+       $id = $_SESSION ["id"];
+       $result = mysqli_query ( $this->con, "SELECT * FROM settings where  memberId='$id' " );
+       return $result;
+
+    }
 
 
 
@@ -278,6 +282,28 @@ WHERE EXISTS (SELECT *
         $results = mysqli_query ( $this->con, "INSERT INTO schedules (date,startTimes,trainerId,studentId)
                                               VALUES ('$date','$time','$trainer','$student')" );
         return $results;
+    }
+
+
+
+    public
+    function getSingleTrainers($trainer){
+///Needs to be fixed
+
+        $results = mysqli_query ( $this->con, "
+
+SELECT *
+FROM members as m
+left outer  JOIN trainerschedule
+ON m.memberId=trainerschedule.trainerId
+LEFT OUTER JOIN schedules
+ON m.memberId = schedules.trainerId
+WHERE EXISTS (SELECT *
+              FROM trainerschedule as ts
+              WHERE m.status = 2 and ts.trainerId = '$trainer' ) ORDER BY startTimes ;" );
+        return $results;
+
+
     }
 
 }

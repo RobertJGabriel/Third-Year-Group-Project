@@ -22,6 +22,40 @@ body,html {
     display:none
 }
 
+
+
+
+#confirmButton
+{
+    display:none;
+}
+
+#notWorkingButton
+{
+    opacity:0.4;
+    width: 190px;
+    border: 1px #5677fc solid ;
+    height: 45px;
+    line-height:45px;
+    text-align:center;
+    background-color: #5677fc;
+    color: white;
+    cursor: default;
+    border-radius: 3px;
+    font-size: 1.1em;
+    margin:auto;
+}
+
+.orRegister
+{
+    cursor: pointer;
+    text-decoration:underline;
+}
+.orSign
+{
+    cursor: pointer;
+    text-decoration:underline;
+}
 #map-canvas {
     padding:0;
     height:100%;
@@ -316,7 +350,7 @@ body,html {
         margin-bottom:30px;
         padding-top:15px;
         padding-bottom:5px;
-        border-bottom:5px solid #206276
+        border-bottom:5px solid #9F123A;
     }
 
     /*           Hompage       */
@@ -347,7 +381,6 @@ body,html {
     #left {
         margin-right:100px;
         width:300px;
-        min-height:500px;
         height:auto;
         background-color:#fff;
         box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
@@ -480,7 +513,7 @@ body,html {
     #left {
         margin-right:100px;
         width:300px;
-        min-height:500px;
+
         height:auto;
         background-color:#fff;
         box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);

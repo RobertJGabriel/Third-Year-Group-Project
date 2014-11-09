@@ -65,8 +65,8 @@
     {
 
 
-
-        echo '<h1>' . $this->student->setBooking() . '</h1>';
+        //Gets and create a booking dropdown to timetable the user into the system.
+        echo $this->student->setBooking() ;
 
 
 

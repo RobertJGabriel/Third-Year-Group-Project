@@ -55,16 +55,21 @@
 <div id="alert">
 
     <?php
-
+//Checks if there is any upcoming clasess for the user.
     $this->student->getAlert();
+    $this->student->getColors();
 
     ?>
 </div>
 
+    <div id="alert">
+<h2>Meet our trainers</h2>
+    </div>
+
                 <ul id="trainers">
 
                     <?php
-
+//Gets all trainers
                     $this->student->getTrainers();
 
                      ?>
