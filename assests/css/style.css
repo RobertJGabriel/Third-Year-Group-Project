@@ -18,6 +18,257 @@ body,html {
     border:0
 }
 
+
+
+
+.header {
+
+
+    position: relative;
+    width:100%;
+    height:90px;
+    /*background:#9f123a;*/
+    background-color: white;
+    border-bottom: 2px #9F123A solid;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+    position:fixed;
+    z-index:1000;
+
+    margin-bottom: 30px;
+    padding-top: 14px;
+    padding-bottom: 10px;
+
+}
+/*           Hompage       */
+#logo {
+    width:229px;
+    height:84px;
+    margin-left:auto;
+    margin-right:auto
+}
+
+#wrapper {
+    top:20%;
+
+    width: 700px;
+
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1; /* The z-index should be higher than Google Maps */
+}
+
+#right {
+    width:300px;
+    height:500px;
+    float:left
+}
+
+#left {
+    margin-right:100px;
+    width:300px;
+    height:auto;
+    background-color:#fff;
+    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+    float:left
+}
+
+#register {
+    display:none
+}
+
+#socialPicks
+{
+    width:33.33%;
+    text-align:center;
+    height:35px;
+    margin-top:20px;
+    float:left;
+    position:relative;
+}
+#socialPicks ul
+{
+    list-style: none;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+#socialPicks ul li
+{
+    display: inline-block;
+    position: relative;
+    height: 32px;
+    width: 32px;
+    margin-left: 5px;
+}
+#socialPicks ul li a
+{
+    display: block;
+    height: 32px;
+    width: 32px;
+}
+#socialPicks ul li:hover
+{
+    opacity:0.7;
+}
+#facebook
+{
+    background-image: url("../img/icons/facebook.png");
+    background-size: cover;
+}
+#twitter
+{
+    background-image: url("../img/icons/twitter.png");
+    background-size: cover;
+}
+
+
+#topLogo
+{
+    width:33.33%;
+
+    text-align:center;
+    height:35px;
+    margin-top:25px;
+    float:left;
+    position:relative;
+}
+#logo
+{
+    height:84px;
+    line-height:30px;
+    width:294px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#logOutBox
+{
+    width:33.34%;
+    text-align:center;
+    height:35px;
+    margin-top:20px;
+    float:left;
+    position:relative;
+}
+#logOutBox .logOutButton
+{
+    height:29px;
+    line-height:29px;
+    width:100px;
+    border-radius:10px;
+    margin:auto;
+    text-align:center;
+    background:white;
+    color:#9f123a;
+    border:solid #9f123a;
+}
+#logOutBox .logOutButton:hover
+{
+    background:#9f123a;
+    color:white;
+    cursor: pointer;
+    border:solid white;
+}
+
+#logOutBox .logOutButton> a
+{
+    display:block;
+    height:29px;
+    width:100px;
+    text-decoration:none;
+    color:#9f123a;
+}
+
+#logOutBox .logOutButton> a:hover
+{
+    color:#FFFFFF;
+}
+/*end profile header*/
+
+
+/* Left profile */
+#leftProfile
+{
+    padding:0;
+    padding-top:5px;
+    width:250px;
+    height:calc(100% - 68px);
+    position:fixed;
+    float:left;
+    background:#9f123a;
+    margin-top:71px;
+}
+
+
+#leftProfile> ul{
+    list-style: none;
+
+}
+
+#leftProfile> ul> li:first-child ,#leftProfile> ul> li> img ,#leftProfile> ul> li> a>img
+{
+    width:150px;
+    height:150px;
+    margin-left: 5px;
+    border-radius:100px;
+}
+
+#usersName
+{
+    height:20px;
+    line-height:20px;
+    width:200px;
+    margin-top:10px;
+    text-align:center;
+    color:white;
+    margin-left: -20px;
+    margin-bottom: 30px;
+}
+
+.profileButton
+{
+    height:40px;
+    line-height:40px;
+    width:200px;
+    border-radius:15px;
+    margin-top:10px;
+    text-align:center;
+    background:white;
+    border:solid #9f123a;
+    margin-left:-20px;
+}
+.profileButton:hover
+{
+    background:#9f123a;
+    color:white;
+    cursor: pointer;
+    border:solid white;
+}
+.profileButton> a
+{
+    text-decoration:none;
+    display:block;
+    height:50px;
+    width:200px;
+    color:#9f123a;
+}
+.profileButton> a:hover
+{
+    color:#FFFFFF;
+}
+
+
+/*  end left PROFIEL */
+
+
 #register {
     display:none
 }
@@ -56,6 +307,13 @@ body,html {
     cursor: pointer;
     text-decoration:underline;
 }
+
+
+
+
+
+
+
 #map-canvas {
     padding:0;
     height:100%;
@@ -67,7 +325,11 @@ body,html {
     /* Set z-index to 0 as it will be on a layer below the contact form */
 }
 
-/*    all import styles */
+
+/*   End home page */
+
+
+/*    for to style all forms */
 .forms {
     width:200px;
     margin-top:20px;
@@ -105,9 +367,12 @@ body,html {
     margin-bottom:20px
 }
 
-.orRegister {
-    cursor:pointer
-}
+
+
+
+/*  end forms*/
+
+
 
 .settings {
     margin-left:auto;
@@ -131,6 +396,12 @@ body,html {
     border-bottom:2px solid #206276
 }
 
+
+
+
+
+
+/*    Trainers list in cards */
 #trainers {
     width:100%;
     height:100%;
@@ -221,6 +492,15 @@ body,html {
     perspective:600px
 }
 
+
+
+
+/*     End cards / Trainers */
+
+
+
+
+/* alert for home page */
 #alert {
     width:100%;
     min-height:30px;
@@ -234,6 +514,10 @@ body,html {
     line-height:30px;
     text-align:center
 }
+
+/* end alert*/
+
+/*  for graphs page the div  */
 
 .workout {
     width:700px;
@@ -255,6 +539,14 @@ body,html {
     width:400px;
     border-right:2px solid red
 }
+
+
+/*   end div */
+
+
+
+
+/*   for the booking page */
 
 #booking {
     width:700px;
@@ -284,243 +576,39 @@ body,html {
     margin-bottom:30px
 }
 
-/* Medium Devices, Desktops */
-@media only screen and (min-width: 480px) and (max-width: 10009px) {
-    .workout {
-        width:700px;
-        list-style:none;
-        height:auto;
-        min-height:400px;
-        margin-left:auto;
-        margin-right:auto;
-        background-color:#fff
-    }
 
-    .workout>li {
-        float:left;
-        margin-right:10px
-    }
 
-    .workout>li:first-child {
-        width:400px;
-        border-right:2px solid red
-    }
+
+
+
+
+/*   Profile page   */
 
     #wrapperProfile {
-        padding:5px;
-        width:800px;
-        min-height:500px;
-        height:auto;
-        margin-left:auto;
-        margin-right:auto
-    }
+        width: 100%;
+        margin-top: 30px;
+        height: 100%;
+position: absolute;
 
-    #nav {
-        width:800px;
-        height:80px;
-        margin-left:auto;
-        margin-right:auto
-    }
-
-    #menu {
-        list-style:none
-    }
-
-    #menu li:Not(:first-child) {
-        float:left;
-        margin-left:10px;
-        line-height:80px;
-        margin-right:10px
-    }
-
-    #menu li > a> img {
-        border-radius:100px;
-        margin-right:50px
-    }
-
-    .header {
-        position:relative;
-        z-index:1;
-        /* The z-index should be higher than Google Maps */
-        width:100%;
-        height:90px;
-        background-color:#fff;
-        border-bottom:2px;
-        box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
-        margin-bottom:30px;
-        padding-top:15px;
-        padding-bottom:5px;
-        border-bottom:5px solid #9F123A;
-    }
-
-    /*           Hompage       */
-    #logo {
-        width:229px;
-        height:84px;
-        margin-left:auto;
-        margin-right:auto
-    }
-
-    #wrapper {
-        top:10%;
-        width:700px;
-        height:600px;
-        margin-left:auto;
-        margin-right:auto;
-        position:relative;
-        z-index:1
-        /* The z-index should be higher than Google Maps */
-    }
-
-    #right {
-        width:300px;
-        height:500px;
-        float:left
-    }
-
-    #left {
-        margin-right:100px;
-        width:300px;
-        height:auto;
-        background-color:#fff;
-        box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
-        float:left
-    }
-
-    #register {
-        display:none
-    }
-}
-
-/* Small Devices, Tablets */
-@media only screen and (min-width: 0px) and (max-width: 480px) {
-    #wrapperProfile {
-        width:440px;
-        min-height:500px;
-        background-color:#fff;
-        margin-left:auto;
-        margin-right:auto
-    }
-
-    #menuButton {
-        width:45px;
-        height:45px;
-        float:right;
-        margin-right:10px;
-        background-image:url(../img/icons/menu.png);
-        background-size:cover;
-        cursor:pointer
-    }
-
-    #menuButtona {
-        width:45px;
-        height:45px;
-        float:right;
-        background-color:#E9E9E9;
-        margin-right:10px;
-        background-image:url(../img/icons/menu.png);
-        background-size:cover;
-        cursor:pointer
-    }
-
-    .menuItem {
-        float:right;
-        display:none
-    }
-
-    .menuItema {
-        float:right;
-        display:block
-    }
-
-    #menu {
-        text-decoration:none;
-        margin-top:15px;
-        list-style:none;
-        padding:0;
-        float:right;
-        height:auto;
-        width:100%
+        z-index: 1; /* The z-index should be higher than Google Maps */
     }
 
 
-    #menu li:Not(:first-child) {
-        background-color:#E9E9E9;
-        text-align:center;
-        font-family:'Roboto',sans-serif;
-        line-height:60px;
-        float:right;
-        width:100%;
-        height:60px
+    /*right profile set up*/
+    #rightProfile
+    {
+        width: -moz-calc(100% - 270px);
+        width: -webkit-calc(100% - 270px);
+        width: calc(100% - 270px);
+        margin-left:270px;
+        height: auto;
+        margin-top: 100px;
     }
-    #menu li:nth-child(2){
-        background-color:#E9E9E9;
-        text-align:center;
-        font-family:'Roboto',sans-serif;
-        line-height:60px;
-        float:right;
-        width:100%;
-        height:90px;
-        padding-top:5px;
-        padding-bottom: 5px;
-
-    }
-    #menu li:Not(:first-child) a {
-        display:block;
-        color:#000;
-        box-shadow:0 2px 5px 0 rgba(0,0,0,0.26);
-        text-decoration:none
+    #rightProfile> :first-child
+    {
+        padding-top:75px;
     }
 
-    .header {
-        position:relative;
-        z-index:1;
-        /* The z-index should be higher than Google Maps */
-        width:100%;
-        height:90px;
-        background-color:#fff;
-        border-bottom:2px;
-        box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
-        margin-bottom:30px;
-        padding-top:15px;
-        padding-bottom:5px
-    }
 
-    #logo {
-        width:229px;
-        height:84px;
-        margin-left:auto;
-        margin-right:auto
-    }
 
-    /*           Hompage       */
-    #wrapper {
-        top:10%;
-        width:300px;
-        height:auto;
-        margin-left:auto;
-        margin-right:auto;
-        position:relative;
-        background-color:#fff;
-        z-index:1
-        /* The z-index should be higher than Google Maps */
-    }
 
-    #right {
-        display:none
-    }
-
-    #left {
-        margin-right:100px;
-        width:300px;
-
-        height:auto;
-        background-color:#fff;
-        box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
-        float:left
-    }
-
-    #register {
-        display:none
-    }
-}
