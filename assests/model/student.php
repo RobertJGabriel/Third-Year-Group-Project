@@ -22,7 +22,7 @@ class student{
 
     // -- Function Name : __construct
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Starts the connection to the database.
     public
     function __construct()    {
         $this->database = new databases();
@@ -30,8 +30,8 @@ class student{
 
 
     // -- Function Name : __destruct
-    // -- Params :
-    // -- Purpose :
+    // -- Params :  None
+    // -- Purpose : None
     public
     function __destruct()    {
     }
@@ -40,8 +40,8 @@ class student{
 
 
     // -- Function Name : login
-    // -- Params :
-    // -- Purpose :
+    // -- Params :  None
+    // -- Purpose : Allows the user to login into the system
     public
     function login(){
 
@@ -83,7 +83,7 @@ class student{
 
     // -- Function Name : logout
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Logs the user out and clears all the sessions and cookies.
     public
     function logout(){
         $_SESSION = array();
@@ -104,7 +104,7 @@ class student{
 
     // -- Function Name : registration
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Registrators the user to the database and strips them to unuse the sql injects.
     public
     function registration(){
 
@@ -131,8 +131,8 @@ class student{
 
 
     // -- Function Name : backgroundColor
-    // -- Params :
-    // -- Purpose :
+    // -- Params :  None
+    // -- Purpose : Sets the background color to the database.
     public
     function backgroundColor(){
         $this->database->colors();
@@ -142,8 +142,8 @@ class student{
 
 
     // -- Function Name : updateDetails
-    // -- Params :
-    // -- Purpose :
+    // -- Params :  None
+    // -- Purpose : Update the users details.
     public
     function updateDetails(){
         $this->database->updateMember();
@@ -155,7 +155,7 @@ class student{
 
     // -- Function Name : updateuser
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Allows the admin to update the database.
     public
     function updateuser(){
         $this->database->updateUser();
@@ -166,7 +166,7 @@ class student{
 
     // -- Function Name : getStudentsAll
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Gets all users from the database.
     public
     function getStudentsAll(){
         $result =    $this->database->getAll();
@@ -205,7 +205,7 @@ class student{
 
     // -- Function Name : deleteUser
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Delete users information from the database.
     public
     function deleteUser(){
         $result =    $this->database->deleteUser();
@@ -213,9 +213,9 @@ class student{
     }
 
 
-    // -- Function Name : setBooking
+ // -- Function Name : setBooking
 // -- Params :
-// -- Purpose :
+// -- Purpose : Sets the booking form . so superAdmin can set the time table.
     public
     function setBooking(){
         $result =    $this->database->getTrainers();
@@ -243,7 +243,7 @@ class student{
 
     // -- Function Name : getTrainers
 // -- Params :
-// -- Purpose :
+// -- Purpose : Gets all trainers from the database.
     public
     function getTrainers(){
         $result =    $this->database->getTrainers();
@@ -277,7 +277,7 @@ class student{
 
     // -- Function Name : uploadPhoto
 // -- Params :
-// -- Purpose :
+// -- Purpose : Allows the user to update the database.
     public
     function uploadPhoto(){
         $allowed =  array('png' ,'jpg');
@@ -299,7 +299,7 @@ class student{
 
     // -- Function Name : getAlert
 // -- Params :
-// -- Purpose :
+// -- Purpose : Gets any upcoming training.
     public
     function getAlert(){
         $result =    $this->database->getUserS();
@@ -319,7 +319,7 @@ class student{
 
     // -- Function Name : weight
 // -- Params :
-// -- Purpose :
+// -- Purpose : Sets the user weight , to track over time.
     public
     function weight(){
         $this->database->setWeights();
@@ -332,7 +332,7 @@ class student{
 
     // -- Function Name : sessionCookies
 // -- Params :
-// -- Purpose :
+// -- Purpose : Sets the session cookies.
     public
     function sessionCookies(){
         $_SESSION["id"] = $this->memberId;

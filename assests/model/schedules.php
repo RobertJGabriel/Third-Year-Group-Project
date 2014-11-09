@@ -15,8 +15,8 @@ class schedules {
 
 
     // -- Function Name : __construct
-    // -- Params :
-    // -- Purpose :
+    // -- Params : None
+    // -- Purpose : Starts Database Connection
     public
     function __construct() {
         $this->database = new databases ();
@@ -24,15 +24,15 @@ class schedules {
 
 
     // -- Function Name : __destruct
-    // -- Params :
-    // -- Purpose :
+    // -- Params : None
+    // -- Purpose : Nothing
     public
     function __destruct() {
     }
 
     // -- Function Name : getDate
-    // -- Params :
-    // -- Purpose :
+    // -- Params :  None
+    // -- Purpose : Gets Date
     public
     function getDate() {
         return $this->date;
@@ -41,7 +41,7 @@ class schedules {
 
     // -- Function Name : setDate
     // -- Params : $date
-    // -- Purpose :
+    // -- Purpose : Sets the Date
     public
     function setDate($date) {
         $this->date = $date;
@@ -49,8 +49,8 @@ class schedules {
 
 
     // -- Function Name : getStartTime
-    // -- Params :
-    // -- Purpose :
+    // -- Params : None
+    // -- Purpose : Gets the Start Time
     public
     function getStartTime() {
         return $this->startTime;
@@ -60,27 +60,35 @@ class schedules {
 
     // -- Function Name : setStertTime
     // -- Params : $startTime
-    // -- Purpose :
+    // -- Purpose : Sets the Start Times
     public
     function setStertTime($startTime) {
         $this->startTime = $startTime;
     }
 
 
-
+    // -- Function Name : getEndTime
+    // -- Params : None
+    // -- Purpose : Gets End time
     public
     function getEndTime() {
         return $this->endTime;
     }
 
-    public
 
-        // -- Function Name : setEndTime
-        // -- Params : $endTime
-        // -- Purpose :
+    // -- Function Name : getEndTime
+    // -- Params : $endTime
+    // -- Purpose : Gets End time
+    public
     function setEndTime($endTime) {
         $this->endTime = $endTime;
     }
+
+
+    // -- Function Name : getTrainertimes
+    // -- Params : $date, $trainer
+    // -- Purpose : The use here is to search the database by on a date and display all trainers and there avaibalty
+                  //slots in a table to allow uses to book a trainer.
 
     public function getTrainertimes($date, $trainer) {
         //stores results set from DB
@@ -171,21 +179,23 @@ class schedules {
         echo ' </table>';
     }
 
-    public
 
-        // -- Function Name : setTimeTable
-        // -- Params :
-        // -- Purpose :
+
+    // -- Function Name : setTimeTable
+    // -- Params : None
+    // -- Purpose :     Sets the time table for a trainer and the hours there working.
+    public
     function setTimeTable(){
         $this->database->setTimeTable();
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
-    public
 
-        // -- Function Name : bookTrainer
-        // -- Params : $trainer,$time,$date
-        // -- Purpose :
+
+    // -- Function Name : bookTrainer
+    // -- Params : $trainer,$time,$date
+    // -- Purpose : This alows a user to book a trainer.
+    public
     function bookTrainer($trainer,$time,$date){
         $student =  $_SESSION["id"];
         $this->database->bookTrainer($trainer,$date,$time,$student);

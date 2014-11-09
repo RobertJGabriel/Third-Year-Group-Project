@@ -3,7 +3,7 @@ $(function() {
     var months = [];
     var days = [];
     var switch1 = true;
-    $.get('assests/model/studentWeight.php', function(data) {
+    $.get('assests/model/Graphs_Values/studentWeight.php', function(data) {
 
         data = data.split('/');
         for (var i in data) {

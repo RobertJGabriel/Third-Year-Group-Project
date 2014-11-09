@@ -17,7 +17,7 @@ class weight{
 
     // -- Function Name : __construct
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Starts Database Connection
     public
     function __construct()    {
         $this->database = new databases();
@@ -25,8 +25,8 @@ class weight{
 
 
     // -- Function Name : __destruct
-    // -- Params :
-    // -- Purpose :
+    // -- Params :  None
+    // -- Purpose : None
     public
     function __destruct()    {
     }
@@ -34,7 +34,7 @@ class weight{
 
     // -- Function Name : setWeight
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Sets the Weight for the chart
     public
     function setWeight(){
         $this->database->setWeight();
@@ -44,7 +44,7 @@ class weight{
 
     // -- Function Name : getWeight
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Gets the weight for the gym reps
     public
     function getWeight(){
         $this->weight= $this->database->getWeight();
@@ -54,7 +54,7 @@ class weight{
 
     // -- Function Name : getReps
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Gets the amount of the reps
     public
     function getReps(){
         $this->reps =   $this->database->getReps();
@@ -64,7 +64,7 @@ class weight{
 
     // -- Function Name : setSets
     // -- Params :
-    // -- Purpose :
+    // -- Purpose :     Sets the amoutn of sets in the gym
     public
     function setSets(){
         $this->sets =   $this->database->getSets();

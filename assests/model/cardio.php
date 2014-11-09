@@ -19,16 +19,16 @@ class cardio{
 
 
     // -- Function Name : __destruct
-    // -- Params :
-    // -- Purpose :
+    // -- Params :         None
+    // -- Purpose : None for the moment
     public
     function __destruct()    {
     }
 
 
     // -- Function Name : getId
-    // -- Params :
-    // -- Purpose :
+    // -- Params :  None;
+    // -- Purpose : Gets booking Id
     public
     function getId(){
         return $this->bookingId;
@@ -37,16 +37,16 @@ class cardio{
 
 
     // -- Function Name : getDistance
-    // -- Params :
-    // -- Purpose :
+    // -- Params :  None
+    // -- Purpose : Gets Distance
     public
     function getDistance(){
         return $this->distance;
     }
 
     // -- Function Name : getDuration
-    // -- Params :
-    // -- Purpose :
+    // -- Params : None
+    // -- Purpose : Gets Duration
     public
     function getDuration(){
         return $this->duration;
@@ -54,7 +54,8 @@ class cardio{
 
     // -- Function Name : setDuration
     // -- Params : $duration
-    // -- Purpose :
+    // -- Purpose : Set Duration of the run
+
     public
     function setDuration($duration){
         $this->duration = $duration;
@@ -62,12 +63,12 @@ class cardio{
 
 
     // -- Function Name : setCardio
-    // -- Params :
-    // -- Purpose :
+    // -- Params :  None
+    // -- Purpose : Save the cardio Session to the database.
     public
     function setCardio(){
-        $this->database->setCardio();
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        $this->database->setCardio(); //Save it to the database.
+        header('Location: ' . $_SERVER['HTTP_REFERER']);// Brings them Back
     }
 
 }

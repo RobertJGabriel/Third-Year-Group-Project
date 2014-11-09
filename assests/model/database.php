@@ -18,7 +18,7 @@ class databases {
 
     // -- Function Name : __construct
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Doonects to the database
     public
     function __construct() {
 
@@ -36,7 +36,7 @@ class databases {
 
     // -- Function Name : __destruct
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Disconnect to the database.
     public
     function __destruct() {
         mysqli_close ( $this->con );
@@ -46,7 +46,7 @@ class databases {
 
     // -- Function Name : setCardio
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Sets the cardio information .
     public
     function setCardio() {
         $id = $_SESSION ["id"];
@@ -62,7 +62,7 @@ VALUES ('" . $id . "','" . $date . "','" . $miles . "','" . $run  . "')" );
 
     // -- Function Name : updateUser
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Updates the user information.
     public
     function updateUser() {
         $id =  $_POST ['memberId'];
@@ -83,7 +83,7 @@ WHERE memberId='$id';" );
 
     // -- Function Name : setWeight
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Sets the amount of weight the user lifted.
     public
     function setWeight() {
         $id = $_SESSION ["id"];
@@ -100,30 +100,9 @@ WHERE memberId='$id';" );
 
 
 
-    // -- Function Name : addStudent
-    // -- Params : $fName, $lName, $studentId, $email, $password
-    // -- Purpose :
-    public
-    function addStudent($fName, $lName, $studentId, $email, $password) {
-        return mysqli_query ( $this->con, "INSERT INTO members (CustomerName, ContactName, Address, City, PostalCode, Country)
-                                           VALUES ('" . $fName . "','" . $lName . "','" . $studentId . "')" );
-    }
-
-
-
-    // -- Function Name : removeMember
-    // -- Params : $memberId
-    // -- Purpose :
-    public
-    function removeMember($memberId) {
-        return mysqli_query ( $this->con, 'DELETE FROM student WHERE memberId = {$memberId};' );
-    }
-
-
-
-    // -- Function Name : updateMember
+    // -- Function Name : updatemembers
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Updates the user information.
     public
     function updateMember() {
         $id = $_SESSION ["id"];
@@ -143,7 +122,7 @@ WHERE memberId='$id';" );
 
     // -- Function Name : login
     // -- Params : $email, $password
-    // -- Purpose :
+    // -- Purpose : Logins int he user to check if there in the database.
     public
     function login($email, $password) {
         $results = mysqli_query ( $this->con, "SELECT memberId,fName,lName,address,phone,email,password,height,status FROM members WHERE email='" . $email . "' AND password='" . $password . "'" );
@@ -156,7 +135,7 @@ WHERE memberId='$id';" );
 
     // -- Function Name : register
     // -- Params : $fName, $lName, $Id, $address, $phone, $email, $password
-    // -- Purpose :
+    // -- Purpose : Register the user to the database.
     public
     function register($fName, $lName, $Id, $address, $phone, $email, $password) {
         $results = mysqli_query ( $this->con, "INSERT INTO members (memberId,fName,lName,address,phone,email,password)
@@ -168,7 +147,7 @@ WHERE memberId='$id';" );
 
     // -- Function Name : getTrainers
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Gets all the trainers from the database.
     public
     function getTrainers() {
         $results = mysqli_query ( $this->con, "SELECT * FROM members WHERE status = 2 " );
@@ -180,7 +159,7 @@ WHERE memberId='$id';" );
 
     // -- Function Name : getAll
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Gets all memebers form the database.
     public
     function getAll() {
         $results = mysqli_query ( $this->con, "SELECT * FROM members " );
@@ -191,7 +170,7 @@ WHERE memberId='$id';" );
 
     // -- Function Name : colors
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Gets colors from the database for user.
     public
     function colors() {
         $id = $_SESSION ["id"];
@@ -209,21 +188,13 @@ WHERE memberId='$id';" );
 
 
 
-    // -- Function Name : getdata
-    // -- Params :
-    // -- Purpose :
-    public
-    function getdata() {
-        $results = mysqli_query ( $this->con, "Select * FROM workout where memberId = 'R00102430'" );
-        return $results;
-    }
 
 
 
 
     // -- Function Name : getTraniersSchedule
     // -- Params : $s, $trainer
-    // -- Purpose :
+    // -- Purpose : Gets the trainers scheudle.
     public
     function getTraniersSchedule($s, $trainer) {
 
@@ -244,7 +215,7 @@ WHERE EXISTS (SELECT *
 
     // -- Function Name : deleteUser
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Deletes user from the databse super admin only.
     public
     function deleteUser(){
         $id = $_POST ['memberId'];
@@ -257,7 +228,7 @@ WHERE EXISTS (SELECT *
 
     // -- Function Name : getUserS
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Gets the user schedule for the alert on the home page.
     public
     function getUserS(){
         $id = $_SESSION ["id"];
@@ -270,7 +241,7 @@ WHERE EXISTS (SELECT *
 
     // -- Function Name : setTimeTable
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Sets the timtable for the trainer and when there working.
     public
     function setTimeTable(){
         $start = $_POST ['start'];
@@ -285,7 +256,7 @@ WHERE EXISTS (SELECT *
 
     // -- Function Name : setWeights
     // -- Params :
-    // -- Purpose :
+    // -- Purpose : Sets the users weight , to track over time.
     public
     function setWeights(){
         $id = $_SESSION ["id"];
@@ -300,7 +271,7 @@ WHERE EXISTS (SELECT *
 
     // -- Function Name : bookTrainer
     // -- Params : $trainer,$date,$time,$student
-    // -- Purpose :
+    // -- Purpose : Books the trainer.
 
     public
     function bookTrainer($trainer,$date,$time,$student){
