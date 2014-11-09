@@ -4,7 +4,6 @@
         <img src="assests/img/logo.jpg" alt="Cit Logo">
     </div>
 
-
 </div>
 <div id="map-canvas">
     
