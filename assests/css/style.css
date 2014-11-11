@@ -1,613 +1,775 @@
 @import "http://fonts.googleapis.com/css?family=Roboto";
 
 * {
-    font-family:'Roboto',sans-serif
+	font-family:'Roboto',sans-serif
 }
 
 a {
-    text-decoration:none;
-    color:#000
+	text-decoration:none;
+	color:#000
 }
 
 body,html {
-    width:100%;
-    height:100%;
-    margin:0;
-    background-color:#EDEDED;
-    padding:0;
-    border:0
+	width:100%;
+	height:100%;
+	margin:0;
+	background-color:#EDEDED;
+	padding:0;
+	border:0
 }
 
-
-
+/*----------Mobile----------*/
 
 .header {
-
-
-    position: relative;
-    width:100%;
-    height:90px;
-    /*background:#9f123a;*/
-    background-color: white;
-    border-bottom: 2px #9F123A solid;
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-    position:fixed;
-    z-index:1000;
-
-    margin-bottom: 30px;
-    padding-top: 14px;
-    padding-bottom: 10px;
-
-}
-/*           Hompage       */
-#logo {
-    width:229px;
-    height:84px;
-    margin-left:auto;
-    margin-right:auto
+	display: none;
 }
 
-#wrapper {
-    top:20%;
-
-    width: 700px;
-
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    z-index: 1; /* The z-index should be higher than Google Maps */
+#profileMenu{
+	display: none;
+}
+	
+#leftProfile{
+	display: none;
 }
 
-#right {
-    width:300px;
-    height:500px;
-    float:left
+#mobileButton{
+	position: relative;
+	top: 9px;
+	left: 9px;
+	display: block;
+	width: 30px;
+	height: 30px;
+	background-image: url("../img/icons/menu2.png");
+	float: left;
+	border: none;
+}
+	
+#mobileButton:hover{cursor: pointer;}
+	
+#mobileMenu:hover{cursor: auto;}
+	
+#mobileMenu{
+	display: none;
+	position: absolute;
+	top: 41px;
+	left: -1px;
+	width: 200px;
+	border: 1px solid #B51845;
+	text-align: center;
+	background-color: white;
+}
+	
+#mobileMenu ul{
+	list-style-type: none;
+	margin-left: -15px;
+	width: 150px;
+}
+	
+#mobileMenu li{
+	margin-left: none;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 3px;
+	height: 30px;
+	margin-bottom: 10px;
+	line-height: 30px;
 }
 
-#left {
-    margin-right:100px;
-    width:300px;
-    height:auto;
-    background-color:#fff;
-    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
-    float:left
+#mobileMenu li a:hover{
+	background-color: #E8E8E8;
+	color: white;
 }
 
-#register {
-    display:none
+#mobileMenu li a{
+	display: block;
 }
-
-#socialPicks
-{
-    width:33.33%;
-    text-align:center;
-    height:35px;
-    margin-top:20px;
-    float:left;
-    position:relative;
+	
+#mobileMenu ul li:last-child{
+	background-color: grey;
+	color: white;
 }
-#socialPicks ul
-{
-    list-style: none;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+	
+#mobileMenu ul li:first-child{
+	border: none;
+	width: 60px;
+	height: 60px;
+	position: relative;
+	left: 45px;
 }
-#socialPicks ul li
-{
-    display: inline-block;
-    position: relative;
-    height: 32px;
-    width: 32px;
-    margin-left: 5px;
+	
+#mobileMenu ul li:nth-child(2){
+	border: none;
+	font-size: 1.5em;
 }
-#socialPicks ul li a
-{
-    display: block;
-    height: 32px;
-    width: 32px;
+	
+#mobileHeader{
+	position: fixed;
+	top: 1px;
+	width: 100%;
+	height: 50px;
+	box-shadow: 0 5px 17px 0 rgba(0, 0, 0, 0.2);
+	background-color: white;
+	border-bottom: 2px solid #B51845;
+	z-index: 1;
 }
-#socialPicks ul li:hover
-{
-    opacity:0.7;
+	
+#mobileLogo{
+	display: block;
+	position: relative;
+	float: right;
 }
-#facebook
-{
-    background-image: url("../img/icons/facebook.png");
-    background-size: cover;
+	
+#rightProfile{
+	clear: both;
+	position: relative;
+	top: 70px;
+	width: 100%;
 }
-#twitter
-{
-    background-image: url("../img/icons/twitter.png");
-    background-size: cover;
+	
+.fliped{
+	width: 100%;
+	background-color: #d8e3eb;
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 }
-
-
-#topLogo
-{
-    width:33.33%;
-
-    text-align:center;
-    height:35px;
-    margin-top:25px;
-    float:left;
-    position:relative;
+	
+.fliped > .front{
+	width: 300px;
 }
-#logo
-{
-    height:84px;
-    line-height:30px;
-    width:294px;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+	
+.fliped > .back{
+	float: right;
 }
-
-#logOutBox
-{
-    width:33.34%;
-    text-align:center;
-    height:35px;
-    margin-top:20px;
-    float:left;
-    position:relative;
+	
+.fliped > .front img{
+	width: 100px;
+	height: 100px;
+	float: left;
 }
-#logOutBox .logOutButton
-{
-    height:29px;
-    line-height:29px;
-    width:100px;
-    border-radius:10px;
-    margin:auto;
-    text-align:center;
-    background:white;
-    color:#9f123a;
-    border:solid #9f123a;
-}
-#logOutBox .logOutButton:hover
-{
-    background:#9f123a;
-    color:white;
-    cursor: pointer;
-    border:solid white;
-}
-
-#logOutBox .logOutButton> a
-{
-    display:block;
-    height:29px;
-    width:100px;
-    text-decoration:none;
-    color:#9f123a;
-}
-
-#logOutBox .logOutButton> a:hover
-{
-    color:#FFFFFF;
-}
-/*end profile header*/
-
-
-/* Left profile */
-#leftProfile
-{
-    padding:0;
-    padding-top:5px;
-    width:250px;
-    height:calc(100% - 68px);
-    position:fixed;
-    float:left;
-    background:#9f123a;
-    margin-top:71px;
+	
+#trainers{
+	position: relative;
+	top: 20px;
+	width: 300px;
+	height: 100%;
+	list-style: none;
 }
 
 
-#leftProfile> ul{
-    list-style: none;
-
+#trainers > li{
+	width: 300px;
+	padding: 10px;
+	height: 100px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 10px;
 }
 
-#leftProfile> ul> li:first-child ,#leftProfile> ul> li> img ,#leftProfile> ul> li> a>img
-{
-    width:150px;
-    height:150px;
-    margin-left: 5px;
-    border-radius:100px;
+@media(min-width: 768px){
+
+	.header {
+		display: block;
+		position: relative;
+		width:100%;
+		height:90px;
+		/*background:#9f123a;*/
+		background-color: white;
+		border-bottom: 2px #9F123A solid;
+		box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+		position:fixed;
+		z-index:1000;
+
+		margin-bottom: 30px;
+		padding-top: 14px;
+		padding-bottom: 10px;
+
+	}
+	/*           Hompage       */
+	#logo {
+		width:229px;
+		height:84px;
+		margin-left:auto;
+		margin-right:auto
+	}
+
+	#wrapper {
+		top:20%;
+
+		width: 700px;
+
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		z-index: 1; /* The z-index should be higher than Google Maps */
+	}
+
+	#right {
+		width:300px;
+		height:500px;
+		float:left
+	}
+
+	#left {
+		margin-right:100px;
+		width:300px;
+		height:auto;
+		background-color:#fff;
+		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+		float:left
+	}
+
+	#register {
+		display:none
+	}
+
+	#socialPicks
+	{
+		width:33.33%;
+		text-align:center;
+		height:35px;
+		margin-top:20px;
+		float:left;
+		position:relative;
+	}
+	#socialPicks ul
+	{
+		list-style: none;
+		margin: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+	#socialPicks ul li
+	{
+		display: inline-block;
+		position: relative;
+		height: 32px;
+		width: 32px;
+		margin-left: 5px;
+	}
+	#socialPicks ul li a
+	{
+		display: block;
+		height: 32px;
+		width: 32px;
+	}
+	#socialPicks ul li:hover
+	{
+		opacity:0.7;
+	}
+	#facebook
+	{
+		background-image: url("../img/icons/facebook.png");
+		background-size: cover;
+	}
+	#twitter
+	{
+		background-image: url("../img/icons/twitter.png");
+		background-size: cover;
+	}
+
+
+	#topLogo
+	{
+		width:33.33%;
+
+		text-align:center;
+		height:35px;
+		margin-top:25px;
+		float:left;
+		position:relative;
+	}
+	#logo
+	{
+		height:84px;
+		line-height:30px;
+		width:294px;
+		margin: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+
+	#logOutBox
+	{
+		width:33.34%;
+		text-align:center;
+		height:35px;
+		margin-top:20px;
+		float:left;
+		position:relative;
+	}
+	#logOutBox .logOutButton
+	{
+		height:29px;
+		line-height:29px;
+		width:100px;
+		border-radius:10px;
+		margin:auto;
+		text-align:center;
+		background:white;
+		color:#9f123a;
+		border:solid #9f123a;
+	}
+	#logOutBox .logOutButton:hover
+	{
+		background:#9f123a;
+		color:white;
+		cursor: pointer;
+		border:solid white;
+	}
+
+	#logOutBox .logOutButton> a
+	{
+		display:block;
+		height:29px;
+		width:100px;
+		text-decoration:none;
+		color:#9f123a;
+	}
+
+	#logOutBox .logOutButton> a:hover
+	{
+		color:#FFFFFF;
+	}
+	/*end profile header*/
+
+
+	/* Left profile */
+	#profileMenu {
+		display: block;
+	}
+	
+	#leftProfile
+	{
+		display: block;
+		padding:0;
+		padding-top:5px;
+		width:250px;
+		height:calc(100% - 68px);
+		position:fixed;
+		float:left;
+		background:#9f123a;
+		margin-top:71px;
+	}
+
+
+	#leftProfile> ul{
+		list-style: none;
+
+	}
+
+	#leftProfile> ul> li:first-child ,#leftProfile> ul> li> img ,#leftProfile> ul> li> a>img
+	{
+		width:150px;
+		height:150px;
+		margin-left: 5px;
+		border-radius:100px;
+	}
+
+	#usersName
+	{
+		height:20px;
+		line-height:20px;
+		width:200px;
+		margin-top:10px;
+		text-align:center;
+		color:white;
+		margin-left: -20px;
+		margin-bottom: 30px;
+	}
+
+	.profileButton
+	{
+		height:40px;
+		line-height:40px;
+		width:200px;
+		border-radius:15px;
+		margin-top:10px;
+		text-align:center;
+		background:white;
+		border:solid #9f123a;
+		margin-left:-20px;
+	}
+	.profileButton:hover
+	{
+		background:#9f123a;
+		color:white;
+		cursor: pointer;
+		border:solid white;
+	}
+	.profileButton> a
+	{
+		text-decoration:none;
+		display:block;
+		height:50px;
+		width:200px;
+		color:#9f123a;
+	}
+	.profileButton> a:hover
+	{
+		color:#FFFFFF;
+	}
+
+
+	/*  end left PROFIEL */
+
+
+	#register {
+		display:none
+	}
+
+
+
+
+	#confirmButton
+	{
+		display:none;
+	}
+
+	#notWorkingButton
+	{
+		opacity:0.4;
+		width: 190px;
+		border: 1px #5677fc solid ;
+		height: 45px;
+		line-height:45px;
+		text-align:center;
+		background-color: #5677fc;
+		color: white;
+		cursor: default;
+		border-radius: 3px;
+		font-size: 1.1em;
+		margin:auto;
+	}
+
+	.orRegister
+	{
+		cursor: pointer;
+		text-decoration:underline;
+	}
+	.orSign
+	{
+		cursor: pointer;
+		text-decoration:underline;
+	}
+
+
+
+
+
+
+
+	#map-canvas {
+		padding:0;
+		height:100%;
+		width:100%;
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:0
+		/* Set z-index to 0 as it will be on a layer below the contact form */
+	}
+
+
+	/*   End home page */
+
+
+	/*    for to style all forms */
+	.forms {
+		width:200px;
+		margin-top:20px;
+		margin-left:auto;
+		margin-right:auto;
+		height:auto;
+		padding:10px
+	}
+
+	.forms > h2 {
+		text-align:center
+	}
+
+	.forms>input[type=submit] {
+		width:190px;
+		border:1px #5677fc solid;
+		height:45px;
+		background-color:#5677fc;
+		color:#fff;
+		cursor:pointer;
+		border-radius:3px;
+		font-size:1.1em
+	}
+
+	.forms>input[type=submit]:hover {
+		background-color:#DD2C00;
+		border:1px #DD2C00 solid
+	}
+
+	.forms>input[type=text],.forms>input[type=password],.forms>input[type=email],.forms>input[type=text],.forms>input[type=number],.forms>input[type=select] {
+		width:190px;
+		height:25px;
+		border:2px #ebebeb solid;
+		border-radius:3px;
+		margin-bottom:20px
+	}
+
+
+
+
+	/*  end forms*/
+
+
+
+	.settings {
+		margin-left:auto;
+		margin-right:auto;
+		width:460px;
+		height:auto;
+		margin-bottom:40px;
+		list-style:none
+	}
+
+	.settings>li {
+		float:left;
+		margin-right:10px
+	}
+
+	.settings>li>form {
+		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+		margin-left:auto;
+		margin-right:auto;
+		background-color:#fff;
+		border-bottom:2px solid #206276
+	}
+
+
+
+
+
+
+	/*    Trainers list in cards */
+	#trainers {
+		width:100%;
+		height:100%;
+		list-style:none
+	}
+
+	#trainers>li {
+		width:180px;
+		padding:10px;
+		height:300px;
+		float:left;
+		margin-left:20px;
+		margin-right:20px;
+		margin-bottom:10px
+	}
+	
+	.fliped{
+		width: 100%;
+		background-color: transparent;
+		box-shadow: none;
+	}
+	
+	.fliped > .front {
+		position:absolute;
+		-ms-transform:rotateY(0deg);
+		border-radius:5px;
+		-webkit-transform:rotateY(0deg);
+		transform:rotateY(0deg);
+		-webkit-perspective:600px;
+		perspective:600px;
+		width:180px;
+		height:300px;
+		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+		background-color:#d8e3eb;
+		border-radius:5px;
+		backface-visibility:hidden;
+		transition:transform .5s linear 0
+	}
+
+	.fliped > .back {
+		position:absolute;
+		border-radius:5px;
+		transform:rotateY(180deg);
+		-ms-transform:rotateY(180deg);
+		-webkit-transform:rotateY(180deg);
+		-webkit-perspective:600px;
+		perspective:600px;
+		background-color:#d8e3eb;
+		width:180px;
+		height:300px;
+		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+		border-radius:5px;
+		backface-visibility:hidden;
+		transition:transform .5s linear 0
+	}
+	
+	.fliped > .front img{
+		width: 180px;
+		height: 300px;
+		float: left;
+	}
+	
+	.fliped > .back>form {
+		width:180px;
+		height:300px
+	}
+
+	.fliped > .back>form>input {
+		width:150px;
+		height:15px;
+		border:2px #ebebeb solid;
+		border-radius:3px;
+		margin-bottom:10px
+	}
+
+	.fliped > .back>form>input[type=submit] {
+		width:60px;
+		border:1px #5677fc solid;
+		height:20px;
+		background-color:#5677fc;
+		color:#fff;
+		cursor:pointer;
+		border-radius:3px;
+		font-size:13px
+	}
+
+	.fliped:hover > .front {
+		-ms-transform:rotateY(-180deg);
+		-webkit-transform:rotateY(-180deg);
+		transform:rotateY(-180deg);
+		-webkit-perspective:600px;
+		perspective:600px
+	}
+
+	.fliped:hover > .back {
+		-ms-transform:rotateY(0deg);
+		-webkit-transform:rotateY(0deg);
+		transform:rotateY(0deg);
+		-webkit-perspective:600px;
+		perspective:600px
+	}
+
+
+
+
+	/*     End cards / Trainers */
+
+
+
+
+	/* alert for home page */
+	#alert {
+		width:100%;
+		min-height:30px;
+		height:auto;
+		margin-bottom:20px;
+		background-color: #ffffff;
+		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2)
+	}
+
+	#alert>h2 {
+		line-height:30px;
+		text-align:center
+	}
+
+	/* end alert*/
+
+	/*  for graphs page the div  */
+
+	.workout {
+		width:700px;
+		list-style:none;
+		height:auto;
+		min-height:400px;
+		margin-left:auto;
+		margin-right:auto;
+		background-color:#fff;
+		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2)
+	}
+
+	.workout>li {
+		float:left;
+		margin-right:10px
+	}
+
+	.workout>li:first-child {
+		width:400px;
+		border-right:2px solid red
+	}
+
+
+	/*   end div */
+
+
+
+
+	/*   for the booking page */
+
+	#booking {
+		width:700px;
+		list-style:none;
+		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+		min-height:400px;
+		height:auto;
+		margin-left:auto;
+		margin-right:auto;
+		background-color:#fff
+	}
+
+	#booking>li {
+		position:static;
+		float:left;
+		margin-right:30px
+	}
+
+	#booking>li>table {
+		width:400px;
+		background-color:red
+	}
+
+	#booking>li:not(:first-child) {
+		width:400px;
+		height:auto;
+		margin-bottom:30px
+	}
+
+
+
+
+
+
+
+	/*   Profile page   */
+
+		#wrapperProfile {
+			width: 100%;
+			margin-top: 30px;
+			height: 100%;
+	position: absolute;
+
+			z-index: 1; /* The z-index should be higher than Google Maps */
+		}
+
+
+		/*right profile set up*/
+		#rightProfile
+		{
+			width: -moz-calc(100% - 270px);
+			width: -webkit-calc(100% - 270px);
+			width: calc(100% - 270px);
+			margin-left:270px;
+			height: auto;
+			margin-top: 100px;
+		}
+		#rightProfile> :first-child
+		{
+			padding-top:75px;
+		}
 }
-
-#usersName
-{
-    height:20px;
-    line-height:20px;
-    width:200px;
-    margin-top:10px;
-    text-align:center;
-    color:white;
-    margin-left: -20px;
-    margin-bottom: 30px;
-}
-
-.profileButton
-{
-    height:40px;
-    line-height:40px;
-    width:200px;
-    border-radius:15px;
-    margin-top:10px;
-    text-align:center;
-    background:white;
-    border:solid #9f123a;
-    margin-left:-20px;
-}
-.profileButton:hover
-{
-    background:#9f123a;
-    color:white;
-    cursor: pointer;
-    border:solid white;
-}
-.profileButton> a
-{
-    text-decoration:none;
-    display:block;
-    height:50px;
-    width:200px;
-    color:#9f123a;
-}
-.profileButton> a:hover
-{
-    color:#FFFFFF;
-}
-
-
-/*  end left PROFIEL */
-
-
-#register {
-    display:none
-}
-
-
-
-
-#confirmButton
-{
-    display:none;
-}
-
-#notWorkingButton
-{
-    opacity:0.4;
-    width: 190px;
-    border: 1px #5677fc solid ;
-    height: 45px;
-    line-height:45px;
-    text-align:center;
-    background-color: #5677fc;
-    color: white;
-    cursor: default;
-    border-radius: 3px;
-    font-size: 1.1em;
-    margin:auto;
-}
-
-.orRegister
-{
-    cursor: pointer;
-    text-decoration:underline;
-}
-.orSign
-{
-    cursor: pointer;
-    text-decoration:underline;
-}
-
-
-
-
-
-
-
-#map-canvas {
-    padding:0;
-    height:100%;
-    width:100%;
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:0
-    /* Set z-index to 0 as it will be on a layer below the contact form */
-}
-
-
-/*   End home page */
-
-
-/*    for to style all forms */
-.forms {
-    width:200px;
-    margin-top:20px;
-    margin-left:auto;
-    margin-right:auto;
-    height:auto;
-    padding:10px
-}
-
-.forms > h2 {
-    text-align:center
-}
-
-.forms>input[type=submit] {
-    width:190px;
-    border:1px #5677fc solid;
-    height:45px;
-    background-color:#5677fc;
-    color:#fff;
-    cursor:pointer;
-    border-radius:3px;
-    font-size:1.1em
-}
-
-.forms>input[type=submit]:hover {
-    background-color:#DD2C00;
-    border:1px #DD2C00 solid
-}
-
-.forms>input[type=text],.forms>input[type=password],.forms>input[type=email],.forms>input[type=text],.forms>input[type=number],.forms>input[type=select] {
-    width:190px;
-    height:25px;
-    border:2px #ebebeb solid;
-    border-radius:3px;
-    margin-bottom:20px
-}
-
-
-
-
-/*  end forms*/
-
-
-
-.settings {
-    margin-left:auto;
-    margin-right:auto;
-    width:460px;
-    height:auto;
-    margin-bottom:40px;
-    list-style:none
-}
-
-.settings>li {
-    float:left;
-    margin-right:10px
-}
-
-.settings>li>form {
-    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
-    margin-left:auto;
-    margin-right:auto;
-    background-color:#fff;
-    border-bottom:2px solid #206276
-}
-
-
-
-
-
-
-/*    Trainers list in cards */
-#trainers {
-    width:100%;
-    height:100%;
-    list-style:none
-}
-
-#trainers>li {
-    width:180px;
-    padding:10px;
-    height:300px;
-    float:left;
-    margin-left:20px;
-    margin-right:20px;
-    margin-bottom:10px
-}
-
-.fliped > .front {
-    position:absolute;
-    -ms-transform:rotateY(0deg);
-    border-radius:5px;
-    -webkit-transform:rotateY(0deg);
-    transform:rotateY(0deg);
-    -webkit-perspective:600px;
-    perspective:600px;
-    width:180px;
-    height:300px;
-    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
-    background-color:#d8e3eb;
-    border-radius:5px;
-    backface-visibility:hidden;
-    transition:transform .5s linear 0
-}
-
-.fliped > .back {
-    position:absolute;
-    border-radius:5px;
-    transform:rotateY(180deg);
-    -ms-transform:rotateY(180deg);
-    -webkit-transform:rotateY(180deg);
-    -webkit-perspective:600px;
-    perspective:600px;
-    background-color:#d8e3eb;
-    width:180px;
-    height:300px;
-    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
-    border-radius:5px;
-    backface-visibility:hidden;
-    transition:transform .5s linear 0
-}
-
-.fliped > .back>form {
-    width:180px;
-    height:300px
-}
-
-.fliped > .back>form>input {
-    width:150px;
-    height:15px;
-    border:2px #ebebeb solid;
-    border-radius:3px;
-    margin-bottom:10px
-}
-
-.fliped > .back>form>input[type=submit] {
-    width:60px;
-    border:1px #5677fc solid;
-    height:20px;
-    background-color:#5677fc;
-    color:#fff;
-    cursor:pointer;
-    border-radius:3px;
-    font-size:13px
-}
-
-.fliped:hover > .front {
-    -ms-transform:rotateY(-180deg);
-    -webkit-transform:rotateY(-180deg);
-    transform:rotateY(-180deg);
-    -webkit-perspective:600px;
-    perspective:600px
-}
-
-.fliped:hover > .back {
-    -ms-transform:rotateY(0deg);
-    -webkit-transform:rotateY(0deg);
-    transform:rotateY(0deg);
-    -webkit-perspective:600px;
-    perspective:600px
-}
-
-
-
-
-/*     End cards / Trainers */
-
-
-
-
-/* alert for home page */
-#alert {
-    width:100%;
-    min-height:30px;
-    height:auto;
-    margin-bottom:20px;
-    background-color: #ffffff;
-    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2)
-}
-
-#alert>h2 {
-    line-height:30px;
-    text-align:center
-}
-
-/* end alert*/
-
-/*  for graphs page the div  */
-
-.workout {
-    width:700px;
-    list-style:none;
-    height:auto;
-    min-height:400px;
-    margin-left:auto;
-    margin-right:auto;
-    background-color:#fff;
-    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2)
-}
-
-.workout>li {
-    float:left;
-    margin-right:10px
-}
-
-.workout>li:first-child {
-    width:400px;
-    border-right:2px solid red
-}
-
-
-/*   end div */
-
-
-
-
-/*   for the booking page */
-
-#booking {
-    width:700px;
-    list-style:none;
-    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
-    min-height:400px;
-    height:auto;
-    margin-left:auto;
-    margin-right:auto;
-    background-color:#fff
-}
-
-#booking>li {
-    position:static;
-    float:left;
-    margin-right:30px
-}
-
-#booking>li>table {
-    width:400px;
-    background-color:red
-}
-
-#booking>li:not(:first-child) {
-    width:400px;
-    height:auto;
-    margin-bottom:30px
-}
-
-
-
-
-
-
-
-/*   Profile page   */
-
-    #wrapperProfile {
-        width: 100%;
-        margin-top: 30px;
-        height: 100%;
-position: absolute;
-
-        z-index: 1; /* The z-index should be higher than Google Maps */
-    }
-
-
-    /*right profile set up*/
-    #rightProfile
-    {
-        width: -moz-calc(100% - 270px);
-        width: -webkit-calc(100% - 270px);
-        width: calc(100% - 270px);
-        margin-left:270px;
-        height: auto;
-        margin-top: 100px;
-    }
-    #rightProfile> :first-child
-    {
-        padding-top:75px;
-    }
 
 
 
