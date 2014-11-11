@@ -1,26 +1,26 @@
 $(document).ready(function() {
 
     $( ".orRegister" ).click(function() {
-            switchBetween();
+        switchBetween();
     });
-    
-     $( ".orSign" ).click(function() {
-            switchBack();
+
+    $( ".orSign" ).click(function() {
+        switchBack();
     });
+
     $( "#pass2" ).keyup(function() {
         checkPass(); return false;
     });
 
-    	function switchBetween()
-		{
-			$("#logIn").slideUp('slow', function(){
-			$("#register").slideDown('slow');});
-		}
-		function switchBack()
-		{
-			$("#register").slideUp('slow', function(){
-			$("#logIn").slideDown('slow');});
-		}
+    $( ".front" ).click(function() {
+        frontFlip(this.id);
+    });
+
+    $( ".back" ).click(function() {
+        backFlip(this.id);
+    });
+
+
 
 
         $("img").each(function () {
@@ -30,7 +30,35 @@ $(document).ready(function() {
         });
 
 
+    function frontFlip(id)
+    {
+        var idNum = id.slice(5);
+        var frontid = "front" + idNum;
+        var backid = "back" + idNum;
+        document.getElementById(backid).style.display="block";
+        document.getElementById(frontid).style.display="none";
+    }
+    function backFlip(id)
+    {
+        var idNum = id.slice(4);
+        var frontid = "front" + idNum;
+        var backid = "back" + idNum;
+        document.getElementById(backid).style.display="none";
+        document.getElementById(frontid).style.display="block";
+    }
 
+    function switchBetween()
+    {
+        $("#logIn").slideUp('slow', function(){
+            $("#register").slideDown('slow');});
+        document.getElementById('left').style.marginTop = "-15px";
+    }
+    function switchBack()
+    {
+        $("#register").slideUp('slow', function(){
+            $("#logIn").slideDown('slow');});
+        document.getElementById('left').style.marginTop = "0px";
+    }
 
     function checkPass()
     {
