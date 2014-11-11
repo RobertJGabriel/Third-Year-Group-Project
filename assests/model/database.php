@@ -251,6 +251,16 @@ WHERE EXISTS (SELECT *
 
 
 
+    public
+    function cancelBook($startTime, $dates,$id){
+  $sql = "DELETE FROM schedules WHERE dates= '". $dates . "' AND startTimes='" .$startTime."' AND studentId='".$id . "'";
+
+        $results = mysqli_query ( $this->con, $sql );
+        return $results;
+
+    }
+
+
     // -- Function Name : bookTrainer
     // -- Params : $trainer,$date,$time,$student
     // -- Purpose : Books the trainer.
@@ -261,6 +271,17 @@ WHERE EXISTS (SELECT *
                                               VALUES ('$date','$time','$trainer','$student')" );
         return $results;
     }
+
+
+
+    public
+    function cancelBooking(){
+        $id = $_SESSION ["id"];
+        $results = mysqli_query ( $this->con, "Select * FROM schedules where studentId= '$id'  " );
+        return $results;
+
+    }
+
 
 
 

@@ -191,6 +191,80 @@ class schedules {
     }
 
 
+    // -- Function Name : CancelBooking
+    // -- Params : None
+    // -- Purpose :
+    public
+    function cancelBooking(){
+
+        $result =$this->database->cancelBooking();
+        $count=mysqli_num_rows($result);
+
+        $status =  $_SESSION["status"];
+
+
+
+
+
+
+
+        if ($status == '1'){
+
+
+            echo '  <form id="cancelbooking" class="forms" action="index.php?cancelbooking=true" method="post" >';
+            echo '<h1>Cancell a booking</h1>';
+            echo '   <select name="booking" required>';
+            echo '<option value="" >Select</option>';
+
+            if($count!=0){
+
+                while ($row = $result->fetch_assoc()) {
+                    echo   ' <option value="'. $row['startTimes']  .  ',' . $row['dates']    .'">' .  $row[' dates'] . '' . $row['startTimes']   .'</option>';
+                }
+
+            } else {
+                echo 'No Bookings';
+            }
+
+            echo'</select>';
+            echo'<input type="submit">';
+            echo '   </form>';
+
+
+        } else if($status == '2'){
+
+
+        }else{
+
+
+        }
+
+
+
+
+
+
+    }
+
+
+    public
+    function cancelBook(){
+
+        $bookingkey  = $_POST ['booking'];
+
+        $myArray = explode(',', $bookingkey );
+
+        // 0 = START TIME
+        // 1 = dates
+        $id = $_SESSION ["id"];
+    $startTime=  $myArray[0];
+
+    $date = $myArray  [1];
+
+      $this->database->cancelBook($startTime,$date,$id);
+   header('Location: ' . $_SERVER['HTTP_REFERER']);
+
+    }
 
     // -- Function Name : bookTrainer
     // -- Params : $trainer,$time,$date

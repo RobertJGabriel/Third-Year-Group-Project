@@ -89,7 +89,30 @@
             </form>
 </li>
 
-<li>
+
+
+
+
+
+        <li>
+
+            <?php
+            $this->schedules->cancelBooking();
+
+            ?>
+
+        </li>
+
+
+
+
+
+
+
+
+
+
+        <li>
 
             <form name="information" class="forms" action="index.php?photo=true" method="post" id="uploadProfile" enctype="multipart/form-data">
                 <h1>Upload Photo</h1>

@@ -80,9 +80,16 @@ class Controller {
 
                                                     include('assests/view/booked.php');
                                                 }
+                                                else if(isset($_GET['cancelbooking'])){
+
+                                                    $this->schedules->cancelBook();
+
+                                                }
+
+
                                                 else if(isset($_GET['deleteuser'])){
 
-$this->student->deleteUser();
+                                                    $this->student->deleteUser();
                                                 }
                                                 else if (isset($_GET['setTimeTable'])){
 
