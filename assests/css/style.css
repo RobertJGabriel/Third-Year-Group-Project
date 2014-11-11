@@ -18,6 +18,34 @@ body,html {
 	border:0
 }
 
+#wrapper {
+		top:20%;
+
+		width: 700px;
+
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		z-index: 1; /* The z-index should be higher than Google Maps */
+	}
+
+	#right {
+		display: none;
+	}
+
+	#left {
+		margin-right:100px;
+		width:300px;
+		height:auto;
+		background-color:#fff;
+		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+		float:left
+	}
+
+	#register {
+		display:none
+	}
+
 /*----------Mobile----------*/
 
 .header {
@@ -125,6 +153,12 @@ body,html {
 	top: 70px;
 	width: 100%;
 }
+
+.meetStaff{
+    width: 100%;
+    background-color: white;
+    color: #B51845;
+}
 	
 .fliped{
 	width: 100%;
@@ -133,7 +167,7 @@ body,html {
 }
 	
 .fliped > .front{
-	width: 300px;
+	width: 100%;
 }
 	
 .fliped > .back{
@@ -203,6 +237,7 @@ body,html {
 	}
 
 	#right {
+        display: block;
 		width:300px;
 		height:500px;
 		float:left
@@ -220,7 +255,9 @@ body,html {
 	#register {
 		display:none
 	}
+/* Homepage End  */
 
+/* Profile Header*/
 	#socialPicks
 	{
 		width:33.33%;
