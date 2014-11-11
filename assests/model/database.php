@@ -250,6 +250,9 @@ WHERE EXISTS (SELECT *
     }
 
 
+    // -- Function Name : cancelBook
+    // -- Params : $startTime, $dates,$id
+    // -- Purpose : Deletes the information from the table in the scheudle.
 
     public
     function cancelBook($startTime, $dates,$id){
@@ -274,6 +277,10 @@ WHERE EXISTS (SELECT *
 
 
 
+
+    // -- Function Name : bcancelBooking
+    // -- Params :
+    // -- Purpose : Gets all the booking from the schuidle for the select form in the setting so they can cancel.
     public
     function cancelBooking(){
         $id = $_SESSION ["id"];

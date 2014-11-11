@@ -193,7 +193,7 @@ class schedules {
 
     // -- Function Name : CancelBooking
     // -- Params : None
-    // -- Purpose :
+    // -- Purpose : Creates a form for the user to cancel a booking for the seetings page.
     public
     function cancelBooking(){
 
@@ -201,11 +201,6 @@ class schedules {
         $count=mysqli_num_rows($result);
 
         $status =  $_SESSION["status"];
-
-
-
-
-
 
 
         if ($status == '1'){
@@ -246,7 +241,9 @@ class schedules {
 
     }
 
-
+    // -- Function Name : CancelBooking
+    // -- Params :
+    // -- Purpose : This alows a user to cancel a booking
     public
     function cancelBook(){
 
@@ -254,15 +251,12 @@ class schedules {
 
         $myArray = explode(',', $bookingkey );
 
-        // 0 = START TIME
-        // 1 = dates
         $id = $_SESSION ["id"];
-    $startTime=  $myArray[0];
-
-    $date = $myArray  [1];
+        $startTime=  $myArray[0];
+        $date = $myArray  [1];
 
       $this->database->cancelBook($startTime,$date,$id);
-   header('Location: ' . $_SERVER['HTTP_REFERER']);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
 
     }
 
