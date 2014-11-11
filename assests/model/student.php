@@ -290,30 +290,51 @@ public
 
 
 
-
     public
     function getSingleTrainers($trainer){
-
-        $result =    $this->database->getSingleTrainers( $trainer  );
-     $count=mysqli_num_rows($result);
-
-        if($count!=0){
-            while ($row = $result->fetch_assoc()) {
-echo '<li>';
-/// john this is for you :)
-
-        echo '<h3> Start Time '. $row['startTime'] .'</h3>';
-        echo '<h3> Date '. $row['date'] . '</h3>';
-
-        echo '   <a href="index.php?booked='. $row['memberId']  .'&time=' . $row['startTime']    .'&dates='.$row['date'].'" >Book </a>';
-
-        echo '</li>';
-
+      $result =    $this->database->getSingleTrainers( $trainer  );
+      $count=mysqli_num_rows($result);
+      
+      if($count!=0){
+        $j=null;
+        // loops through all returned rows
+        while ($row = $result->fetch_assoc()) {
+          //$count counter breaks the loop if it is not the last results' row and
+          //carries over the value of $i into next row of results as a starting value in for loop
+          //that allows for continuation of displaying next results.
+          $count--;
+          
+          $startTime = $row['startTime'];
+          $finishTime = $startTime + $row['noOfHours'];
+          if($j == null){
+            //initialize $i only for first row of results
+            $i = $startTime;
+          }
+          //loop through each results' row, if time is booked and not last row: break and jump to next rsults' row
+          // otherwise time is ready for booking
+          for($i; $i < $finishTime; $i++){
+            if($i == $row['startTimes']){
+              echo '<li>';
+              echo '<h3> Start Time '. $i .'</h3>';
+              echo '<h3> Date '. $row['date'] . '</h3>';
+              echo '<a href="index.php?booked='. $row['memberId']  .'&time=' . $row['startTime']    .'&dates='.$row['date'].'" style="pointer-events: none;" >Booked </a>';
+              echo '</li>';
+              if($count!=0){
+                $j = ++$i;
+                break;
+              }
+            } else {
+              echo '<li>';
+              echo '<h3> Start Time '. $i .'</h3>';
+              echo '<h3> Date '. $row['date'] . '</h3>';
+              echo '   <a href="index.php?booked='. $row['memberId']  .'&time=' . $row['startTime']    .'&dates='.$row['date'].'" >Book </a>';
+              echo '</li>';
+                }
+              }
             }
-
         }
-
     }
+
 
 
 
