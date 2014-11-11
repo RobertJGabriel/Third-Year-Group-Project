@@ -168,28 +168,6 @@ WHERE memberId='$id';" );
 
 
 
-    // -- Function Name : colors
-    // -- Params :
-    // -- Purpose : Gets colors from the database for user.
-    public
-    function colors() {
-        $id = $_SESSION ["id"];
-        $color = $_POST ['favcolor'];
-             $result = mysqli_query ( $this->con, "INSERT INTO settings (memberId,color) VALUES ('$id','$color')" );
-
-
-    }
-
-
-
-    public
-    function getColor(){
-
-       $id = $_SESSION ["id"];
-       $result = mysqli_query ( $this->con, "SELECT * FROM settings where  memberId='$id' " );
-       return $result;
-
-    }
 
 
 
@@ -236,7 +214,7 @@ WHERE EXISTS (SELECT *
     public
     function getUserS(){
         $id = $_SESSION ["id"];
-        $results = mysqli_query ( $this->con, "Select * FROM schedules where studentId= '$id' ORDER BY date and startTimes ASC limit 1" );
+        $results = mysqli_query ( $this->con, "Select * FROM schedules where studentId= '$id' ORDER BY dates and startTimes ASC limit 1" );
         return $results;
     }
 
@@ -279,7 +257,7 @@ WHERE EXISTS (SELECT *
 
     public
     function bookTrainer($trainer,$date,$time,$student){
-        $results = mysqli_query ( $this->con, "INSERT INTO schedules (date,startTimes,trainerId,studentId)
+        $results = mysqli_query ( $this->con, "INSERT INTO schedules (dates,startTimes,trainerId,studentId)
                                               VALUES ('$date','$time','$trainer','$student')" );
         return $results;
     }

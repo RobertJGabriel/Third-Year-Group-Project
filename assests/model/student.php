@@ -131,14 +131,6 @@ class student{
     }
 
 
-    // -- Function Name : backgroundColor
-    // -- Params :  None
-    // -- Purpose : Sets the background color to the database.
-    public
-    function backgroundColor(){
-        $this->database->colors();
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-    }
 
 
 
@@ -163,21 +155,7 @@ class student{
         header("Location: {$_SERVER['HTTP_REFERER']}");
     }
 
-public
-    function getColors(){
 
-
-    $result =    $this->database->getColor();
-    $count=mysqli_num_rows($result);
-
-    if($count!=0){
-        while ($row = $result->fetch_assoc()) {
-
-
-            $_SESSION["color"] =  $row['color'];
-            }
-    }
-}
 
     // -- Function Name : getStudentsAll
     // -- Params :
@@ -317,7 +295,7 @@ public
               echo '<li>';
               echo '<h3> Start Time '. $i .'</h3>';
               echo '<h3> Date '. $row['date'] . '</h3>';
-              echo '<a href="index.php?booked='. $row['memberId']  .'&time=' . $row['startTime']    .'&dates='.$row['date'].'" style="pointer-events: none;" >Booked </a>';
+              echo '<a href="index.php?booked='. $row['memberId']  .'&time=' .  $i    .'&dates='.$row['date'].'"  >Booked </a>';
               echo '</li>';
               if($count!=0){
                 $j = ++$i;
@@ -327,7 +305,7 @@ public
               echo '<li>';
               echo '<h3> Start Time '. $i .'</h3>';
               echo '<h3> Date '. $row['date'] . '</h3>';
-              echo '   <a href="index.php?booked='. $row['memberId']  .'&time=' . $row['startTime']    .'&dates='.$row['date'].'" >Book </a>';
+              echo '   <a href="index.php?booked='. $row['memberId']  .'&time=' .$i    .'&dates='.$row['date'].'" >Book </a>';
               echo '</li>';
                 }
               }
@@ -382,7 +360,7 @@ public
 
         if($count!=0){
             while ($row = $result->fetch_assoc()) {
-                echo('<h2>Upcoming Training ' . $row['date']  .'  at '  .  $row['startTimes']  . ':00</h2>');
+                echo('<h2>Upcoming Training ' . $row['dates']  .'  at '  .  $row['startTimes']  . ':00</h2>');
             }
 
         } else {

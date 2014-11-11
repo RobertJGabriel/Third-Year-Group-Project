@@ -89,17 +89,6 @@
             </form>
 </li>
 
-            <li>
-
-
-            <form name="information" class="forms" action="index.php?color=true" method="post">
-                <h1>Favioute colors</h1>
-                <input type="color" name="favcolor" value="#ff0000">
-                <input type="submit" value="Submit">
-            </form>
-</li>
-
-
 <li>
 
             <form name="information" class="forms" action="index.php?photo=true" method="post" id="uploadProfile" enctype="multipart/form-data">
