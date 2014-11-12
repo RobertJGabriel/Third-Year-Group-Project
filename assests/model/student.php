@@ -16,21 +16,33 @@ class student{
     var $status;
     var $height;
     var $weight;
+    var $color;
     var $database;
     var $folder = 'project/';
 
 
-
-
+    // -- Function Name : __construct
+    // -- Params :
+    // -- Purpose : Starts the connection to the database.
     public
     function __construct()    {
-            $this->database = new databases();
+        $this->database = new databases();
     }
 
+
+    // -- Function Name : __destruct
+    // -- Params :  None
+    // -- Purpose : None
     public
     function __destruct()    {
     }
 
+
+
+
+    // -- Function Name : login
+    // -- Params :  None
+    // -- Purpose : Allows the user to login into the system
     public
     function login(){
 
@@ -62,13 +74,17 @@ class student{
 
                 header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' . $this->folder.  'index.php?profile=true');
             } else {
-                echo 'failed login';
+                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' . $this->folder.  'index.php');
             }
 
         }
 
     }
 
+
+    // -- Function Name : logout
+    // -- Params :
+    // -- Purpose : Logs the user out and clears all the sessions and cookies.
     public
     function logout(){
         $_SESSION = array();
@@ -85,6 +101,11 @@ class student{
         header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' . $this->folder.  'index.php');
     }
 
+
+
+    // -- Function Name : registration
+    // -- Params :
+    // -- Purpose : Registrators the user to the database and strips them to unuse the sql injects.
     public
     function registration(){
 
@@ -109,50 +130,84 @@ class student{
 
     }
 
+
+    // -- Function Name : backgroundColor
+    // -- Params :  None
+    // -- Purpose : Sets the background color to the database.
     public
     function backgroundColor(){
         $this->database->colors();
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
+
+
+    // -- Function Name : updateDetails
+    // -- Params :  None
+    // -- Purpose : Update the users details.
     public
     function updateDetails(){
         $this->database->updateMember();
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
+
+
+
+    // -- Function Name : updateuser
+    // -- Params :
+    // -- Purpose : Allows the admin to update the database.
     public
-    function getInformation(){
-        //THIS WILL BE THE LOGIN AND WILL SPIT THE ROWS BACK INTO THE VARABLES
-        //WILL SET THE COOKIES.
+    function updateuser(){
+        $this->database->updateUser();
+        header("Location: {$_SERVER['HTTP_REFERER']}");
     }
 
-    public
-    function checkStatus(){
-    }
+public
+    function getColors(){
 
+
+    $result =    $this->database->getColor();
+    $count=mysqli_num_rows($result);
+
+    if($count!=0){
+        while ($row = $result->fetch_assoc()) {
+
+
+            $_SESSION["color"] =  $row['color'];
+            }
+    }
+}
+
+    // -- Function Name : getStudentsAll
+    // -- Params :
+    // -- Purpose : Gets all users from the database.
     public
-    function getTrainers(){
-        $result =    $this->database->getTrainers();
+    function getStudentsAll(){
+        $result =    $this->database->getAll();
         $count=mysqli_num_rows($result);
 
         if($count!=0){
             while ($row = $result->fetch_assoc()) {
                 echo '<li class = "fliped">';
                 echo ' <div class="back">';
-                echo '    <div class="trainerInfo">' .  $row['fName'] . '' . $row['lName']   .'</div>';
-                echo '   <p>' .  $row['email'] . '</p>';
-                echo '  <form id="booknow" type="input" method="post" >';
-                echo '    <input  type="text" name="scrap" value="'.  $row['memberId'] . '" hidden>';
-                echo '    <a href="index.php?booking=true">Booking</a>';
+                echo '  <form id="booknow" action="index.php?updateuser=true" type="input" method="post" >';
+                echo '    <input  type="text" name="memberId" value="'.  $row['memberId'] . '" >';
+                echo '    <input  type="text" name="fName" value="'.  $row['fName'] . '" >';
+                echo '    <input  type="text" name="lName" value="'.  $row['lName'] . '" >';
+                echo '    <input  type="text" name="address" value="'.  $row['address'] . '" >';
+                echo '    <input  type="text" name="phone" value="'.  $row['phone'] . '" >';
+                echo '    <input  type="text" name="email" value="'.  $row['email'] . '" >';
+                echo '    <input  type="text" name="status" value="'.  $row['status'] . '" >';
+                echo '    <input  type="text" name="password" value="'.  $row['password'] . '" >';
+                echo '    <input type="submit" value="Update">';
+                echo ' <input type="submit" formaction="index.php?deleteuser=true" value="Delete">';
                 echo '   </form>';
                 echo '   </div>';
                 echo '  <div class="front">';
                 echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="300" />';
                 echo '  </div>';
                 echo '</li>';
-                //                $this->phone = $row['phone'];
-                //              $this->email = $row['email'];
             }
 
         } else {
@@ -161,6 +216,112 @@ class student{
 
     }
 
+
+
+    // -- Function Name : deleteUser
+    // -- Params :
+    // -- Purpose : Delete users information from the database.
+    public
+    function deleteUser(){
+        $result =    $this->database->deleteUser();
+        header("Location: {$_SERVER['HTTP_REFERER']}");
+    }
+
+
+ // -- Function Name : setBooking
+// -- Params :
+// -- Purpose : Sets the booking form . so superAdmin can set the time table.
+    public
+    function setBooking(){
+        $result =    $this->database->getTrainers();
+        $count=mysqli_num_rows($result);
+        echo '  <form id="setTime" class="forms" action="index.php?setTimeTable=true" method="post" >';
+        echo '     <input type="text" placeholder="Date" name="date" id="dateBox" required>';
+        echo '   <select name="trainerId" required>';
+        echo '<option value="" >Select a Trainer</option>';
+
+        if($count!=0){
+            while ($row = $result->fetch_assoc()) {
+                echo   ' <option value="'. $row['memberId']  .'">' .  $row['fName'] . '' . $row['lName']   .'</option>';
+            }
+
+        } else {
+            echo 'No Trainers :(';
+        }
+
+        echo'</select>';
+        echo '<input type="number" name="start" placeholder="Start Times" required>';
+        echo '<input type="number" name="hours" placeholder="Amount of Hours" required>';
+        echo'<input type="submit">';
+        echo '   </form>';
+    }
+
+    // -- Function Name : getTrainers
+// -- Params :
+// -- Purpose : Gets all trainers from the database.
+    public
+    function getTrainers(){
+        $result =    $this->database->getTrainers();
+        $count=mysqli_num_rows($result);
+		$idMaker = 0;
+
+        if($count!=0){
+            while ($row = $result->fetch_assoc()) {
+				echo '<li class = "fliped">';
+                echo ' <div class="back" id="back'. $idMaker . '">';
+                echo '    <div class="trainerInfo">' .  $row['fName'] . '' . $row['lName'];
+                echo '   <p>' .  $row['email'] . '</p>';
+				echo '  <form id="booknow" type="input" method="post" >';
+				echo '	<a href="index.php?singleTrainer=true&id='.  $row['memberId'] . '">';
+				echo '		<span class="bookingButton">';
+				echo '				Book me';
+				echo '			</span>';
+				echo '		</a>';
+                echo '   </form>'.'</div>';
+                echo '   </div>';
+                echo '  <div class="front" id="front'. $idMaker . '">';
+                echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="280" />';
+                echo '  </div>';
+                echo '</li>';
+				$idMaker++;
+				
+            }
+
+        } else {
+            echo 'No Trainers :(';
+        }
+
+    }
+
+
+
+
+
+    public
+    function getSingleTrainers($trainer){
+
+        $result =    $this->database->getSingleTrainers( $trainer  );
+     $count=mysqli_num_rows($result);
+
+        if($count!=0){
+		
+		echo'<div><img id="trainerBookingImg" src="getTrainersImage" /></div>';
+            while ($row = $result->fetch_assoc()) 
+			{
+				echo '<li class = "slot">';
+		/// john this is for you :)
+				echo '<p>Date: '. $row['date'] . '</p>';
+				echo '<p> Start Time '. $row['startTime']. ':00</p>';
+				echo '   <a class="bookNowButton" href="index.php?booked='. $row['memberId']  .'&time=' . $row['startTime']    .'&dates='.$row['date'].'" >Book now </a>';
+				echo '</li>';
+            }
+        }
+    }
+
+
+    // -- Function Name : uploadPhoto
+// -- Params :
+// -- Purpose : Allows the user to update the database.
     public
     function uploadPhoto(){
         $allowed =  array('png' ,'jpg');
@@ -171,6 +332,7 @@ class student{
             copy ( $_FILES['file']['tmp_name'], 'assests/img/profilePhotos/' .    $_SESSION["id"] .".png")   or die( "Could not copy file" );
             header("Location: {$_SERVER['HTTP_REFERER']}
 
+	
 			");
         } else {
             die( "No file specified" );
@@ -178,10 +340,43 @@ class student{
 
     }
 
+
+    // -- Function Name : getAlert
+// -- Params :
+// -- Purpose : Gets any upcoming training.
     public
-    function saveSettings(){
+    function getAlert(){
+        $result =    $this->database->getUserS();
+        $count=mysqli_num_rows($result);
+
+        if($count!=0){
+            while ($row = $result->fetch_assoc()) {
+                echo('<h3>Upcoming Session ' . $row['date']  .'  at '  .  $row['startTimes']  . ':00</h3>');
+            }
+
+        } else {
+            echo('<h3>No Upcoming Sessions</h3>');
+        }
+
     }
 
+
+    // -- Function Name : weight
+// -- Params :
+// -- Purpose : Sets the user weight , to track over time.
+    public
+    function weight(){
+        $this->database->setWeights();
+        header("Location: {$_SERVER['HTTP_REFERER']}
+
+");
+    }
+
+
+
+    // -- Function Name : sessionCookies
+// -- Params :
+// -- Purpose : Sets the session cookies.
     public
     function sessionCookies(){
         $_SESSION["id"] = $this->memberId;

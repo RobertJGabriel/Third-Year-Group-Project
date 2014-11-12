@@ -9,6 +9,12 @@
     <script src="assests/javascript/highcharts.js"></script>
     <script src="assests/javascript/exporting.js"></script>
     <script src="assests/javascript/data.js"></script>
+	<script src="assests/javascript/chartsjs.js"></script>
+
+    <script src="assests/javascript/menu.js"></script>
+
+    <script src="assests/javascript/cardio.js"></script>
+    <script src="assests/javascript/weight.js"></script>
 
 </head>
 <body>

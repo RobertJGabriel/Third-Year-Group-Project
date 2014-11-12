@@ -17,10 +17,17 @@
   z-index: 0; /* Set z-index to 0 as it will be on a layer below the contact form */
 
 }
-a{
 
-text-decoration: none;
-    color: black;
+.header{
+	position: relative; 
+	z-index: 1; /* The z-index should be higher than Google Maps */
+	width: 100%;
+	height: 90px;
+    background-color: white;
+    border-bottom: 2px #9F123A solid;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+    padding-top: 14px;
+    padding-bottom: 5px;
 }
 
 body,html{
@@ -33,24 +40,6 @@ body,html{
     border: 0;
 
 }
-
-.header{
-      position: relative; 
-  z-index: 1; /* The z-index should be higher than Google Maps */
- width: 100%;
- height: 90px;
-    background-color: white;
-    border-bottom: 2px #9F123A solid;
-         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-    
-    margin-bottom: 30px;
-    padding-top: 14px;
-    padding-bottom: 5px;
-}
-#profileHeader{
-height: 50px;    
-}
-
 
 .logout
 
@@ -77,17 +66,15 @@ height: 50px;
 
 #wrapper{
 top:10%;
-   
     width: 700px;
-  height: 500px;
+  height: 90%;
     margin-left: auto;
     margin-right: auto;
     position: relative; 
   z-index: 1; /* The z-index should be higher than Google Maps */
 }
 
-#logo{
-    
+#homeLogo{
     width: 229px;
     height: 84px;
     margin-left: auto;
@@ -96,13 +83,11 @@ top:10%;
 
 
 .forms{
-width: 200px;
-    margin-top: 50px;
+	width: 250px;
     margin-left: auto;
     margin-right: auto;
     height: auto;
-    padding: 10px;
-    
+    text-align: center;  
 }
 .forms > h2{
   text-align: center;   
@@ -111,7 +96,6 @@ width: 200px;
 
 .forms>input[type=submit]{
     width: 190px;
-    
     border: 1px #5677fc solid ;
     height: 45px;
  background-color: #5677fc;
@@ -119,10 +103,11 @@ width: 200px;
     cursor: pointer;
     border-radius: 3px;
     font-size: 1.1em;
+	margin:auto;
 }
 
 .forms>input[type=submit]:hover{
- background-color: #DD2C00;   
+		background-color: #DD2C00;   
         border: 1px #DD2C00 solid ;
 }
 .forms>input[type=text],.forms>input[type=password],.forms>input[type=email]{
@@ -131,17 +116,44 @@ width: 200px;
     height: 25px;
     border: 2px #ebebeb solid;
     border-radius: 3px #ebebeb solid;
-    margin-bottom: 20px;
-    
+    margin-bottom: 5px;
+    text-align:center;
 }
-.orRegister{
- cursor: pointer;
+#confirmButton
+{
+	display:none;
+}
+
+#notWorkingButton
+{
+	opacity:0.4;
+	width: 190px;
+    border: 1px #5677fc solid ;
+    height: 45px;
+	line-height:45px;
+	text-align:center;
+	background-color: #5677fc;
+    color: white;
+    cursor: default;
+    border-radius: 3px;
+    font-size: 1.1em;
+	margin:auto;
+}
+
+.orRegister
+{
+	cursor: pointer;
+	text-decoration:underline;
+}
+.orSign
+{
+	cursor: pointer;
+	text-decoration:underline;
 }
 #left{
-
-    margin-right: 100px;
+    margin-right: 50px;
     width: 300px;
-   min-height: 500px; 
+	 min-height: 20px; 
     height: auto;
     background-color: white;
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
@@ -150,24 +162,150 @@ width: 200px;
 #register{
  display: none;
 }
-.bookingPhoto{
- background-color: red;   
-    width: 100px;
-    height: 150px;
-    border-radius: 5px;
-}
 
 .twitter-timeline{
-    margin-top: 40px;
+    margin-top: 10px;
     
 }
 #right{
 
-    width: 300px;
-height: 500px;
+    width: 350px;
+	height: 600px;
     float: left;
 }
 
+
+/* Profile Header */
+
+#profileHeader
+{
+	position: relative;
+	width:100%;
+	height:50px;
+	/*background:#9f123a;*/
+	background-color: white;
+    border-bottom: 2px #9F123A solid;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+	position:fixed;
+	z-index:1000;
+	margin-bottom: 30px;
+    padding-top: 14px;
+    padding-bottom: 5px;
+}
+
+#socialPicks
+{
+	width:33.33%;
+	text-align:center;
+	height:35px;
+	margin-top:10px;
+	float:left;
+	position:relative;
+}
+#socialPicks ul 
+{	
+	list-style: none;
+	margin: auto;
+	position: absolute;
+	top: 0; 
+	left: 0; 
+	bottom: 0; 
+	right: 0;
+}
+#socialPicks ul li
+{
+	display: inline-block;
+	position: relative;
+	height: 32px;
+	width: 32px;
+	margin-left: 5px;
+}
+#socialPicks ul li a
+{
+	display: block;
+	height: 32px;
+	width: 32px;
+}
+#socialPicks ul li:hover
+{
+	opacity:0.7;
+}
+#facebook
+{
+    background-image: url("../img/icons/facebook.png");
+    background-size: cover;
+}
+#twitter
+{
+    background-image: url("../img/icons/twitter.png");
+    background-size: cover;
+}
+
+#topLogo
+{
+	width:33.33%;
+	text-align:center;
+	height:35px;
+	margin-top:10px;
+	float:left;
+	position:relative;
+}
+#logo
+{
+	height:30px;
+	line-height:30px;
+	width:95px;
+	margin: auto;
+	position: absolute;
+	top: 0; 
+	left: 0; 
+	bottom: 0; 
+	right: 0;
+}
+
+#logOutBox
+{
+	width:33.34%;
+	text-align:center;
+	height:35px;
+	margin-top:10px;
+	float:left;
+	position:relative;
+}
+#logOutBox .logOutButton
+{
+	height:29px;
+	line-height:29px;
+	width:100px;
+	border-radius:10px;
+	margin:auto;
+	text-align:center;
+	background:white;
+	color:#9f123a;
+	border:solid #9f123a;
+}
+#logOutBox .logOutButton:hover
+{
+	background:#9f123a;
+	color:white;
+	cursor: pointer;
+	border:solid white;
+}
+
+#logOutBox .logOutButton> a
+{
+	display:block;
+	height:29px;
+	width:100px;
+	text-decoration:none;
+	color:#9f123a;
+}
+
+#logOutBox .logOutButton> a:hover
+{
+	color:#FFFFFF;
+}
+/*end profile header*/
 
 
 #wrapperProfile{
@@ -180,251 +318,291 @@ height: 500px;
 }
 
 
-#leftProfile{
-    float: left;
-    background-color: #B51845;
-    width: 250px;  
-    height: 100%;
+/* Left profile */
+#leftProfile
+{
+	padding:0;
+	padding-top:5px;
+	width:250px;
+	height:calc(100% - 68px);
+	position:fixed;
+	float:left;
+	background:#9f123a;
+	border-top:double 10px white;
+	border-right:double 10px white;
+	margin-top:71px;
 }
-
 
 
 #leftProfile> ul{
     list-style: none;
-    width: 150px;
-    height: 400px;
-    padding: 0;
-    margin-left: auto;
-    margin-right: auto;
-
 }
 
-
-#leftProfile> ul>li {
-    height: 50px;
-    margin-bottom: 30px;
-    line-height: 50px;
-    text-align: center;
-    
-    
-        border: 0;
-    background-color: #EEEEEE;
-
-    border-radius: 5px;
-    height: 50px;
-    
-    cursor: pointer;
+#leftProfile> ul> li:first-child ,#leftProfile> ul> li> img ,#leftProfile> ul> li> a>img
+{
+	width:150px;
+	height:151px;
+	border-radius:100px;
 }
 
-
-#leftProfile >ul> li:hover {
-    border: 0;
-    background-color: #4285F4;
-
-    border-radius: 5px;
-    height: 50px;
-    
-    cursor: pointer;
+#usersName
+{
+	height:20px;
+	line-height:20px;
+	width:200px;
+	margin-top:10px;
+	text-align:center;
+	color:white;
+	margin-left:-20px;
 }
 
+.profileButton
+{
+	height:40px;
+	line-height:40px;
+	width:200px;
+	border-radius:15px;
+	margin-top:10px;
+	text-align:center;
+	background:white;
+	border:solid #9f123a;
+	margin-left:-20px;
+}
+.profileButton:hover
+{
+	background:#9f123a;
+	color:white;
+	cursor: pointer;
+	border:solid white;
+}
+.profileButton> a
+{
+	text-decoration:none;
+	display:block;
+	height:50px;
+	width:200px;
+	color:#9f123a;
+}
+.profileButton> a:hover
+{
+	color:#FFFFFF;
+}
+/*end left profile*/
 
-#leftProfile> ul>li:nth-child(2),#leftProfile> ul>li:nth-child(2):hover{
-    
-    background-color: #B51845;
+/*right profile set up*/
+#rightProfile
+{
+	width: -moz-calc(100% - 270px);
+    width: -webkit-calc(100% - 270px);
+    width: calc(100% - 270px);
+	margin-left:230px;
+}
+#rightProfile> :first-child 
+{ 
+	padding-top:75px;
 }
 
-#leftProfile> ul> li:first-child ,#leftProfile> ul> li> img ,#leftProfile> ul> li> a>img { 
-width: 150px;
-    border: 0;
-    height: 150px;
-    background-color: green;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 150px;  
-    
-}
-
-
-#rightProfile{
-   margin-left: 200px;
-  width: 800px; 
-    margin-left: auto;
-    margin-right: auto;
-    height: 100%;
+.meetStaff
+{
+	color:#9f123a;
 }
 
 .overflow{
     
  overflow: auto;   
 }
+/*End right profile set up*/
 
+/* Trainers flip cards */
 #trainers{
     
     width: 100%;
     height: 100%;
-
-    
     list-style: none;
-    
-    
 }
 
 
 #trainers>li{
- width: 180px;
-padding: 10px;
+	 width: 180px;
+	padding: 10px;
     height: 300px;
     float: left;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 10px;
-
-    
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .fliped > .front
 {
 	position: absolute;
-	-ms-transform: rotateY( 0deg );
-    border-radius: 5px;
-	-webkit-transform: rotateY( 0deg );
-	transform: rotateY( 0deg );
-	-webkit-perspective: 600px;
-	perspective: 600px;
-	width: 180px;
+	width: 200px;
 	height: 300px;
-      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+	border: 1px solid black;
 	background-color: #d8e3eb;
-	border-radius: 5px;
-	backface-visibility: hidden;
-	transition: transform .5s linear 0s;
+	border-radius:5px;
+	display:block;
 }
 
 .fliped > .back
 {
 	position: absolute;
-        border-radius: 5px;
-	transform: rotateY( 180deg );
-	-ms-transform: rotateY( 180deg );
-	-webkit-transform: rotateY( 180deg );
-	-webkit-perspective: 600px;
-	perspective: 600px;
 	background-color: #d8e3eb;
-	width: 180px;
+	width: 200px;
 	height: 300px;
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+	border: 1px solid black;
 	border-radius: 5px;
-	backface-visibility: hidden;
-	transition: transform .5s linear 0s;
+	display:none;
 }
 
 .fliped:hover > .front
 {
-	-ms-transform: rotateY( -180deg );
-	-webkit-transform: rotateY( -180deg );
-	transform: rotateY( -180deg );
-	-webkit-perspective: 600px;
-	perspective: 600px; 
+	display:none;
 }
 
 .fliped:hover > .back
 {
-	-ms-transform: rotateY( 0deg );
-	-webkit-transform: rotateY( 0deg );
-	transform: rotateY( 0deg );
-	-webkit-perspective: 600px;
-	perspective: 600px; 
+	display:block;
 }
 
-
-
-
-
-
-
-
-
-
-#settings
+img.trainerImg
 {
-  
+	position: relative;
+	top: 9px;
+	left: 9px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
 
- width: 300px;
-    height: auto;
+.trainerInfo
+{
+	position: relative;
+	top: 9px;
+	left: 9px;
+	border: 1px solid black;
+	width: 170px;
+	height: 270px;
+	background-color: white;
+	text-align:center;
+	padding:5px;
+}
 
+.bookingButton
+{
+	position:absolute;
+	top:220px;
+	left:35px;
+	height:30px;
+	line-height:30px;
+	width:100px;
+	border-radius:15px;
+	margin:auto;
+	margin-top:10px;
+	text-align:center;
+	background:white;
+	color:#9f123a;
+	border:solid #9f123a;
+}
 
-    margin-left: auto;
-    margin-right: auto;
+.bookingButton:hover
+{
+	background:#9f123a;
+	color:white;
+	cursor: pointer;
+}
+/* end Trainers flip cards */
+
+/* settings page */
+
+#settingsContainer
+{
+	max-width:500px;
+	margin:auto;
+ 
     
 }
-
-
-
-
-
-
-
-
-
 
 
 .Settingforms{
-width: 200px;
-margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto;
+	float:left;
+	width: 200px;
+	margin-bottom: 30px;
     padding: 10px;
-    
-    border-bottom: 1px solid red;
+	margin-left:30px;
 }
 .Settingforms > h2{
   text-align: center;   
     
 }
 
+.profileButton
+{
+	height:50px;
+	line-height:50px;
+	width:200px;
+	border-radius:15px;
+	margin-top:10px;
+	text-align:center;
+	background:white;
+	border:solid #9f123a;
+	margin-left:-20px;
+}
+.profileButton:hover
+{
+	background:#9f123a;
+	color:white;
+	cursor: pointer;
+	border:solid white;
+}
+
+
 .Settingforms>input[type=submit]{
     width: 190px;
-    
-    border: 1px #5677fc solid ;
     height: 45px;
- background-color: #5677fc;
-    color: white;
+	background-color: #FFFFFF;   
+    border: 1px #9f123a solid ;
+	color:#9f123a;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 5px;
     font-size: 1.1em;
 }
 
 .Settingforms>input[type=submit]:hover{
- background-color: #DD2C00;   
-        border: 1px #DD2C00 solid ;
+	background-color: #9f123a;   
+    border: 1px #FFFFFF solid ;
+	color:#FFFFFF;
 }
-.Settingforms>input[type=text],.Settingforms>input[type=password],.Settingforms>input[type=email]{
+.Settingforms>input[type=text],.Settingforms>input[type=password],.Settingforms>input[type=email],.Settingforms>input[type=number]{
  
     width: 190px;
     height: 25px;
     border: 2px #ebebeb solid;
     border-radius: 3px #ebebeb solid;
-    margin-bottom: 20px;
-    
+    margin-bottom: 5px;
+    text-align:center;
+	
 }
 
+.Settingforms>input[type=color]
+{
+	width: 180px;
+    margin-bottom: 10px;
+    height: 50px;
+}
 
+.Settingforms>input[type=file]
+{
+    margin-bottom: 10px;
+}
 
+.Settingforms>textarea[type=text]{
+ 
+    width: 189px;
+    height: 50px;
+    border: 2px #ebebeb solid;
+    border-radius: 3px #ebebeb solid;
+    margin-bottom: 5px;
+    text-align:center;
+}
 
 .book{
     padding: 0;
@@ -433,26 +611,201 @@ margin-bottom: 30px;
      background-color: #DD2C00;   
         border: 1px #DD2C00 solid ;
 }
-.Settingforms>input[type=color]{
- width: 180px;
-    margin-bottom: 20px;
-    height: 50px;
+/* end settings page */
+
+/* charts page */
+#chartWrapper
+{
+	width: 800px;
+    margin: auto;
+}
+#choices
+{
+	width:700px;
+	margin-left:15px;
+}
+.c
+{
+	width:33%;
+	float:left;
+	text-align:center;
+	border-right:1px solid black;
+	height:30px;
+	line-height:30px;
+}
+.c:hover
+{
+	cursor:pointer;
+	opacity:0.5;
+}
+#c1
+{
+	border-left:1px solid black;
 }
 
+.charts
+{
+	float:left;
+	margin-top:10px;
+	margin-left:15px;
+	border-radius:5px;
+	width:500px;
+	height:400px;
+}
 
+.formHolder
+{
+	margin-top:10px;
+	float:left;
+	width:200px;
+	height:400px;
+	text-align:center;
+}
 
+.workoutForms>input[type=number]
+{
+    width: 190px;
+    height: 25px;
+    border: 2px #ebebeb solid;
+    border-radius: 3px #ebebeb solid;
+    margin-bottom: 5px;
+    text-align:center;
+}
 
+.workoutForms>input[type=submit]
+{
+	
+	width:100px;
+	border-radius:10px;
+	margin:auto;
+	text-align:center;
+	background:white;
+	color:#9f123a;
+	border:solid #9f123a;
+}
+.workoutForms>input[type=submit]:hover
+{
+	background:#9f123a;
+	color:white;
+	cursor: pointer;
+	border:solid white;
+}
 
+#chartHolder
+{
+	width:715px;
+    overflow:hidden;
+    white-space:nowrap; 
+	display:inline-block;
+}
+#chartHolder1
+{
+	display:block;
+}
+#chartHolder2
+{
+	display:none;
+}
+#chartHolder3
+{
+	display:none;
+}
+/* end charts page */
 
+/*individula trainer booking page */
+.availableSlotsList
+{
+	list-style: none;
+	max-width:680px;
+	margin:auto;
+}
+.slot
+{
+	display: inline-table;
+	position: relative;
+	width: 200px;
+	height: 95px;
+	border-radius:15px;
+	text-align:center;
+	background:white;
+	color:#9f123a;
+	border:solid #d8e3eb;
+	padding-bottom:10px;
+	margin:10px;
+}
+.bookNowButton
+{
+	height:30px;
+	line-height:30px;
+	width:100px;
+	border-radius:15px;
+	margin:auto;
+	text-align:center;
+	background:white;
+	color:#99CCFF;
+	border:solid #99CCFF;
+	text-decoration:none;
+	padding:5px;
+}
+.bookNowButton:hover
+{
+	background:#99CCFF;
+	color:white;
+	cursor: pointer;
+}
+#trainerBookingImg
+{
+	margin-left: -moz-calc(50% - 70px);
+    margin-left: -webkit-calc(50% - 70px);
+    margin-left:calc(50%-70px);
+	margin-top:10px;
+	height:210px;
+	width:135px;
+	border-right:0px;
+	border-radius: 15px;
+}
+/*end individula trainer booking page */
 
+/*alert style */
+.alertBox
+{
+	max-width:500px;
+	margin:auto;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	margin-top:-24px;
+}
+/*end alert style*/
 
+/*   for the booking page */
 
+#booking {
+    width:700px;
+    list-style:none;
+    min-height:100%;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+	overflow:hidden;
+}
 
+#booking>li {
+    position:static;
+    float:left;
+    margin-right:30px
+}
 
+#booking>li>table {
+    width:400px;
+    background-color:red
+}
 
-
-
-
+#booking>li:not(:first-child) {
+    width:400px;
+    height:auto;
+    margin-bottom:30px
+}
 
 
 

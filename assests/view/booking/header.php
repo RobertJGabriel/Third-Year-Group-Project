@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assests/javascript/jqueryui/jquery-ui.css">
     <link rel="stylesheet" href="assests/css/calendarstyle.css">
 
-
+    <script src="assests/javascript/menu.js"></script>
 
 </head>
 <body>
