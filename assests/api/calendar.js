@@ -1,3 +1,14 @@
+  
+  //https://developers.google.com/google-apps/calendar/v3/reference/events
+  
+  
+  
+  
+  
+  
+  
+  
+  
      // Enter a client ID for a web application from the Google Developer Console.
       // The provided clientId will only work if the sample is run directly from
       // https://google-api-javascript-client.googlecode.com/hg/samples/authSample.html
