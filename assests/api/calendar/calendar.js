@@ -40,7 +40,9 @@
       function handleAuthResult(authResult) {
         var authorizeButton = document.getElementById('authorize-button');
         var insertButton = document.getElementById('insert-button');
+
         if (authResult && !authResult.error) {
+
           authorizeButton.style.visibility = 'hidden';
           makeApiCall();
           insertButton.style.visibility = '';
@@ -60,6 +62,7 @@
       }
     
       function handleInsertClick(event) {
+          alert('Inserted');
        makeInsertApiCall();
       }
 

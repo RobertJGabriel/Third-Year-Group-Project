@@ -14,6 +14,8 @@
 
     <script src="assests/javascript/cardio.js"></script>
     <script src="assests/javascript/weight.js"></script>
+    <script src = "assests/api/calendar/calendar.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 
 </head>
 <body>

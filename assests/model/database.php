@@ -89,11 +89,12 @@ WHERE memberId='$id';" );
         $id = $_SESSION ["id"];
         $mydate = getdate ( date ( "U" ) );
         $date = $mydate [year] .'-' . $mydate [mon] .'-'. $mydate [mday];
+        $setId = $_POST ['setId'];
         $reps = $_POST ['reps'];
         $weight = $_POST ['weight'];
         $type = $_POST ['type'];
-        return mysqli_query ( $this->con, "INSERT INTO workout (memberId, date, exerciseType, reps,weight)
-                                           VALUES ('" . $id . "','" . $date . "','" . $type . "','" . $reps . "','" . $weight . "')" );
+        return mysqli_query ( $this->con, "INSERT INTO workout (memberId, date, setId, exerciseType, reps,weight)
+                                           VALUES ('" . $id . "','" . $date . "','" . $setId  ."','" . $type . "','" . $reps . "','" . $weight . "')" );
     }
 
 

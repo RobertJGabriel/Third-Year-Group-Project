@@ -45,9 +45,8 @@
         <ul id="profileMenu">
             <li id="profilePic"><a href="index.php?profile=true"><img src="<?php  echo 'assests/img/profilePhotos/' . $_SESSION['id'] . '.png' ?>"  width="150" height="150" alt="Profile Picture"></a></li>
             <li id="usersName"><h1><?php echo $_SESSION["fname"] ;  ?></h1></li>
-            <li class="profileButton"><a href="index.php?settings=true">Settings</a></li>
-            <li class="profileButton"><a href="index.php?workout=true">Workout</a></li>
 
+            <li class="profileButton"><a href="index.php?workout=true">Workout</a></li>
 
             <?php
             if ($_SESSION["status"] == 3)
@@ -63,7 +62,9 @@
 
             ?>
             <li class="profileButton"><a href="index.php?booking=true">Book </a></li>
+            <li class="profileButton"><a href="index.php?settings=true">Settings</a></li>
             <li class="profileButton"><a href="index.php?logout=true">Logout</a></li>
+            <li class="profileButton" id="authorize-button" ><a href="">Google Acount</a></li>
         </ul>
     </div>
 
@@ -71,6 +72,8 @@
 
 
     <div id="rightProfile">
+
+        <button id="authorize-button" style="visibility: hidden">Authorize</button>
 
 
     <ul id="booking">
@@ -84,7 +87,6 @@
         </li>
 
         <li>
-
 
 
 

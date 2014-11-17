@@ -1,4 +1,7 @@
 
+
+
+
 <div class="header" id="profileHeader">
     <div id="socialPicks">
         <ul>
@@ -45,9 +48,8 @@
         <ul id="profileMenu">
             <li id="profilePic"><a href="index.php?profile=true"><img src="<?php  echo 'assests/img/profilePhotos/' . $_SESSION['id'] . '.png' ?>"  width="150" height="150" alt="Profile Picture"></a></li>
             <li id="usersName"><h1><?php echo $_SESSION["fname"] ;  ?></h1></li>
-            <li class="profileButton"><a href="index.php?settings=true">Settings</a></li>
-            <li class="profileButton"><a href="index.php?workout=true">Workout</a></li>
 
+            <li class="profileButton"><a href="index.php?workout=true">Workout</a></li>
 
             <?php
             if ($_SESSION["status"] == 3)
@@ -63,7 +65,9 @@
 
             ?>
             <li class="profileButton"><a href="index.php?booking=true">Book </a></li>
+            <li class="profileButton"><a href="index.php?settings=true">Settings</a></li>
             <li class="profileButton"><a href="index.php?logout=true">Logout</a></li>
+            <li class="profileButton" id="authorize-button" ><a href="">Google Acount</a></li>
         </ul>
     </div>
 
@@ -73,10 +77,12 @@
     <div id="rightProfile">
         <ul class="workout">
 
-          <li> <div id="chart" class="chart"></div></li>
+            <li><div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 
            <li><form name="information" class="forms" action="index.php?workoutInput=true" method="post">
+
                 <h1>Input Weight</h1>
+                   <input type="number" placeholder="Amount of sets"  min="1" max="3"name="setId">
                 <input type="number" placeholder="Amount of Reps"  min="1" max="100"name="reps">
                 <input type="number" placeholder="Amount of weight in kg"  min="1" max="999"name="weight">
                 <select name="type" >
@@ -89,6 +95,10 @@
             </form>
            </li>
         </ul>
+
+
+
+
 
 
         <ul class="workout">
