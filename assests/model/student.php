@@ -176,7 +176,14 @@ class student{
                 echo '    <input  type="text" name="address" value="'.  $row['address'] . '" >';
                 echo '    <input  type="text" name="phone" value="'.  $row['phone'] . '" >';
                 echo '    <input  type="text" name="email" value="'.  $row['email'] . '" >';
-                echo '    <input  type="text" name="status" value="'.  $row['status'] . '" >';
+
+                echo '<select name="status" >';
+                    echo'  <option value="1">Member</option>';
+                    echo'  <option value="2">Trainer</option>';
+                    echo'  <option value="3">Super Admin</option>';
+
+                echo '</select>';
+
                 echo '    <input  type="text" name="password" value="'.  $row['password'] . '" >';
                 echo '    <input type="submit" value="Update">';
                 echo ' <input type="submit" formaction="index.php?deleteuser=true" value="Delete">';
