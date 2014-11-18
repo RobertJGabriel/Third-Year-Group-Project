@@ -91,6 +91,11 @@ class Controller {
 
                                                     $this->student->deleteUser();
                                                 }
+
+                                                else if(isset($_GET['viewBooking'])){
+
+                                                    include('assests/view/viewBookings.php');
+                                                }
                                                 else if (isset($_GET['setTimeTable'])){
 
                                                     $this->schedules->setTimeTable();

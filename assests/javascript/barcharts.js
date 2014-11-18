@@ -33,7 +33,7 @@
             },
             tooltip: {
                 formatter: function() {
-                    return '<b>erdtfygh'+ this.series.name +'</b><br/>'+
+                    return '<b>'+ this.series.name +'</b><br/>'+
                         this.x +': '+ this.y;
                 }
             },

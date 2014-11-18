@@ -57,12 +57,13 @@
       }
 
       function handleAuthClick(event) {
+
         gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
         return false;
       }
     
       function handleInsertClick(event) {
-          alert('Inserted');
+          alert('Added to Caldenar');
        makeInsertApiCall();
       }
 
