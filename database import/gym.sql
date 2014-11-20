@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 26, 2014 at 01:36 PM
+-- Generation Time: Nov 11, 2014 at 11:49 PM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -19,6 +19,49 @@ SET time_zone = "+00:00";
 --
 -- Database: `gym`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bmi`
+--
+
+CREATE TABLE IF NOT EXISTS `bmi` (
+  `memberId` varchar(200) NOT NULL,
+  `date` varchar(200) NOT NULL,
+  `weight` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bmi`
+--
+
+INSERT INTO `bmi` (`memberId`, `date`, `weight`) VALUES
+('4992', '2014-11-9', 4),
+('df', '2014-11-9', 65),
+('df', '2014-11-9', 87),
+('df', '2014-11-9', 87),
+('4992', '2014-11-9', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cardio`
+--
+
+CREATE TABLE IF NOT EXISTS `cardio` (
+  `memberId` varchar(200) NOT NULL,
+  `date` date NOT NULL,
+  `distance` int(11) NOT NULL,
+  `duration` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cardio`
+--
+
+INSERT INTO `cardio` (`memberId`, `date`, `distance`, `duration`) VALUES
+('4992', '0000-00-00', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -43,8 +86,12 @@ CREATE TABLE IF NOT EXISTS `members` (
 --
 
 INSERT INTO `members` (`memberId`, `fName`, `lName`, `address`, `phone`, `email`, `password`, `status`, `height`) VALUES
-('R00102430', 'Robert', 'Gabriel', 'fdghjkl', 851499082, '', 'z', 1, 0),
-('R00102431', 'Trainer', 'Batman', 'fghj', 567, 'gtirob@gmail.com', 'zaq', 2, 0);
+('4992', 'Robert', 'gabriel', 'twte', 0, 'rob@twitter', 'qw', 3, 22),
+('df', 'dfgchv', 'drtgyh', 'f', 7, 'fg@email.com', 'qw', 2, 0),
+('v', 'Rib', 'v', 'fd', 567, 'fgsss@email.coms', 'q', 0, 0),
+('g', 'd', 'g', 'fg', 67, 'fg@email.com', 'q', 0, 0),
+('r0029', 'Robert', 'Gabriel', 'mans', 987, 'rob@gmail.com', 'z', 3, 2),
+('1', 'Roujj', 'fggh', 'g', 97, 'qrob@twitter', 'q', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -53,7 +100,7 @@ INSERT INTO `members` (`memberId`, `fName`, `lName`, `address`, `phone`, `email`
 --
 
 CREATE TABLE IF NOT EXISTS `schedules` (
-  `date` date NOT NULL,
+  `dates` varchar(200) NOT NULL,
   `startTimes` int(11) NOT NULL,
   `trainerId` varchar(200) NOT NULL,
   `studentId` varchar(200) NOT NULL
@@ -63,11 +110,8 @@ CREATE TABLE IF NOT EXISTS `schedules` (
 -- Dumping data for table `schedules`
 --
 
-INSERT INTO `schedules` (`date`, `startTimes`, `trainerId`, `studentId`) VALUES
-('2014-10-26', 11, 'R00102431', 'R00102430'),
-('2014-10-26', 2, 'R00102431', 'R00102430'),
-('2014-10-11', 10, 'R00102430', 'R00102430'),
-('2014-10-11', 11, 'R00102430', 'R00102430');
+INSERT INTO `schedules` (`dates`, `startTimes`, `trainerId`, `studentId`) VALUES
+('2014-11-26', 10, 'df', '1');
 
 -- --------------------------------------------------------
 
@@ -85,8 +129,9 @@ CREATE TABLE IF NOT EXISTS `settings` (
 --
 
 INSERT INTO `settings` (`memberId`, `color`) VALUES
-('R00102430', '#fdcdf3'),
-('R00102430', '#ff0000');
+('e', '222'),
+('44', '#ff0000'),
+('44', '#ff0000');
 
 -- --------------------------------------------------------
 
@@ -106,9 +151,9 @@ CREATE TABLE IF NOT EXISTS `trainerSchedule` (
 --
 
 INSERT INTO `trainerSchedule` (`trainerId`, `date`, `startTime`, `noOfHours`) VALUES
-('R00102430', '2014-10-11', 10, 2),
-('R183728', '2014-10-11', 9, 16),
-('R00102430', '2014-10-11', 11, 4);
+('44', '2014-11-21', 4, 4),
+('44', '2014-11-26', 11, 8),
+('df', '2014-11-26', 9, 3);
 
 -- --------------------------------------------------------
 
@@ -118,7 +163,7 @@ INSERT INTO `trainerSchedule` (`trainerId`, `date`, `startTime`, `noOfHours`) VA
 
 CREATE TABLE IF NOT EXISTS `workout` (
   `memberId` varchar(200) NOT NULL,
-  `date` date NOT NULL,
+  `date` varchar(200) NOT NULL,
   `setId` int(11) NOT NULL,
   `exerciseType` varchar(200) NOT NULL,
   `reps` int(11) NOT NULL,
@@ -130,16 +175,10 @@ CREATE TABLE IF NOT EXISTS `workout` (
 --
 
 INSERT INTO `workout` (`memberId`, `date`, `setId`, `exerciseType`, `reps`, `weight`) VALUES
-('R00102430', '2014-10-23', 1, 'DeadLift', 2, 3),
-('R00102430', '2014-10-24', 3, 'Lifts', 3, 123),
-('R00102430', '0000-00-00', 0, 'Bicep Dumbbell', 1, 11),
-('R00102430', '0000-00-00', 0, 'Bicep Dumbbell', 1, 11),
-('R00102430', '0000-00-00', 0, 'Shoulders Dumbbell', 4, 11),
-('R00102430', '0000-00-00', 0, 'Shoulders Dumbbell', 4, 11),
-('R00102430', '0000-00-00', 0, 'Shoulders Dumbbell', 5, 19),
-('R00102430', '0000-00-00', 0, 'Shoulders Dumbbell', 15, 118),
-('R00102430', '2014-10-26', 0, 'Bicep Dumbbell', 15, 131),
-('R00102430', '2014-10-26', 0, 'Shoulders Dumbbell', 6, 4);
+('4992', '2014-11-9', 0, 'Back Dumbbell', 3, 2),
+('4992', '2014-11-9', 0, 'Back Dumbbell', 2, 4),
+('df', '2014-11-9', 0, 'Back Dumbbell', 3, 0),
+('df', '2014-11-9', 0, 'Back Dumbbell', 0, 4);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -12,43 +12,97 @@ class schedules {
     var $endTime;
     var $trainerId;
     var $database;
-    public function __construct() {
+
+
+    // -- Function Name : __construct
+    // -- Params : None
+    // -- Purpose : Starts Database Connection
+    public
+    function __construct() {
         $this->database = new databases ();
     }
-    public function __destruct() {
+
+
+    // -- Function Name : __destruct
+    // -- Params : None
+    // -- Purpose : Nothing
+    public
+    function __destruct() {
     }
 
-    public function getDate() {
+    // -- Function Name : getDate
+    // -- Params :  None
+    // -- Purpose : Gets Date
+    public
+    function getDate() {
         return $this->date;
     }
-    public function setDate($date) {
+
+
+    // -- Function Name : setDate
+    // -- Params : $date
+    // -- Purpose : Sets the Date
+    public
+    function setDate($date) {
         $this->date = $date;
     }
-    public function getStartTime() {
+
+
+    // -- Function Name : getStartTime
+    // -- Params : None
+    // -- Purpose : Gets the Start Time
+    public
+    function getStartTime() {
         return $this->startTime;
     }
-    public function setStertTime($startTime) {
+
+
+
+    // -- Function Name : setStertTime
+    // -- Params : $startTime
+    // -- Purpose : Sets the Start Times
+    public
+    function setStertTime($startTime) {
         $this->startTime = $startTime;
     }
-    public function getEndTime() {
+
+
+    // -- Function Name : getEndTime
+    // -- Params : None
+    // -- Purpose : Gets End time
+    public
+    function getEndTime() {
         return $this->endTime;
     }
-    public function setEndTime($endTime) {
+
+
+    // -- Function Name : getEndTime
+    // -- Params : $endTime
+    // -- Purpose : Gets End time
+    public
+    function setEndTime($endTime) {
         $this->endTime = $endTime;
     }
+
+
+    // -- Function Name : getTrainertimes
+    // -- Params : $date, $trainer
+    // -- Purpose : The use here is to search the database by on a date and display all trainers and there avaibalty
+                  //slots in a table to allow uses to book a trainer.
+
     public function getTrainertimes($date, $trainer) {
         //stores results set from DB
         $result = $this->database->getTraniersSchedule ( $date, $trainer );
 
         //counter for number of returned rows
-       echo $count = mysqli_num_rows ( $result );
+       $count = mysqli_num_rows ( $result );
 
         // stores all returned rows as array elements
         $hourlySchedule = array ();
         while ( $row = $result->fetch_assoc () ) {
             array_push ( $hourlySchedule, $row );
         }
-        
+
         // stores trainers ids including duplicates
         $trainersIds = array ();
 
@@ -73,7 +127,7 @@ class schedules {
             }
         }
 
-        echo ' <table width="600">';
+        echo ' <table >';
 
         echo '<tr>';
         echo '<th bgcolor="silver">' . 'Time' . '</th> ';
@@ -107,10 +161,10 @@ class schedules {
                                 echo '<td bgcolor="silver">' . 'Booked' . '</td> ';
                                 break; // for loop
                             } else if ($hourlySchedule [$c] ['startTimes'] >= $value) {
-                              echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
+                                echo '<td bgcolor="silver"><a  href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
                                 break;
                             } else if ($countUniqueId == $noOfRowsForEachTrainer [$trId]) {
-                                echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="100" height="150" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
+                                echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
                                 break;
                             }
                         } else {
@@ -127,19 +181,95 @@ class schedules {
 
 
 
-
-
+    // -- Function Name : setTimeTable
+    // -- Params : None
+    // -- Purpose :     Sets the time table for a trainer and the hours there working.
     public
-    function bookTrainer($trainer,$time,$date){
-
-        $student =  $_SESSION["id"];
-
-$this->database->bookTrainer($trainer,$date,$time,$student);
+    function setTimeTable(){
+        $this->database->setTimeTable();
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
 
+    // -- Function Name : CancelBooking
+    // -- Params : None
+    // -- Purpose : Creates a form for the user to cancel a booking for the seetings page.
+    public
+    function cancelBooking(){
 
+        $result =$this->database->cancelBooking();
+        $count=mysqli_num_rows($result);
+
+        $status =  $_SESSION["status"];
+
+
+        if ($status == '1'){
+
+
+            echo '  <form id="cancelbooking" class="forms" action="index.php?cancelbooking=true" method="post" >';
+            echo '<h1>Cancell a booking</h1>';
+            echo '   <select name="booking" required>';
+            echo '<option value="" >Select</option>';
+
+            if($count!=0){
+
+                while ($row = $result->fetch_assoc()) {
+                    echo   ' <option value="'. $row['startTimes']  .  ',' . $row['dates']    .'">' .  $row[' dates'] . '' . $row['startTimes']   .'</option>';
+                }
+
+            } else {
+                echo 'No Bookings';
+            }
+
+            echo'</select>';
+            echo'<input type="submit">';
+            echo '   </form>';
+
+
+        } else if($status == '2'){
+
+
+        }else{
+
+
+        }
+
+
+
+
+
+
+    }
+
+    // -- Function Name : CancelBooking
+    // -- Params :
+    // -- Purpose : This alows a user to cancel a booking
+    public
+    function cancelBook(){
+
+        $bookingkey  = $_POST ['booking'];
+
+        $myArray = explode(',', $bookingkey );
+
+        $id = $_SESSION ["id"];
+        $startTime=  $myArray[0];
+        $date = $myArray  [1];
+
+      $this->database->cancelBook($startTime,$date,$id);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+
+    }
+
+    // -- Function Name : bookTrainer
+    // -- Params : $trainer,$time,$date
+    // -- Purpose : This alows a user to book a trainer.
+    public
+    function bookTrainer($trainer,$time,$date){
+        $student =  $_SESSION["id"];
+        $this->database->bookTrainer($trainer,$date,$time,$student);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
 
 }
+
 ?>
