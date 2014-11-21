@@ -312,6 +312,15 @@ WHERE EXISTS (SELECT *
 
 
     }
+    
+    public
+    function getTrainerDaySchedule($trainerId, $date){
+
+      
+        $results = mysqli_query($this->con, "SELECT startTime, noOfHours FROM trainerSchedule                                                     WHERE trainerId = '".$trainerId."'   
+                                 AND date = '2014-11-25' ;" );
+        return $results;
+    }
 
 }
 
