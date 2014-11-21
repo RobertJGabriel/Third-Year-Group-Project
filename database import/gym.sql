@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 11, 2014 at 11:49 PM
+-- Generation Time: Nov 21, 2014 at 12:42 AM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `bmi` (
-  `memberId` varchar(200) NOT NULL,
+  `memberId` varchar(10) NOT NULL,
   `date` varchar(200) NOT NULL,
   `weight` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -41,7 +41,12 @@ INSERT INTO `bmi` (`memberId`, `date`, `weight`) VALUES
 ('df', '2014-11-9', 65),
 ('df', '2014-11-9', 87),
 ('df', '2014-11-9', 87),
-('4992', '2014-11-9', 4);
+('4992', '2014-11-9', 4),
+('4992', '2014-11-20', 3),
+('4992', '2014-11-20', 2),
+('4992', '2014-11-20', 2),
+('4992', '2014-11-20', 66),
+('11', '2014-11-21', 4);
 
 -- --------------------------------------------------------
 
@@ -50,7 +55,7 @@ INSERT INTO `bmi` (`memberId`, `date`, `weight`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `cardio` (
-  `memberId` varchar(200) NOT NULL,
+  `memberId` varchar(10) NOT NULL,
   `date` date NOT NULL,
   `distance` int(11) NOT NULL,
   `duration` int(11) NOT NULL
@@ -61,7 +66,14 @@ CREATE TABLE IF NOT EXISTS `cardio` (
 --
 
 INSERT INTO `cardio` (`memberId`, `date`, `distance`, `duration`) VALUES
-('4992', '0000-00-00', 3, 3);
+('4992', '0000-00-00', 3, 3),
+('4992', '2014-11-17', 5, 56),
+('4992', '2014-11-20', 17, 6),
+('4992', '2014-11-20', 4, 4),
+('4992', '2014-11-20', 17, 22),
+('4992', '2014-11-20', 443, 1222),
+('4992', '2014-11-20', 3, 4),
+('11', '2014-11-21', 15, 4);
 
 -- --------------------------------------------------------
 
@@ -70,13 +82,13 @@ INSERT INTO `cardio` (`memberId`, `date`, `distance`, `duration`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `members` (
-  `memberId` varchar(200) NOT NULL,
-  `fName` varchar(200) NOT NULL,
-  `lName` varchar(200) NOT NULL,
-  `address` varchar(200) NOT NULL,
-  `phone` int(11) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `password` varchar(200) NOT NULL,
+  `memberId` varchar(16) NOT NULL,
+  `fName` varchar(30) NOT NULL,
+  `lName` varchar(30) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `phone` int(14) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(20) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '1',
   `height` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -86,12 +98,11 @@ CREATE TABLE IF NOT EXISTS `members` (
 --
 
 INSERT INTO `members` (`memberId`, `fName`, `lName`, `address`, `phone`, `email`, `password`, `status`, `height`) VALUES
-('4992', 'Robert', 'gabriel', 'twte', 0, 'rob@twitter', 'qw', 3, 22),
 ('df', 'dfgchv', 'drtgyh', 'f', 7, 'fg@email.com', 'qw', 2, 0),
-('v', 'Rib', 'v', 'fd', 567, 'fgsss@email.coms', 'q', 0, 0),
-('g', 'd', 'g', 'fg', 67, 'fg@email.com', 'q', 0, 0),
-('r0029', 'Robert', 'Gabriel', 'mans', 987, 'rob@gmail.com', 'z', 3, 2),
-('1', 'Roujj', 'fggh', 'g', 97, 'qrob@twitter', 'q', 0, 0);
+('v', 'Rib', 'v', 'fd', 567, 'fgsss@email.coms', 'q', 2, 0),
+('g', 'd', 'g', 'fg', 67, 'fg@email.com', 'q', 2, 0),
+('r0029', 'Robert', 'Gabriel', 'mans', 987, 'rob@gmail.com', 'z', 2, 2),
+('11', 'Robert', 'Gabriel', '5678', 1, 'rob@t', '1', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -102,16 +113,9 @@ INSERT INTO `members` (`memberId`, `fName`, `lName`, `address`, `phone`, `email`
 CREATE TABLE IF NOT EXISTS `schedules` (
   `dates` varchar(200) NOT NULL,
   `startTimes` int(11) NOT NULL,
-  `trainerId` varchar(200) NOT NULL,
-  `studentId` varchar(200) NOT NULL
+  `trainerId` varchar(10) NOT NULL,
+  `studentId` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `schedules`
---
-
-INSERT INTO `schedules` (`dates`, `startTimes`, `trainerId`, `studentId`) VALUES
-('2014-11-26', 10, 'df', '1');
 
 -- --------------------------------------------------------
 
@@ -124,15 +128,6 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `color` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `settings`
---
-
-INSERT INTO `settings` (`memberId`, `color`) VALUES
-('e', '222'),
-('44', '#ff0000'),
-('44', '#ff0000');
-
 -- --------------------------------------------------------
 
 --
@@ -140,20 +135,11 @@ INSERT INTO `settings` (`memberId`, `color`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `trainerSchedule` (
-  `trainerId` varchar(11) NOT NULL,
+  `trainerId` varchar(10) NOT NULL,
   `date` date NOT NULL,
   `startTime` int(11) NOT NULL,
   `noOfHours` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `trainerSchedule`
---
-
-INSERT INTO `trainerSchedule` (`trainerId`, `date`, `startTime`, `noOfHours`) VALUES
-('44', '2014-11-21', 4, 4),
-('44', '2014-11-26', 11, 8),
-('df', '2014-11-26', 9, 3);
 
 -- --------------------------------------------------------
 
@@ -162,10 +148,10 @@ INSERT INTO `trainerSchedule` (`trainerId`, `date`, `startTime`, `noOfHours`) VA
 --
 
 CREATE TABLE IF NOT EXISTS `workout` (
-  `memberId` varchar(200) NOT NULL,
+  `memberId` varchar(16) NOT NULL,
   `date` varchar(200) NOT NULL,
   `setId` int(11) NOT NULL,
-  `exerciseType` varchar(200) NOT NULL,
+  `exerciseType` varchar(50) NOT NULL,
   `reps` int(11) NOT NULL,
   `weight` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -175,10 +161,9 @@ CREATE TABLE IF NOT EXISTS `workout` (
 --
 
 INSERT INTO `workout` (`memberId`, `date`, `setId`, `exerciseType`, `reps`, `weight`) VALUES
-('4992', '2014-11-9', 0, 'Back Dumbbell', 3, 2),
-('4992', '2014-11-9', 0, 'Back Dumbbell', 2, 4),
-('df', '2014-11-9', 0, 'Back Dumbbell', 3, 0),
-('df', '2014-11-9', 0, 'Back Dumbbell', 0, 4);
+('4992', '2014-11-17', 1, 'Back Dumbbell', 22, 10),
+('4992', '2014-11-17', 2, 'Back Dumbbell', 7, 5),
+('4992', '2014-11-20', 3, 'Back Dumbbell', 5, 5);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

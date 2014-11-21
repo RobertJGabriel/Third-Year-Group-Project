@@ -67,7 +67,6 @@
             <li class="profileButton"><a href="index.php?booking=true">Book </a></li>
             <li class="profileButton"><a href="index.php?viewBooking=true">View Booking</a></li>
             <li class="profileButton"><a href="index.php?settings=true">Settings</a></li>
-            <li class="profileButton"><a href="index.php?logout=true">Logout</a></li>
             <li class="profileButton" id="authorize-button"><a href="">Authorize</a></li>
 
         </ul>
@@ -75,13 +74,59 @@
 
 
 
-
+    
+    
+    
+    
+    
+    
+    
     <div id="rightProfile">
-        <ul class="workout">
+	
+		<h1 class="meetStaff" align="center">Progress graphs</h1>
+        <div id="chartWrapper">
 
-            <li><div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+			<div id="choices">
+				<div class="c" id="c1">Running Tracker</div>
+				<div class="c" id="c2">Weight Tracker</div>
+                <div class="c" id="c3">Weight Lifts</div>
+			</div>
+			
+			<div id="chartHolder">
+				<div id="chartHolder1">
+					<div class="charts" id="chart_cardio"></div>
+					<div class="formHolder">
+					
+					<form name="cardioDetails" class="workoutForms" action="index.php?cardioInput=true" method="post"></br>
+						<label>Distance Run</label>
+						<input type="number" placeholder="Distance Ran" min="1" max=999 name="miles">
+						<input type="number" placeholder="Time Ran in mins"    min="1" max="9999"  name="run">
+						<input type="submit" value="Submit">
+					</form>
+					</div>
+				</div>
+				
+				<div id="chartHolder2">
+					<div class="charts" id="chart_weights"></div>
+					<div class="formHolder">
+					<form name="information" class="workoutForms" action="index.php?weight=true" method="post"></br>
+						<label> Weight</label>
+						<input type="number" placeholder="This weeks Weight in kg" min="1" max="9999" name="weight" required>
+						<input type="submit" value="Submit">
+					</form>
+					</div>
+				</div>
+        
+        
+        
+        
+        <div id="chartHolder3">
+            
 
-           <li><form name="information" class="forms" action="index.php?workoutInput=true" method="post">
+
+        <div id="container"  class="charts">        </div>
+	<div class="formHolder">
+     <form name="information" class="forms" action="index.php?workoutInput=true" method="post">
 
                 <h1>Input Weight</h1>
                    <input type="number" placeholder="Amount of sets"  min="1" max="3"name="setId">
@@ -95,57 +140,19 @@
                 </select>
                 <input type="submit" value="Submit">
             </form>
-           </li>
-        </ul>
+           </div>
+  
+        
 
+				
+				
+				
+				
+			</div>
+    
+</div></div>
 
-
-
-
-
-        <ul class="workout">
-
-            <li> <div id="chart_cardio" class="chart"></div></li>
-
-            <li>
-
-            <form name="cardioDetails" class="forms" action="index.php?cardioInput=true" method="post">
-        <h1>Distance Run</h1>
-
-        <input type="number" placeholder="Distance Ran" min="1" max=999 name="miles">
-
-        <input type="number" placeholder="Time Ran in mins"    min="1" max="9999"  name="run">
-
-
-
-        <input type="submit" value="Submit">
-            </form>
-            </li>
-        </ul>
-
-
-
-    <ul class="workout">
-
-        <li> <div id="chart_weights" class="chart"></div></li>
-
-        <li><form name="information" class="forms" action="index.php?weight=true" method="post">
-                <h1> Weight</h1>
-                <input type="number" placeholder="This weeks Weight in kg" min="1" max="9999" name="weight" required>
-
-                <input type="submit" value="Submit">
-            </form>
-        </li>
-    </ul>
-
-
-
-
-
-    </div>
-
-
-
+</div>
 </div>
 
 

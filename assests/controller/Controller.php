@@ -1,6 +1,6 @@
 <?php
 
-include_once("assests/model/student.php");
+include_once("assests/model/members.php");
 include_once("assests/model/weight.php");
 include_once("assests/model/schedules.php");
 include_once("assests/model/database.php");
@@ -17,7 +17,7 @@ class Controller {
     
     public
     function __construct()      {
-        $this->student = new student();
+        $this->student = new members();
         $this->schedules = new schedules();
         $this->weight = new weight();
         $this->cardio = new cardio();

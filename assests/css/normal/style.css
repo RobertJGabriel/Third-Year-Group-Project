@@ -159,44 +159,7 @@ body,html {
     background-color: white;
     color: #B51845;
 }
-	
-.fliped{
-	width: 100%;
-	background-color: #d8e3eb;
-	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-}
-	
-.fliped > .front{
-	width: 100%;
-}
-	
-.fliped > .back{
-	float: right;
-}
-	
-.fliped > .front img{
-	width: 100px;
-	height: 100px;
-	float: left;
-}
-	
-#trainers{
-	position: relative;
-	top: 20px;
-	width: 300px;
-	height: 100%;
-	list-style: none;
-}
 
-
-#trainers > li{
-	width: 300px;
-	padding: 10px;
-	height: 100px;
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-bottom: 10px;
-}
 
 @media(min-width: 768px){
 
@@ -379,6 +342,8 @@ body,html {
 	/* Left profile */
 	#profileMenu {
 		display: block;
+
+        margin-top: 50px;
 	}
 	
 	#leftProfile
@@ -590,114 +555,158 @@ body,html {
 
 
 
-	/*    Trainers list in cards */
-	#trainers {
-		width:100%;
-		height:100%;
-		list-style:none
-	}
+/* Trainers flip cards */
+#trainers{
+    
+    width: 100%;
+    height: 100%;
+    list-style: none;
+}
 
-	#trainers>li {
-		width:180px;
-		padding:10px;
-		height:300px;
-		float:left;
-		margin-left:20px;
-		margin-right:20px;
-		margin-bottom:10px
-	}
-	
-	.fliped{
-		width: 100%;
-		background-color: transparent;
-		box-shadow: none;
-	}
-	
-	.fliped > .front {
-		position:absolute;
-		-ms-transform:rotateY(0deg);
-		border-radius:5px;
-		-webkit-transform:rotateY(0deg);
-		transform:rotateY(0deg);
-		-webkit-perspective:600px;
-		perspective:600px;
-		width:180px;
-		height:300px;
-		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+
+#trainers>li{
+	 width: 180px;
+	padding: 10px;
+    height: 300px;
+    float: left;
+    margin-left: 20px;  		
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.fliped > .front
+{
+	position: absolute;
+	width: 180px;
+	height: 300px;
+	border: 0px solid black;
+  box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
 		background-color:#d8e3eb;
 		border-radius:5px;
-		backface-visibility:hidden;
-		transition:transform .5s linear 0
-	}
+	background-color: #d8e3eb;
+	border-radius:5px;
+    cursor: pointer;
+	display:block;
+}
 
-	.fliped > .back {
-		position:absolute;
-		border-radius:5px;
-		transform:rotateY(180deg);
-		-ms-transform:rotateY(180deg);
-		-webkit-transform:rotateY(180deg);
-		-webkit-perspective:600px;
-		perspective:600px;
+.fliped > .back
+{
+	position: absolute;
+	background-color: #d8e3eb;
+	width: 180px;
+	height: 300px;
+	border: 0px solid black;
+    		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
 		background-color:#d8e3eb;
-		width:180px;
-		height:300px;
-		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
 		border-radius:5px;
-		backface-visibility:hidden;
-		transition:transform .5s linear 0
-	}
-	
-	.fliped > .front img{
-		width: 180px;
-		height: 300px;
-		float: left;
-	}
-	
-	.fliped > .back>form {
-		width:180px;
-		height:300px
-	}
+	border-radius: 5px;
+	display:none;
+}
 
-	.fliped > .back>form>input {
-		width:150px;
-		height:15px;
-		border:2px #ebebeb solid;
-		border-radius:3px;
-		margin-bottom:10px
-	}
+.fliped:hover > .front
+{
+	/*display:none;*/
+}
 
-	.fliped > .back>form>input[type=submit] {
-		width:60px;
-		border:1px #5677fc solid;
-		height:20px;
-		background-color:#5677fc;
-		color:#fff;
-		cursor:pointer;
-		border-radius:3px;
-		font-size:13px
-	}
-
-	.fliped:hover > .front {
-		-ms-transform:rotateY(-180deg);
-		-webkit-transform:rotateY(-180deg);
-		transform:rotateY(-180deg);
-		-webkit-perspective:600px;
-		perspective:600px
-	}
-
-	.fliped:hover > .back {
-		-ms-transform:rotateY(0deg);
-		-webkit-transform:rotateY(0deg);
-		transform:rotateY(0deg);
-		-webkit-perspective:600px;
-		perspective:600px
-	}
+.fliped:hover > .back
+{
+	/*display:block;*/
+}
 
 
+.trainerInfo
+{
+	position: relative;
+	top: 9px;
+	left: 9px;
+	border: 0px solid black;
+	width: 150px;
+	height: 270px;
+	background-color: white;
+	text-align:center;
+	padding:5px;
+}
 
+.bookingButton
+{
+	position:absolute;
+	top:220px;
+	left:35px;
+	height:30px;
+	line-height:30px;
+	width:100px;
+	border-radius:15px;
+	margin:auto;
+	margin-top:10px;
+	text-align:center;
+	background:white;
+	color:#9f123a;
+	border:solid #9f123a;
+}
+
+.bookingButton:hover
+{
+	background:#9f123a;
+	color:white;
+	cursor: pointer;
+}
 
 	/*     End cards / Trainers */
 
+
+/*individula trainer booking page */
+.availableSlotsList
+{
+	list-style: none;
+	max-width:680px;
+	margin:auto;
+}
+.slot
+{
+	display: inline-table;
+	position: relative;
+	width: 200px;
+	height: 95px;
+	border-radius:15px;
+	text-align:center;
+	background:white;
+	color:#9f123a;
+	border:solid #d8e3eb;
+	padding-bottom:10px;
+	margin:10px;
+}
+.bookNowButton
+{
+	height:30px;
+	line-height:30px;
+	width:100px;
+	border-radius:15px;
+	margin:auto;
+	text-align:center;
+	background:white;
+	color:#99CCFF;
+	border:solid #99CCFF;
+	text-decoration:none;
+	padding:5px;
+}
+.bookNowButton:hover
+{
+	background:#99CCFF;
+	color:white;
+	cursor: pointer;
+}
+#trainerBookingImg
+{
+	margin-left: -moz-calc(50% - 70px);
+    margin-left: -webkit-calc(50% - 70px);
+    margin-left:calc(50%-70px);
+	margin-top:10px;
+	height:210px;
+	width:135px;
+	border-right:0px;
+	border-radius: 15px;
+}
+/*end individula trainer booking page */
 
 
 
@@ -745,6 +754,159 @@ body,html {
 	/*   end div */
 
 
+
+/* charts page */
+#chartWrapper
+{
+	max-width: 800px;
+    margin: auto;
+	text-align:center;
+}
+#choices
+{
+	width:100%;
+	margin-left:15px;
+}
+.c
+{
+	width:49%;
+	float:left;
+	text-align:center;
+	border-right:1px solid black;
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+	height:30px;
+	line-height:30px;
+}
+.c:hover
+{
+	cursor:pointer;
+	opacity:0.5;
+}
+#c1
+{
+	border-left:1px solid black;
+}
+
+.charts
+{
+	float:left;
+	margin-top:10px;
+	margin-left:15px;
+	border-radius:5px;
+}
+
+.formHolder
+{
+	margin-top:10px;
+	float:left;
+	width:200px;
+	height:400px;
+	margin:auto;
+}
+
+.workoutForms>input[type=number]
+{
+    width: 190px;
+    height: 25px;
+    border: 2px #ebebeb solid;
+    border-radius: 3px #ebebeb solid;
+    margin-bottom: 5px;
+    text-align:center;
+}
+
+.workoutForms>input[type=submit]
+{
+	
+	width:100px;
+	border-radius:10px;
+	margin:auto;
+	text-align:center;
+	background:white;
+	color:#9f123a;
+	border:solid #9f123a;
+}
+.workoutForms>input[type=submit]:hover
+{
+	background:#9f123a;
+	color:white;
+	cursor: pointer;
+	border:solid white;
+}
+
+#chartHolder
+{
+	width:715px;
+    overflow:hidden;
+    white-space:nowrap; 
+	display:inline-block;
+}
+#chartHolder1
+{
+	display:block;
+}
+#chartHolder2
+{
+	display:none;
+}
+#chartHolder3
+{
+	display:none;
+}
+
+/*individula trainer booking page */
+.availableSlotsList
+{
+	list-style: none;
+	max-width:680px;
+	margin:auto;
+}
+.slot
+{
+	display: inline-table;
+	position: relative;
+	width: 200px;
+	height: 95px;
+	border-radius:15px;
+	text-align:center;
+	background:white;
+	color:#9f123a;
+	border:solid #d8e3eb;
+	padding-bottom:10px;
+	margin:10px;
+}
+.bookNowButton
+{
+	height:30px;
+	line-height:30px;
+	width:100px;
+	border-radius:15px;
+	margin:auto;
+	text-align:center;
+	background:white;
+	color:#99CCFF;
+	border:solid #99CCFF;
+	text-decoration:none;
+	padding:5px;
+}
+.bookNowButton:hover
+{
+	background:#99CCFF;
+	color:white;
+	cursor: pointer;
+}
+#trainerBookingImg
+{
+	margin-left: -moz-calc(50% - 70px);
+    margin-left: -webkit-calc(50% - 70px);
+    margin-left:calc(50%-70px);
+	margin-top:10px;
+	height:210px;
+	width:135px;
+	border-right:0px;
+	border-radius: 15px;
+}
+/*end individula trainer booking page */
 
 
 	/*   for the booking page */
@@ -805,10 +967,7 @@ body,html {
 			height: auto;
 			margin-top: 100px;
 		}
-		#rightProfile> :first-child
-		{
-			padding-top:75px;
-		}
+	
 }
 
 

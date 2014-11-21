@@ -1,0 +1,199 @@
+@import "http://fonts.googleapis.com/css?family=Roboto";
+
+* {
+	font-family:'Roboto',sans-serif
+}
+
+a {
+	text-decoration:none;
+	color:#000
+}
+
+body,html {
+	width:100%;
+	height:100%;
+	margin:0;
+	background-color:#EDEDED;
+	padding:0;
+	border:0
+}
+
+#wrapper {
+		top:20%;
+
+		width: 700px;
+
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		z-index: 1; /* The z-index should be higher than Google Maps */
+	}
+
+	#right {
+		display: none;
+	}
+
+	#left {
+		margin-right:100px;
+		width:300px;
+		height:auto;
+		background-color:#fff;
+		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+		float:left
+	}
+
+	#register {
+		display:none
+	}
+
+/*----------Mobile----------*/
+
+.header {
+	display: none;
+}
+
+#profileMenu{
+	display: none;
+}
+	
+#leftProfile{
+	display: none;
+}
+
+#mobileButton{
+	position: relative;
+	top: 9px;
+	left: 9px;
+	display: block;
+	width: 30px;
+	height: 30px;
+	background-image: url("../img/icons/menu2.png");
+	float: left;
+	border: none;
+}
+	
+#mobileButton:hover{cursor: pointer;}
+	
+#mobileMenu:hover{cursor: auto;}
+	
+#mobileMenu{
+	display: none;
+	position: absolute;
+	top: 41px;
+	left: -1px;
+	width: 200px;
+	border: 1px solid #B51845;
+	text-align: center;
+	background-color: white;
+}
+	
+#mobileMenu ul{
+	list-style-type: none;
+	margin-left: -15px;
+	width: 150px;
+}
+	
+#mobileMenu li{
+	margin-left: none;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 3px;
+	height: 30px;
+	margin-bottom: 10px;
+	line-height: 30px;
+}
+
+#mobileMenu li a:hover{
+	background-color: #E8E8E8;
+	color: white;
+}
+
+#mobileMenu li a{
+	display: block;
+}
+	
+#mobileMenu ul li:last-child{
+	background-color: grey;
+	color: white;
+}
+	
+#mobileMenu ul li:first-child{
+	border: none;
+	width: 60px;
+	height: 60px;
+	position: relative;
+	left: 45px;
+}
+	
+#mobileMenu ul li:nth-child(2){
+	border: none;
+	font-size: 1.5em;
+}
+	
+#mobileHeader{
+	position: fixed;
+	top: 1px;
+	width: 100%;
+	height: 50px;
+	box-shadow: 0 5px 17px 0 rgba(0, 0, 0, 0.2);
+	background-color: white;
+	border-bottom: 2px solid #B51845;
+	z-index: 1;
+}
+	
+#mobileLogo{
+	display: block;
+	position: relative;
+	float: right;
+}
+	
+#rightProfile{
+	clear: both;
+	position: relative;
+	top: 70px;
+	width: 100%;
+}
+
+.meetStaff{
+    width: 100%;
+    background-color: white;
+    color: #B51845;
+}
+	
+.fliped{
+	width: 100%;
+	background-color: #d8e3eb;
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+}
+	
+.fliped > .front{
+	width: 100%;
+}
+	
+.fliped > .back{
+	float: right;
+}
+	
+.fliped > .front img{
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+	
+#trainers{
+	position: relative;
+	top: 20px;
+	width: 300px;
+	height: 100%;
+	list-style: none;
+}
+
+
+#trainers > li{
+	width: 300px;
+	padding: 10px;
+	height: 100px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 10px;
+}

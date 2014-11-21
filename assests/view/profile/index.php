@@ -64,7 +64,6 @@
             <li class="profileButton"><a href="index.php?booking=true">Book </a></li>
             <li class="profileButton"><a href="index.php?viewBooking=true">View Booking</a></li>
             <li class="profileButton"><a href="index.php?settings=true">Settings</a></li>
-            <li class="profileButton"><a href="index.php?logout=true">Logout</a></li>
             <li class="profileButton" id="authorize-button"><a href="">Authorize</a></li>
 
         </ul>
@@ -76,7 +75,6 @@
     <div id="rightProfile">
 
 
-        <h1 class="meetStaff" align="center"><?php $this->student->getAlert();?></h1>
         <h1 class="meetStaff" align="center">Meet our trainers</h1>
         <ul id="trainers">
             <?php

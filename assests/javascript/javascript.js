@@ -21,6 +21,11 @@ $(document).ready(function() {
     });
 
 
+	
+	$( "#studentNumberForm" ).keyup(function() {
+checkStudentNumber(); return false;
+    });
+	
 
 
         $("img").each(function () {
@@ -59,7 +64,38 @@ $(document).ready(function() {
             $("#logIn").slideDown('slow');});
         document.getElementById('left').style.marginTop = "0px";
     }
-
+		function checkStudentNumber()
+		{
+			var studentNumberDiv = document.getElementById('studentNumberForm');
+			var studentNumber = document.getElementById('studentNumberForm').value;
+		    var firstLetter = studentNumber.charAt(0);
+			var numberLength = studentNumber.length;
+		   
+			if(studentNumber == "")
+			{
+				studentNumberDiv.style.backgroundColor = "#ffffff";
+				document.getElementById("studentNumberLabel").innerHTML = "";
+				confirmButton.style.display = "none";
+				notWorkingButton.style.display = "block";
+				return false;
+			}
+			else if(firstLetter == "R" && numberLength == 9)
+			{
+				studentNumberDiv.style.backgroundColor = "#ffffff";
+				document.getElementById("studentNumberLabel").innerHTML = "";
+				displayButton();
+				return true;
+			}
+			else
+			{
+				studentNumberDiv.style.backgroundColor = "#ff6666";
+				document.getElementById("studentNumberLabel").innerHTML = "Please enter valid student number";
+				confirmButton.style.display = "none";
+				notWorkingButton.style.display = "block";
+				return false;
+			}
+			
+		} 
     function checkPass()
     {
         var pass1 = document.getElementById('pass1');

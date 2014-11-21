@@ -5,7 +5,7 @@
  * Date: 02/10/14
  * Time: 23:45
  */
-class student{
+class members{
     var $memberId;
     var $fName;
     var $lName;
@@ -18,7 +18,7 @@ class student{
     var $weight;
     var $color;
     var $database;
-    var $folder = 'third-year-group-project/';
+
 
 
     // -- Function Name : __construct
@@ -72,9 +72,9 @@ class student{
                     $this->sessionCookies();
                 }
 
-                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' . $this->folder.  'index.php?profile=true');
+                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' .'index.php?profile=true');
             } else {
-                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' . $this->folder.  'index.php');
+                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' .'index.php');
             }
 
         }
@@ -164,20 +164,30 @@ class student{
     function getStudentsAll(){
         $result =    $this->database->getAll();
         $count=mysqli_num_rows($result);
-
+$idMaker = 0;
         if($count!=0){
             while ($row = $result->fetch_assoc()) {
-                echo '<li class = "fliped">';
-                echo ' <div class="back">';
-                echo '  <form id="booknow" action="index.php?updateuser=true" type="input" method="post" >';
-                echo '    <input  type="text" name="memberId" value="'.  $row['memberId'] . '" >';
+        
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                        				echo '<li class = "fliped">';
+                echo ' <div class="back" id="back'. $idMaker . '">';
+                echo '    <div class="trainerInfo">' .  $row['fName'] . ' ' . $row['lName'];
+                            echo '  <form id="booknow" action="index.php?updateuser=true" type="input" method="post" >';
+                     echo '    <input  type="text" name="memberId" value="'.  $row['memberId'] . '" >';
                 echo '    <input  type="text" name="fName" value="'.  $row['fName'] . '" >';
                 echo '    <input  type="text" name="lName" value="'.  $row['lName'] . '" >';
                 echo '    <input  type="text" name="address" value="'.  $row['address'] . '" >';
                 echo '    <input  type="text" name="phone" value="'.  $row['phone'] . '" >';
                 echo '    <input  type="text" name="email" value="'.  $row['email'] . '" >';
-
-                echo '<select name="status" >';
+                 echo '<select name="status" >';
                     echo'  <option value="1">Member</option>';
                     echo'  <option value="2">Trainer</option>';
                     echo'  <option value="3">Super Admin</option>';
@@ -188,16 +198,26 @@ class student{
                 echo '    <input type="submit" value="Update">';
                 echo ' <input type="submit" formaction="index.php?deleteuser=true" value="Delete">';
                 echo '   </form>';
+                  echo '   </div>'; 
                 echo '   </div>';
-                echo '  <div class="front">';
+                echo '  <div class="front" id="front'. $idMaker . '">';
                 echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="300" />';
                 echo '  </div>';
                 echo '</li>';
+				$idMaker++;
+                
+                
             }
 
         } else {
             echo 'No Trainers :(';
         }
+        
+        
+        
+        
+        
+        
 
     }
 
@@ -246,30 +266,32 @@ class student{
 // -- Purpose : Gets all trainers from the database.
     public
     function getTrainers(){
-        $result =    $this->database->getTrainers();
+         $result =    $this->database->getTrainers();
         $count=mysqli_num_rows($result);
+		$idMaker = 0;
 
         if($count!=0){
             while ($row = $result->fetch_assoc()) {
-                echo '<li class = "fliped">';
-                echo ' <div class="back">';
-                echo '    <div class="trainerInfo">' .  $row['fName'] . '' . $row['lName']   .'</div>';
+				echo '<li class = "fliped">';
+                echo ' <div class="back" id="back'. $idMaker . '">';
+                echo '    <div class="trainerInfo">' .  $row['fName'] . ' ' . $row['lName'];
                 echo '   <p>' .  $row['email'] . '</p>';
-                echo '  <form id="booknow" type="input" method="post" >';
-                echo '    <input  type="text" name="scrap" value="'.  $row['memberId'] . '" hidden>';
-                echo '    <a href="index.php?singleTrainer=true&id='.  $row['memberId'] . '">Booking</a>';
-                echo '   </form>';
+				echo '  <form id="booknow" type="input" method="post" >';
+				echo '	<a href="index.php?singleTrainer=true&id='.  $row['memberId'] . '">';
+				echo '  Book Now	';
+				echo '		</a>';
+                echo '   </form>'.'</div>';
                 echo '   </div>';
-                echo '  <div class="front">';
+                echo '  <div class="front" id="front'. $idMaker . '">';
                 echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="300" />';
                 echo '  </div>';
                 echo '</li>';
+				$idMaker++;
             }
 
         } else {
             echo 'No Trainers :(';
         }
-
     }
 
 
@@ -277,9 +299,11 @@ class student{
 
     public
     function getSingleTrainers($trainer){
-      $result =    $this->database->getSingleTrainers( $trainer  );
+         $result =    $this->database->getSingleTrainers( $trainer  );
       $count=mysqli_num_rows($result);
       
+	  echo'<div><img id="trainerBookingImg" src="assests/img/profilePhotos/' . $trainer.  '.png" /></div>';
+	  
       if($count!=0){
         $j=null;
         // loops through all returned rows
@@ -295,24 +319,25 @@ class student{
             //initialize $i only for first row of results
             $i = $startTime;
           }
+		  
           //loop through each results' row, if time is booked and not last row: break and jump to next rsults' row
           // otherwise time is ready for booking
           for($i; $i < $finishTime; $i++){
             if($i == $row['startTimes']){
-              echo '<li>';
+              echo '<li class = "slot">';
               echo '<h3> Start Time '. $i .'</h3>';
               echo '<h3> Date '. $row['date'] . '</h3>';
-              echo '<a href="index.php?booked='. $row['memberId']  .'&time=' .  $i    .'&dates='.$row['date'].'"  >Booked </a>';
+              echo '<a class="bookNowButton" href="index.php?booked='. $row['memberId']  .'&time=' .  $i    .'&dates='.$row['date'].'"  >Booked </a>';
               echo '</li>';
               if($count!=0){
                 $j = ++$i;
                 break;
               }
             } else {
-              echo '<li>';
+              echo '<li class = "slot">';
               echo '<h3> Start Time '. $i .'</h3>';
               echo '<h3> Date '. $row['date'] . '</h3>';
-              echo '   <a href="index.php?booked='. $row['memberId']  .'&time=' .$i    .'&dates='.$row['date'].'" >Book </a>';
+              echo '   <a class="bookNowButton" href="index.php?booked='. $row['memberId']  .'&time=' .$i    .'&dates='.$row['date'].'" >Book now </a>';
               echo '</li>';
                 }
               }
@@ -326,16 +351,7 @@ class student{
 
 
 
-
-
-
-
-
-
-
-
-
-    // -- Function Name : uploadPhoto
+// -- Function Name : uploadPhoto
 // -- Params :
 // -- Purpose : Allows the user to update the database.
     public
@@ -357,7 +373,7 @@ class student{
     }
 
 
-    // -- Function Name : getAlert
+// -- Function Name : getAlert
 // -- Params :
 // -- Purpose : Gets any upcoming training.
     public
@@ -381,7 +397,7 @@ class student{
 
 
 
-    // -- Function Name : weight
+// -- Function Name : weight
 // -- Params :
 // -- Purpose : Sets the user weight , to track over time.
     public
@@ -394,7 +410,7 @@ class student{
 
 
 
-    // -- Function Name : sessionCookies
+// -- Function Name : sessionCookies
 // -- Params :
 // -- Purpose : Sets the session cookies.
     public
