@@ -160,4 +160,103 @@ function menuDisplay(){
 }
 
 
+window.addEventListener('load', initializeListeners, false);
+     
+function initializeListeners(){
+
+    var dateValue;
+    var trainerIdValue;
+    var date = document.getElementById('date');
+    date.addEventListener('click', dateEntered, false);
+    
+    var trainer = document.getElementById('trainerId');
+    trainer.addEventListener('change', trainerEntered, false);
+    
+    var startTime = document.getElementById('startTime');
+    startTime.addEventListener('change', timeEntered, false);
+    
+    var numberOfHours = document.getElementById('numberOfHours');
+    numberOfHours.addEventListener('change', hoursEntered, false);
+    
+
+//inner functions for event handling
+    
+function dateEntered(){
+//date selected -> activate trainer selection
+    document.getElementById('trainerId').disabled = false;
+    dateValue = date.value;
+   // alert(dateValue);
+}
+
+function trainerEntered(){
+//trainer selected -> activate start time selection
+//and read trainer's schedule details from DB
+    document.getElementById('startTime').disabled = false;
+    //trainerIdValue = trainer.value;
+   // alert(trainerIdValue);
+    //pass the date and trainer ID and read schedule details for
+    //that trainer and date.
+    getTrainerDetails(date.value, trainer.value);
+     alert(arrStartTimes);
+    alert(arrOfHours);
+        
+}
+
+function timeEntered(){
+    document.getElementById('numberOfHours').disabled = false;
+    
+}
+
+function hoursEntered(){
+    alert("fff");
+}
+    
+}
+           var arrStartTimes = new Array();
+    var  arrOfHours = new Array();
+function getTrainerDetails(dateValue, trainerIdValue){
+ 
+    if(window.XMLHttpRequest){
+        xmlhttp = new XMLHttpRequest();
+      
+    }else{
+        alert("Your browser is not supported");
+    }
+    xmlhttp.onreadystatechange = function(){
+          //alert(xmlhttp.status);
+        if(xmlhttp.readyState==4 && xmlhttp.status==200){
+            //here manipulate results
+            var res = xmlhttp.responseText;
+            var arrOfRes = res.split("/");
+            //alert(arrOfRes[0]);
+
+             var temp;
+           // alert(arrOfRes[2]);
+            for(var i=0; i< 3; i++){
+                temp = arrOfRes[i].split(",");
+               arrStartTimes[i] =temp[0];
+               // alert(arrStartTimes[i]);
+               arrOfHours[i] = temp[1];
+                
+            }
+            
+         
+             //alert(arrStartTimes);
+            
+        }
+        
+ 
+    }
+// alert(arrStartTimes + ' lll');
+    
+ 
+    dateValue = dateValue.replace(/\//g, "-");
+     var newarr = dateValue.split("-");
+    dateValue = newarr[2].concat("-", newarr[1], "-", newarr[0]);
+      // alert(dateValue);
+    var d = "ajax.php?date="+dateValue+"&trainerId="+trainerIdValue;
+    //alert(d);
+    xmlhttp.open("GET","assests/controller/ajax.php?date="+dateValue+"&trainerId="+trainerIdValue, false);
+    xmlhttp.send();
+}
 
