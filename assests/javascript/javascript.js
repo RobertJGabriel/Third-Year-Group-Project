@@ -124,7 +124,15 @@ function menuDisplay(){
 }
 
 window.addEventListener('load', initializeListeners, false);
-     
+//times from db
+    var arrStartTimes = new Array();
+    var  arrOfHours = new Array();
+//calculated hours from db,
+    var scheduledHours = [];
+
+var timeFromUser = -1;
+var hoursFromUser = -1;
+
 function initializeListeners(){
 
     var dateValue;
@@ -137,7 +145,7 @@ function initializeListeners(){
     
     var startTime = document.getElementById('startTime');
     startTime.addEventListener('change', timeEntered, false);
-    
+       
     var numberOfHours = document.getElementById('numberOfHours');
     numberOfHours.addEventListener('change', hoursEntered, false);
     
@@ -154,29 +162,73 @@ function dateEntered(){
 function trainerEntered(){
 //trainer selected -> activate start time selection
 //and read trainer's schedule details from DB
-    document.getElementById('startTime').disabled = false;
+   
     //trainerIdValue = trainer.value;
-   // alert(trainerIdValue);
     //pass the date and trainer ID and read schedule details for
     //that trainer and date.
     getTrainerDetails(date.value, trainer.value);
-     alert(arrStartTimes);
-    alert(arrOfHours);
-        
+    //provide array of scheduled already hours
+    generateScheduledHours();
+
+    
+    document.getElementById('startTime').disabled = false;
+
 }
 
 function timeEntered(){
-    document.getElementById('numberOfHours').disabled = false;
+  
+    //after start time or number of hours is entered
+    //it will be matched with existing schedule
+    //if match is found error will display - time already set
+
+       document.getElementById('numberOfHours').disabled = false;
+    
+    //test for valid numbers
     
 }
 
 function hoursEntered(){
-    alert("fff");
+    var tim = document.getElementById('startTime').value;
+    var hou = document.getElementById('numberOfHours').value;
+    var listOfHou = [];
+    var loopBreak = false;
+    //generate arrar of hours from user
+    for(var k=0; k<hou; k++){
+        listOfHou[k] = k + parseInt(tim);     
+    }
+    //test for valid numbers/comparing values from db and from user
+    for(var p=0; p<scheduledHours.length; p++){
+        for(var r=0; r<listOfHou.length; r++){
+            if(scheduledHours[p] == listOfHou[r]){
+                //match found, hours overlaping
+                //create element and display to the user
+                var rem = document.getElementById('h3Id');
+                if(rem){
+                    rem.remove();                    
+                }
+                document.getElementById('startTime').value = "";
+                document.getElementById('numberOfHours').value = "";
+                var h3element = document.createElement('h3');
+                var h3id = document.createAttribute('id');
+                h3id.value = "h3Id";
+                h3element.setAttributeNode(h3id);
+                h3element.innerHTML = scheduledHours + " hours are scheduled";
+                //get element to insert before
+                var insBefore = document.getElementById('startTime');
+                var  parentElement = document.getElementById('setTime');
+                parentElement.insertBefore(h3element, insBefore);
+                loopBreak = true;
+                break;
+            }
+        }
+        if(loopBreak){break;}
+    }
+    
+   
 }
     
 }
-           var arrStartTimes = new Array();
-    var  arrOfHours = new Array();
+
 function getTrainerDetails(dateValue, trainerIdValue){
  
     if(window.XMLHttpRequest){
@@ -186,32 +238,21 @@ function getTrainerDetails(dateValue, trainerIdValue){
         alert("Your browser is not supported");
     }
     xmlhttp.onreadystatechange = function(){
-          //alert(xmlhttp.status);
         if(xmlhttp.readyState==4 && xmlhttp.status==200){
             //here manipulate results
             var res = xmlhttp.responseText;
             var arrOfRes = res.split("/");
-            //alert(arrOfRes[0]);
 
-             var temp;
-           // alert(arrOfRes[2]);
-            for(var i=0; i< 3; i++){
+            var temp = [];
+         
+            for(var i=0; i< arrOfRes.length; i++){
                 temp = arrOfRes[i].split(",");
                arrStartTimes[i] =temp[0];
-               // alert(arrStartTimes[i]);
+               
                arrOfHours[i] = temp[1];
-                
             }
-            
-         
-             //alert(arrStartTimes);
-            
         }
-        
- 
     }
-// alert(arrStartTimes + ' lll');
-    
  
     dateValue = dateValue.replace(/\//g, "-");
      var newarr = dateValue.split("-");
@@ -222,3 +263,13 @@ function getTrainerDetails(dateValue, trainerIdValue){
     xmlhttp.open("GET","assests/controller/ajax.php?date="+dateValue+"&trainerId="+trainerIdValue, false);
     xmlhttp.send();
 }
+
+function generateScheduledHours(){
+    //generate list of hours in schedule from DB
+    for(var k=0; k<arrStartTimes.length; k++){
+        for(var m=0; m<arrOfHours[k]; m++){
+            scheduledHours[scheduledHours.length] = m + parseInt(arrStartTimes[k]);
+        }
+    }
+}
+
