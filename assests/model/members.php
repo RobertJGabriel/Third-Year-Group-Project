@@ -242,7 +242,7 @@ $idMaker = 0;
         $count=mysqli_num_rows($result);
         echo '  <form id="setTime" class="forms" action="index.php?setTimeTable=true" method="post" >';
         echo '     <input type="text" placeholder="Date" name="date" id="dateBox" required>';
-        echo '   <select name="trainerId" required>';
+         echo '   <select id="trainerId" name="trainerId" required disabled>';
         echo '<option value="" >Select a Trainer</option>';
 
         if($count!=0){
@@ -255,8 +255,8 @@ $idMaker = 0;
         }
 
         echo'</select>';
-        echo '<input type="number" name="start" placeholder="Start Times" required>';
-        echo '<input type="number" name="hours" placeholder="Amount of Hours" required>';
+        echo '<input id="startTime" type="number" name="start" placeholder="Start Times" required disabled>';
+       	echo '<input id="numberOfHours" type="number" name="hours" placeholder="Amount of Hours" required disabled>';
         echo'<input type="submit">';
         echo '   </form>';
     }
