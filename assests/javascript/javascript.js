@@ -145,6 +145,7 @@ function initializeListeners(){
     
     var startTime = document.getElementById('startTime');
     startTime.addEventListener('change', timeEntered, false);
+    startTime.addEventListener('keyup', timeEntered, false);
        
     var numberOfHours = document.getElementById('numberOfHours');
     numberOfHours.addEventListener('change', hoursEntered, false);
@@ -182,6 +183,10 @@ function timeEntered(){
     //if match is found error will display - time already set
 
        document.getElementById('numberOfHours').disabled = false;
+    var hou = document.getElementById('numberOfHours').value;
+    if(hou){
+        hoursEntered();
+    }
     
     //test for valid numbers
     
@@ -208,11 +213,13 @@ function hoursEntered(){
                 }
                 document.getElementById('startTime').value = "";
                 document.getElementById('numberOfHours').value = "";
-                var h3element = document.createElement('h3');
+                //document.getElementById('numberOfHours').disabled = true;
+                var h3element = document.createElement('h5');
                 var h3id = document.createAttribute('id');
                 h3id.value = "h3Id";
                 h3element.setAttributeNode(h3id);
-                h3element.innerHTML = scheduledHours + " hours are scheduled";
+                scheduledHours.sort();
+                h3element.innerHTML =  "These hour(s) are scheduled " + scheduledHours;
                 //get element to insert before
                 var insBefore = document.getElementById('startTime');
                 var  parentElement = document.getElementById('setTime');
