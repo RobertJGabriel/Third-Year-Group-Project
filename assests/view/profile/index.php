@@ -62,7 +62,7 @@
 
             ?>
             <li class="profileButton"><a href="index.php?booking=true">Book </a></li>
-            <li class="profileButton"><a href="index.php?viewBooking=true">View Booking</a></li>
+            <li class="profileButton" id="bookingsView"><a href="index.php?viewBooking=true">View Booking</a></li>
             <li class="profileButton"><a href="index.php?settings=true">Settings</a></li>
             <li class="profileButton" id="authorize-button"><a href="">Authorize</a></li>
 

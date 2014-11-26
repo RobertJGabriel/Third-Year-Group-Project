@@ -5,7 +5,9 @@
  * Date: 02/10/14
  * Time: 23:45
  */
+
 class members{
+    
     var $memberId;
     var $fName;
     var $lName;
@@ -72,9 +74,9 @@ class members{
                     $this->sessionCookies();
                 }
 
-                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' .'index.php?profile=true');
+                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/p/' .'index.php?profile=true');
             } else {
-                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' .'index.php');
+                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/p/' .'index.php');
             }
 
         }
