@@ -189,7 +189,7 @@ LEFT OUTER JOIN schedules
 ON m.memberId = schedules.trainerId
 WHERE EXISTS (SELECT *
               FROM trainerschedule as ts
-              WHERE m.status = 2 and ts.trainerId = m.memberId and ts.date = '$s') ORDER BY startTimes ;" );
+              WHERE m.status = 2 and ts.trainerId = m.memberId and ts.date = '$s') ORDER BY startTime ;" );
         return $results;
     }
 
@@ -317,9 +317,16 @@ WHERE EXISTS (SELECT *
     function getTrainerDaySchedule($trainerId, $date){
 
       
-        $results = mysqli_query($this->con, "SELECT startTime, noOfHours FROM trainerSchedule                                                     WHERE trainerId = '".$trainerId."'   
-                                 AND date = '2014-11-25' ;" );
+        $results = mysqli_query($this->con, "SELECT startTime, noOfHours FROM trainerSchedule WHERE trainerId = '".$trainerId."' AND date = '".$date."' ;" );
         return $results;
+    }
+    
+    public function deleteSchedule($id, $date){
+        echo "deleting sched.....";
+        $sql = "DELETE FROM trainerschedule WHERE trainerId = '".$id."' AND date = '".$date."';";
+        echo $sql;
+        $results = mysqli_query($this->con, $sql);    
+echo $results;
     }
 
 }

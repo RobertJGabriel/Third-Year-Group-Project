@@ -1,6 +1,6 @@
 <?php
 include_once("../model/database.php");
-//echo "ffffff";
+
 //echo $_GET['date'];
 
     $database = new databases();

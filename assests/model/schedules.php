@@ -137,6 +137,9 @@ class schedules {
         echo ' <tr>';
 
         $arr = array (9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
+       // echo "<pre>";
+    //    print_r($hourlySchedule);
+      //  echo "<pre>";
         //starts every row of the table
         foreach ( $arr as &$value ) {
 
@@ -145,6 +148,7 @@ class schedules {
 
             //starts column for every trainer
             foreach ( $uniqueTrainers as $trId ) {
+                
                 $countUniqueId = 0;
                 //checks for trainer's status at specific time
                 for($c = 0; $c < $count; $c ++) {
@@ -152,7 +156,7 @@ class schedules {
                     //checks if result row is for specified trainer
                     if ($hourlySchedule [$c] ['memberId'] == $trId) {
                         $countUniqueId ++;
-
+//echo "start time " + $hourlySchedule [$c] ['startTime'] ;
                         //checks if trainer is working at specified time
                         if (($hourlySchedule [$c] ['startTime'] <= $value) && ($value < $hourlySchedule [$c] ['startTime'] + $hourlySchedule [$c] ['noOfHours'])) {
 
@@ -161,7 +165,7 @@ class schedules {
                                 echo '<td bgcolor="silver">' . 'Booked' . '</td> ';
                                 break; // for loop
                             } else if ($hourlySchedule [$c] ['startTimes'] >= $value) {
-                                echo '<td bgcolor="silver"><a  href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
+                                echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
                                 break;
                             } else if ($countUniqueId == $noOfRowsForEachTrainer [$trId]) {
                                 echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
@@ -268,6 +272,15 @@ class schedules {
         $student =  $_SESSION["id"];
         $this->database->bookTrainer($trainer,$date,$time,$student);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+    public function cancelSchedule(){
+        $id = $_GET["id"];
+         
+        $deldate = $_GET['deldate'];
+        $this->database->deleteSchedule($id, $deldate);
+         // header('Location: ' . $_SERVER['HTTP_REFERER']);
+    
+    
     }
 
 }

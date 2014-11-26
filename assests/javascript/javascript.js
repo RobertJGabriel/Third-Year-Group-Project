@@ -125,8 +125,8 @@ function menuDisplay(){
 
 window.addEventListener('load', initializeListeners, false);
 //times from db
-    var arrStartTimes = new Array();
-    var  arrOfHours = new Array();
+    var arrStartTimes = [];
+    var  arrOfHours = [];
 //calculated hours from db,
     var scheduledHours = [];
 
@@ -154,9 +154,16 @@ function initializeListeners(){
 //inner functions for event handling
     
 function dateEntered(){
+     var rem = document.getElementById('h3Id');
+                if(rem){
+                    rem.remove();                    
+                }
 //date selected -> activate trainer selection
     document.getElementById('trainerId').disabled = false;
     dateValue = date.value;
+   // alert(dateValue);
+    document.getElementById('trainerId').value = "";
+    
    // alert(dateValue);
 }
 
@@ -167,13 +174,69 @@ function trainerEntered(){
     //trainerIdValue = trainer.value;
     //pass the date and trainer ID and read schedule details for
     //that trainer and date.
+       arrStartTimes.length = 0;
+    arrOfHours.length = 0;
     getTrainerDetails(date.value, trainer.value);
+//if(arrStartTimes[0] == ""){alert("is empty str");}
+    
+    //    for(var r=0; r<arrStartTimes.length; r++){
+//          alert("type of   " + r + "  " + typeof arrStartTimes[r] + arrStartTimes[r]);
+//    }
+    
+  
     //provide array of scheduled already hours
     generateScheduledHours();
-
+    
+    
+    
+    
+    
+    
+if( arrStartTimes[0] != ""){
+    
+    var rem = document.getElementById('h3Id');
+                if(rem){
+                    rem.remove();                    
+                }
+                document.getElementById('startTime').value = "";
+                document.getElementById('numberOfHours').value = "";
+                //document.getElementById('numberOfHours').disabled = true;
+                var h3element = document.createElement('h5');
+                var h3id = document.createAttribute('id');
+                h3id.value = "h3Id";
+                h3element.setAttributeNode(h3id);
+                scheduledHours.sort();
+    var id = document.getElementById('trainerId').value;
+    var dateVal = document.getElementById('dateBox').value;
+                h3element.innerHTML =  "You are scheduled for this day <form method='post' action='index.php?cancelschedule=true&id="+ id +"&deldate=" + dateVal + "'><input id='delBtn' type='submit' value='Delete schedule' ></form>";
+                //get element to insert before
+                var insBefore = document.getElementById('startTime');
+                var  parentElement = document.getElementById('setTime');
+                parentElement.insertBefore(h3element, insBefore);
+    
+//    var deleteButton = document.createElement('button');
+//    deleteButton.setAttributeNode(document.createAttribute('id', 'delBtn'));
+//    deleteButton.innerHTML = "Delete schedule";
+//    parentElement.insertBefore(deleteButton, h3element);
+    
+    
+    
+    document.getElementById('startTime').disabled = true;
+    document.getElementById('numberOfHours').disabled = true;
+    //alert("you are w " + arrStartTimes.length);
+    arrStartTimes.length = 0;
+    arrOfHours.length = 0;
+    document.getElementById('trainerId').value = "";
+     //document.getElementById('numberOfHours').disabled = true;
+    document.getElementById('numberOfHours').value = null;
+    //document.getElementById('startTime').disabled = true;
+    
+     
+ //   alert(arrOfHours[0]);
+}else{
     
     document.getElementById('startTime').disabled = false;
-
+}
 }
 
 function timeEntered(){
@@ -207,23 +270,23 @@ function hoursEntered(){
             if(scheduledHours[p] == listOfHou[r]){
                 //match found, hours overlaping
                 //create element and display to the user
-                var rem = document.getElementById('h3Id');
-                if(rem){
-                    rem.remove();                    
-                }
-                document.getElementById('startTime').value = "";
-                document.getElementById('numberOfHours').value = "";
-                //document.getElementById('numberOfHours').disabled = true;
-                var h3element = document.createElement('h5');
-                var h3id = document.createAttribute('id');
-                h3id.value = "h3Id";
-                h3element.setAttributeNode(h3id);
-                scheduledHours.sort();
-                h3element.innerHTML =  "These hour(s) are scheduled " + scheduledHours;
-                //get element to insert before
-                var insBefore = document.getElementById('startTime');
-                var  parentElement = document.getElementById('setTime');
-                parentElement.insertBefore(h3element, insBefore);
+//                var rem = document.getElementById('h3Id');
+//                if(rem){
+//                    rem.remove();                    
+//                }
+//                document.getElementById('startTime').value = "";
+//                document.getElementById('numberOfHours').value = "";
+//                //document.getElementById('numberOfHours').disabled = true;
+//                var h3element = document.createElement('h5');
+//                var h3id = document.createAttribute('id');
+//                h3id.value = "h3Id";
+//                h3element.setAttributeNode(h3id);
+//                scheduledHours.sort();
+//                h3element.innerHTML =  "These hour(s) are scheduled " + scheduledHours;
+//                //get element to insert before
+//                var insBefore = document.getElementById('startTime');
+//                var  parentElement = document.getElementById('setTime');
+//                parentElement.insertBefore(h3element, insBefore);
                 loopBreak = true;
                 break;
             }
@@ -251,9 +314,11 @@ function getTrainerDetails(dateValue, trainerIdValue){
             var arrOfRes = res.split("/");
 
             var temp = [];
-         
+      
             for(var i=0; i< arrOfRes.length; i++){
+                
                 temp = arrOfRes[i].split(",");
+                //alert(temp);
                arrStartTimes[i] =temp[0];
                
                arrOfHours[i] = temp[1];
@@ -263,11 +328,12 @@ function getTrainerDetails(dateValue, trainerIdValue){
  
     dateValue = dateValue.replace(/\//g, "-");
      var newarr = dateValue.split("-");
-    dateValue = newarr[2].concat("-", newarr[1], "-", newarr[0]);
-      // alert(dateValue);
+    dateValue = newarr[2].concat("-", newarr[0], "-", newarr[1]);
+
     var d = "ajax.php?date="+dateValue+"&trainerId="+trainerIdValue;
-    //alert(d);
+   // alert(d);
     xmlhttp.open("GET","assests/controller/ajax.php?date="+dateValue+"&trainerId="+trainerIdValue, false);
+    
     xmlhttp.send();
 }
 
