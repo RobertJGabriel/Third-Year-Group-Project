@@ -95,7 +95,7 @@
       }
     
       function handleInsertClick(event) {
-          alert('Added to Caldenar');
+    
        makeInsertApiCall();
       }
 
@@ -110,7 +110,7 @@
          request.execute(function(resp) {
            for (var i = 0; i < resp.items.length; i++) {
              var li = document.createElement('li');
-                li.appendChild(document.createTextNode(resp.items[i].summary  + resp.items[i].description  + resp.items[i].location +  resp.items[i].start.date ) );
+                li.appendChild(document.createTextNode(resp.items[i].summary  + resp.items[i].description  + resp.items[i].location +  resp.items[i].start.dateTime) );
              document.getElementById('events').appendChild(li);
            }
          });
@@ -119,7 +119,7 @@
 
       function makeInsertApiCall(trainerId,time,dates) {
           
-         alert("api call");          
+            alert('Added to Caldenar');         
           
       gapi.client.load('calendar', 'v3', function() {
           var request = gapi.client.calendar.events.insert({

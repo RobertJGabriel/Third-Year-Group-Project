@@ -42,14 +42,7 @@ class databases {
         mysqli_close ( $this->con );
     }
 
- public
-  function getTrainerDaySchedule($trainerId, $date){
 
-   
-     $results = mysqli_query($this->con, "SELECT startTime, noOfHours FROM trainerSchedule                                                     WHERE trainerId = '".$trainerId."'   
-                              AND date = '2014-11-25' ;" );
-      return $results;
-  }
 
     // -- Function Name : setCardio
     // -- Params :
@@ -319,6 +312,26 @@ WHERE EXISTS (SELECT *
 
 
     }
+     public
+    function getTrainerDaySchedule($trainerId, $date){
+
+      
+        $results = mysqli_query($this->con, "SELECT startTime, noOfHours FROM trainerSchedule WHERE trainerId = '".$trainerId."' AND date = '".$date."' ;" );
+        return $results;
+    }
+    
+    
+    
+    
+    
+       public function deleteSchedule($id, $date){
+        echo "deleting sched.....";
+        $sql = "DELETE FROM trainerschedule WHERE trainerId = '".$id."' AND date = '".$date."';";
+        echo $sql;
+        $results = mysqli_query($this->con, $sql);    
+echo $results;
+    }
+
 
 }
 

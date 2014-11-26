@@ -85,7 +85,11 @@ class Controller {
                                                     $this->schedules->cancelBook();
 
                                                 }
+      else if(isset($_GET['cancelschedule'])){
 
+                                                    $this->schedules->cancelSchedule();
+
+                                                }
 
                                                 else if(isset($_GET['deleteuser'])){
 

@@ -203,7 +203,7 @@ class schedules {
         $status =  $_SESSION["status"];
 
 
-        if ($status == '1'){
+        if (($status == '1') || ($status == '2')){
 
 
             echo '  <form id="cancelbooking" class="forms" action="index.php?cancelbooking=true" method="post" >';
@@ -268,6 +268,21 @@ class schedules {
         $student =  $_SESSION["id"];
         $this->database->bookTrainer($trainer,$date,$time,$student);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+    
+    
+    
+    
+    
+    
+      public function cancelSchedule(){
+        $id = $_GET["id"];
+         
+        $deldate = $_GET['deldate'];
+        $this->database->deleteSchedule($id, $deldate);
+         // header('Location: ' . $_SERVER['HTTP_REFERER']);
+    
+    
     }
 
 }

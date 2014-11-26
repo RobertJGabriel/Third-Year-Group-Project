@@ -160,8 +160,34 @@ function menuDisplay(){
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 window.addEventListener('load', initializeListeners, false);
-     
+//times from db
+    var arrStartTimes = [];
+    var  arrOfHours = [];
+//calculated hours from db,
+    var scheduledHours = [];
+
+var timeFromUser = -1;
+var hoursFromUser = -1;
+
 function initializeListeners(){
 
     var dateValue;
@@ -174,7 +200,8 @@ function initializeListeners(){
     
     var startTime = document.getElementById('startTime');
     startTime.addEventListener('change', timeEntered, false);
-    
+    startTime.addEventListener('keyup', timeEntered, false);
+       
     var numberOfHours = document.getElementById('numberOfHours');
     numberOfHours.addEventListener('change', hoursEntered, false);
     
@@ -182,38 +209,151 @@ function initializeListeners(){
 //inner functions for event handling
     
 function dateEntered(){
+     var rem = document.getElementById('h3Id');
+                if(rem){
+                    rem.remove();                    
+                }
 //date selected -> activate trainer selection
     document.getElementById('trainerId').disabled = false;
     dateValue = date.value;
+   // alert(dateValue);
+    document.getElementById('trainerId').value = "";
+    
    // alert(dateValue);
 }
 
 function trainerEntered(){
 //trainer selected -> activate start time selection
 //and read trainer's schedule details from DB
-    document.getElementById('startTime').disabled = false;
+   
     //trainerIdValue = trainer.value;
-   // alert(trainerIdValue);
     //pass the date and trainer ID and read schedule details for
     //that trainer and date.
+       arrStartTimes.length = 0;
+    arrOfHours.length = 0;
     getTrainerDetails(date.value, trainer.value);
-     alert(arrStartTimes);
-    alert(arrOfHours);
-        
+//if(arrStartTimes[0] == ""){alert("is empty str");}
+    
+    //    for(var r=0; r<arrStartTimes.length; r++){
+//          alert("type of   " + r + "  " + typeof arrStartTimes[r] + arrStartTimes[r]);
+//    }
+    
+  
+    //provide array of scheduled already hours
+    generateScheduledHours();
+    
+    
+    
+    
+    
+    
+if( arrStartTimes[0] != ""){
+    
+    var rem = document.getElementById('h3Id');
+                if(rem){
+                    rem.remove();                    
+                }
+                document.getElementById('startTime').value = "";
+                document.getElementById('numberOfHours').value = "";
+                //document.getElementById('numberOfHours').disabled = true;
+                var h3element = document.createElement('h5');
+                var h3id = document.createAttribute('id');
+                h3id.value = "h3Id";
+                h3element.setAttributeNode(h3id);
+                scheduledHours.sort();
+    var id = document.getElementById('trainerId').value;
+    var dateVal = document.getElementById('dateBox').value;
+                h3element.innerHTML =  "You are scheduled for this day <form method='post' action='index.php?cancelschedule=true&id="+ id +"&deldate=" + dateVal + "'><input id='delBtn' type='submit' value='Delete schedule' ></form>";
+                //get element to insert before
+                var insBefore = document.getElementById('startTime');
+                var  parentElement = document.getElementById('setTime');
+                parentElement.insertBefore(h3element, insBefore);
+    
+//    var deleteButton = document.createElement('button');
+//    deleteButton.setAttributeNode(document.createAttribute('id', 'delBtn'));
+//    deleteButton.innerHTML = "Delete schedule";
+//    parentElement.insertBefore(deleteButton, h3element);
+    
+    
+    
+    document.getElementById('startTime').disabled = true;
+    document.getElementById('numberOfHours').disabled = true;
+    //alert("you are w " + arrStartTimes.length);
+    arrStartTimes.length = 0;
+    arrOfHours.length = 0;
+    document.getElementById('trainerId').value = "";
+     //document.getElementById('numberOfHours').disabled = true;
+    document.getElementById('numberOfHours').value = null;
+    //document.getElementById('startTime').disabled = true;
+    
+     
+ //   alert(arrOfHours[0]);
+}else{
+    
+    document.getElementById('startTime').disabled = false;
+}
 }
 
 function timeEntered(){
-    document.getElementById('numberOfHours').disabled = false;
+  
+    //after start time or number of hours is entered
+    //it will be matched with existing schedule
+    //if match is found error will display - time already set
+
+       document.getElementById('numberOfHours').disabled = false;
+    var hou = document.getElementById('numberOfHours').value;
+    if(hou){
+        hoursEntered();
+    }
+    
+    //test for valid numbers
     
 }
 
 function hoursEntered(){
-    alert("fff");
+    var tim = document.getElementById('startTime').value;
+    var hou = document.getElementById('numberOfHours').value;
+    var listOfHou = [];
+    var loopBreak = false;
+    //generate arrar of hours from user
+    for(var k=0; k<hou; k++){
+        listOfHou[k] = k + parseInt(tim);     
+    }
+    //test for valid numbers/comparing values from db and from user
+    for(var p=0; p<scheduledHours.length; p++){
+        for(var r=0; r<listOfHou.length; r++){
+            if(scheduledHours[p] == listOfHou[r]){
+                //match found, hours overlaping
+                //create element and display to the user
+//                var rem = document.getElementById('h3Id');
+//                if(rem){
+//                    rem.remove();                    
+//                }
+//                document.getElementById('startTime').value = "";
+//                document.getElementById('numberOfHours').value = "";
+//                //document.getElementById('numberOfHours').disabled = true;
+//                var h3element = document.createElement('h5');
+//                var h3id = document.createAttribute('id');
+//                h3id.value = "h3Id";
+//                h3element.setAttributeNode(h3id);
+//                scheduledHours.sort();
+//                h3element.innerHTML =  "These hour(s) are scheduled " + scheduledHours;
+//                //get element to insert before
+//                var insBefore = document.getElementById('startTime');
+//                var  parentElement = document.getElementById('setTime');
+//                parentElement.insertBefore(h3element, insBefore);
+                loopBreak = true;
+                break;
+            }
+        }
+        if(loopBreak){break;}
+    }
+    
+   
 }
     
 }
-           var arrStartTimes = new Array();
-    var  arrOfHours = new Array();
+
 function getTrainerDetails(dateValue, trainerIdValue){
  
     if(window.XMLHttpRequest){
@@ -223,40 +363,40 @@ function getTrainerDetails(dateValue, trainerIdValue){
         alert("Your browser is not supported");
     }
     xmlhttp.onreadystatechange = function(){
-          //alert(xmlhttp.status);
         if(xmlhttp.readyState==4 && xmlhttp.status==200){
             //here manipulate results
             var res = xmlhttp.responseText;
             var arrOfRes = res.split("/");
-            //alert(arrOfRes[0]);
 
-             var temp;
-           // alert(arrOfRes[2]);
-            for(var i=0; i< 3; i++){
-                temp = arrOfRes[i].split(",");
-               arrStartTimes[i] =temp[0];
-               // alert(arrStartTimes[i]);
-               arrOfHours[i] = temp[1];
+            var temp = [];
+      
+            for(var i=0; i< arrOfRes.length; i++){
                 
+                temp = arrOfRes[i].split(",");
+                //alert(temp);
+               arrStartTimes[i] =temp[0];
+               
+               arrOfHours[i] = temp[1];
             }
-            
-         
-             //alert(arrStartTimes);
-            
         }
-        
- 
     }
-// alert(arrStartTimes + ' lll');
-    
  
     dateValue = dateValue.replace(/\//g, "-");
      var newarr = dateValue.split("-");
-    dateValue = newarr[2].concat("-", newarr[1], "-", newarr[0]);
-      // alert(dateValue);
+    dateValue = newarr[2].concat("-", newarr[0], "-", newarr[1]);
+
     var d = "ajax.php?date="+dateValue+"&trainerId="+trainerIdValue;
-    //alert(d);
+   // alert(d);
     xmlhttp.open("GET","assests/controller/ajax.php?date="+dateValue+"&trainerId="+trainerIdValue, false);
+    
     xmlhttp.send();
 }
 
+function generateScheduledHours(){
+    //generate list of hours in schedule from DB
+    for(var k=0; k<arrStartTimes.length; k++){
+        for(var m=0; m<arrOfHours[k]; m++){
+            scheduledHours[scheduledHours.length] = m + parseInt(arrStartTimes[k]);
+        }
+    }
+}
