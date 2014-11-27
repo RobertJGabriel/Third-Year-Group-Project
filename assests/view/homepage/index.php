@@ -26,7 +26,8 @@
             <h2>Enter details</h2>
             <input type="text" name="fName" placeholder="First Name"required><br>
             <input type="text" name="lName" placeholder="Last Name"required><br>
-            <input type="text"  name="studentId" placeholder="Student ID"required><br>
+			<label id="studentNumberLabel"></label>
+            <input id="studentNumberForm" type="text"  name="studentId" placeholder="Student ID"required><br>
             <input type="email" name="email" placeholder="Email" required><br>
             <input type="text" name="address" placeholder="Address"required><br>
             <input type="text" name="phone" placeholder="phone"required><br>

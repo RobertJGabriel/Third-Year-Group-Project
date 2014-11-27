@@ -5,9 +5,7 @@
  * Date: 02/10/14
  * Time: 23:45
  */
-
 class members{
-    
     var $memberId;
     var $fName;
     var $lName;
@@ -20,7 +18,7 @@ class members{
     var $weight;
     var $color;
     var $database;
-
+	var $folder = 'third-year-group-project/';
 
 
     // -- Function Name : __construct
@@ -74,9 +72,9 @@ class members{
                     $this->sessionCookies();
                 }
 
-                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/p/' .'index.php?profile=true');
+                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' .'index.php?profile=true');
             } else {
-                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/p/' .'index.php');
+                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' .'index.php');
             }
 
         }
@@ -180,7 +178,7 @@ $idMaker = 0;
                 
                 
                         				echo '<li class = "fliped">';
-                echo ' <div class="back" id="back'. $idMaker . '">';
+                echo ' <div class="backAdmin" id="back'. $idMaker . '">';
                 echo '    <div class="trainerInfo">' .  $row['fName'] . ' ' . $row['lName'];
                             echo '  <form id="booknow" action="index.php?updateuser=true" type="input" method="post" >';
                      echo '    <input  type="text" name="memberId" value="'.  $row['memberId'] . '" >';
@@ -203,7 +201,7 @@ $idMaker = 0;
                   echo '   </div>'; 
                 echo '   </div>';
                 echo '  <div class="front" id="front'. $idMaker . '">';
-                echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="300" />';
+                echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="280" />';
                 echo '  </div>';
                 echo '</li>';
 				$idMaker++;
@@ -268,7 +266,7 @@ $idMaker = 0;
 // -- Purpose : Gets all trainers from the database.
     public
     function getTrainers(){
-         $result =    $this->database->getTrainers();
+        $result =    $this->database->getTrainers();
         $count=mysqli_num_rows($result);
 		$idMaker = 0;
 
@@ -276,16 +274,18 @@ $idMaker = 0;
             while ($row = $result->fetch_assoc()) {
 				echo '<li class = "fliped">';
                 echo ' <div class="back" id="back'. $idMaker . '">';
-                echo '    <div class="trainerInfo">' .  $row['fName'] . ' ' . $row['lName'];
+                echo '    <div class="trainerInfo">' .  $row['fName'] . '' . $row['lName'];
                 echo '   <p>' .  $row['email'] . '</p>';
 				echo '  <form id="booknow" type="input" method="post" >';
 				echo '	<a href="index.php?singleTrainer=true&id='.  $row['memberId'] . '">';
-				echo '  Book Now	';
+				echo '		<span class="bookingButton">';
+				echo '				Book me';
+				echo '			</span>';
 				echo '		</a>';
                 echo '   </form>'.'</div>';
                 echo '   </div>';
                 echo '  <div class="front" id="front'. $idMaker . '">';
-                echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="300" />';
+                echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="280" />';
                 echo '  </div>';
                 echo '</li>';
 				$idMaker++;
@@ -294,6 +294,7 @@ $idMaker = 0;
         } else {
             echo 'No Trainers :(';
         }
+
     }
 
 
@@ -327,9 +328,9 @@ $idMaker = 0;
           for($i; $i < $finishTime; $i++){
             if($i == $row['startTimes']){
               echo '<li class = "slot">';
-              echo '<h3> Start Time '. $i .'</h3>';
+              echo '<h3> Start Time '. $i .':00</h3>';
               echo '<h3> Date '. $row['date'] . '</h3>';
-              echo '<a class="bookNowButton" href="index.php?booked='. $row['memberId']  .'&time=' .  $i    .'&dates='.$row['date'].'"  >Booked </a>';
+              echo '<a class="bookedNowButton" >Booked </a>';
               echo '</li>';
               if($count!=0){
                 $j = ++$i;
@@ -337,7 +338,7 @@ $idMaker = 0;
               }
             } else {
               echo '<li class = "slot">';
-              echo '<h3> Start Time '. $i .'</h3>';
+              echo '<h3> Start Time '. $i .':00</h3>';
               echo '<h3> Date '. $row['date'] . '</h3>';
               echo '   <a class="bookNowButton" href="index.php?booked='. $row['memberId']  .'&time=' .$i    .'&dates='.$row['date'].'" >Book now </a>';
               echo '</li>';

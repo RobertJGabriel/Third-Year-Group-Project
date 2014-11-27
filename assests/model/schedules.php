@@ -132,11 +132,15 @@ class schedules {
         echo '<tr>';
         echo '<th bgcolor="silver">' . 'Time' . '</th> ';
         for($x = 1; $x <= count ( $trainersIds ); $x ++) {
-            echo '<th bgcolor="silver">Gym Trainer' . $x . '</th> ';
+            //display trainer image on the top of table
+            echo '<th bgcolor="silver"><img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'.  $uniqueTrainers[$x-1]  .'.png" ></th> ';
         }
         echo ' <tr>';
 
         $arr = array (9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
+       // echo "<pre>";
+    //    print_r($hourlySchedule);
+      //  echo "<pre>";
         //starts every row of the table
         foreach ( $arr as &$value ) {
 
@@ -145,6 +149,7 @@ class schedules {
 
             //starts column for every trainer
             foreach ( $uniqueTrainers as $trId ) {
+                
                 $countUniqueId = 0;
                 //checks for trainer's status at specific time
                 for($c = 0; $c < $count; $c ++) {
@@ -152,7 +157,7 @@ class schedules {
                     //checks if result row is for specified trainer
                     if ($hourlySchedule [$c] ['memberId'] == $trId) {
                         $countUniqueId ++;
-
+//echo "start time " + $hourlySchedule [$c] ['startTime'] ;
                         //checks if trainer is working at specified time
                         if (($hourlySchedule [$c] ['startTime'] <= $value) && ($value < $hourlySchedule [$c] ['startTime'] + $hourlySchedule [$c] ['noOfHours'])) {
 
@@ -161,10 +166,10 @@ class schedules {
                                 echo '<td bgcolor="silver">' . 'Booked' . '</td> ';
                                 break; // for loop
                             } else if ($hourlySchedule [$c] ['startTimes'] >= $value) {
-         echo '<td bgcolor="silver"><a onclick="init(this);" href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
+                                echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">Book</a></td> ';
                                 break;
                             } else if ($countUniqueId == $noOfRowsForEachTrainer [$trId]) {
-      echo '<td bgcolor="silver"><a onclick="init(this);" href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
+                                echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">Book</a></td> ';
                                 break;
                             }
                         } else {
@@ -203,7 +208,7 @@ class schedules {
         $status =  $_SESSION["status"];
 
 
-        if (($status == '1') || ($status == '2')){
+        if ($status == '1'){
 
 
             echo '  <form id="cancelbooking" class="forms" action="index.php?cancelbooking=true" method="post" >';
@@ -272,10 +277,7 @@ class schedules {
     
     
     
-    
-    
-    
-      public function cancelSchedule(){
+    public function cancelSchedule(){
         $id = $_GET["id"];
          
         $deldate = $_GET['deldate'];

@@ -25,21 +25,6 @@
 <div id="wrapperProfile">
 
 
-	<div id="mobileHeader">
-		<img id="mobileLogo" src="assests/img/gplogo2.png" width="150" height="50">
-		<div id="mobileButton">
-			<div id="mobileMenu">
-				<ul>
-					<li><a href="index.php?profile=true"><img src="<?php  echo 'assests/img/profilePhotos/' . $_SESSION['id'] . '.png' ?>"  width="60" height="60" alt="Profile Picture"></a></li>
-					<li><?php echo $_SESSION["fname"] ;  ?></li>
-					<li><a href="index.php?settings=true">Settings</a></li>
-					<li><a href="index.php?workout=true">Workout</a></li>
-					<li><a href="index.php?booking=true">Book </a></li>
-					<li><a href="index.php?logout=true"> Logout</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
 
     <div id="leftProfile">
         <ul id="profileMenu">
