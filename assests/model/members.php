@@ -177,7 +177,7 @@ $idMaker = 0;
                 
                 
                 
-                        				echo '<li class = "fliped">';
+                echo '<li class = "fliped">';
                 echo ' <div class="backAdmin" id="back'. $idMaker . '">';
                 echo '    <div class="trainerInfo">' .  $row['fName'] . ' ' . $row['lName'];
                             echo '  <form id="booknow" action="index.php?updateuser=true" type="input" method="post" >';
@@ -255,7 +255,7 @@ $idMaker = 0;
         }
 
         echo'</select>';
-        echo '<input id="startTime" type="number" name="start" placeholder="Start Times" required disabled>';
+        echo '<input id="startTime" type="number" name="start" min="9" max="17" placeholder="Start Times" required disabled>';
        	echo '<input id="numberOfHours" type="number" name="hours" placeholder="Amount of Hours" required disabled>';
         echo'<input type="submit">';
         echo '   </form>';

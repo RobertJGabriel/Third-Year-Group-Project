@@ -59,8 +59,6 @@
 
     <div id="rightProfile">
 
-        <button id="authorize-button" style="visibility: hidden">Authorize</button>
-
 
     <ul id="booking">
 

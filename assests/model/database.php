@@ -75,7 +75,7 @@ VALUES ('" . $id . "','" . $date . "','" . $miles . "','" . $run  . "')" );
         $password = $_POST ['password'];
          mysqli_query ( $this->con, " UPDATE members
 SET fName='$fName', lName='$lName',address='$address',phone='$phone',email='$email',status = '$status',password='$password'
-WHERE memberId='$id';" );
+WHERE memberId='$id'" );
     }
 
 
