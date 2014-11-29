@@ -847,7 +847,8 @@ img.trainerImg
 #booking>li:not(:first-child) {
     width:400px;
     height:auto;
-    margin-bottom:30px
+    margin-bottom:30px;
+  margin-left: 25px;
 }
 
 
@@ -970,4 +971,8 @@ display:none;
 #trainerId{
   width: calc(90% + 10px) !important;
    min-width: 190px !important;
+}
+.trainerTable{
+  width: 80% !important;
+  
 }

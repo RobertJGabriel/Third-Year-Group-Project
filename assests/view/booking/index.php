@@ -62,7 +62,7 @@
         <button id="authorize-button" style="visibility: hidden">Authorize</button>
 
 
-    <ul id="booking">
+    <ul id="booking" class="trainerTable">
 
         <li>
          <div id="date">
