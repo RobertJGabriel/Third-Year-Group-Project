@@ -421,7 +421,7 @@ position: absolute;
 			width: calc(100% - 260px);
 		margin-left: 260px;
 			height:auto;
-			margin-top: 100px;
+			margin-top: 150px;
 
 		
 }
@@ -824,7 +824,8 @@ img.trainerImg
 /*   for the booking page */
 
 #booking {
-    width:700px;
+    width: 40%;
+    min-width:300px;
     list-style:none;
     min-height:100%;
     height:auto;
@@ -834,9 +835,8 @@ img.trainerImg
 }
 
 #booking>li {
-    position:static;
+    position:relative;
     float:left;
-    margin-right:30px
 }
 
 #booking>li>table {
@@ -952,3 +952,22 @@ display:none;
 
 
 /*End Hide Mobile set up for big screen*/
+
+/*peters tests*/
+
+#setTime{
+  width:35%;
+  min-width: 180px;
+  
+}
+#setTime input, #setTime select {
+  width: 90% ;
+  min-width: 180px;
+  margin-top: 10px;
+  padding: 5px;
+  vertical-align: middle;
+}
+#trainerId{
+  width: calc(90% + 10px) !important;
+   min-width: 190px !important;
+}
