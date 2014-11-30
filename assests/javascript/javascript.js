@@ -128,6 +128,7 @@ checkStudentNumber(); return false;
 
 });
 
+
 //Mobile menu button
 
 $(document).ready(function() {
@@ -140,9 +141,10 @@ $(document).ready(function() {
    
 });
 
+
 function menuDisplay(){
-	
-	var menu = document.getElementById("mobileMenu");
+							//MobileChanges---Changed to leftProfile
+	var menu = document.getElementById("leftProfile");
 	var button = document.getElementById("mobileButton");
 	
 	if(menu.style.display == "none"){
@@ -158,8 +160,6 @@ function menuDisplay(){
 	}
 
 }
-
-
 
 
 
