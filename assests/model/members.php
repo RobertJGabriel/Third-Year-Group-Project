@@ -305,7 +305,7 @@ $idMaker = 0;
          $result =    $this->database->getSingleTrainers( $trainer  );
       $count=mysqli_num_rows($result);
       
-	  echo'<div><img id="trainerBookingImg" src="assests/img/profilePhotos/' . $trainer.  '.png" /></div>';
+	  echo'<div id="singleTrainers"><img id="trainerBookingImg" src="assests/img/profilePhotos/' . $trainer.  '.png" /></div>';
 	  
       if($count!=0){
         $j=null;

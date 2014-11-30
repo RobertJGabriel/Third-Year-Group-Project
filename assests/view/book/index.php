@@ -79,6 +79,8 @@
 
 
     </div>
+        </li>
+    <li>
     <?php
 
     if ($_SESSION["status"] == 3)
@@ -99,8 +101,9 @@
 
 
 
+        </li>
 
-    </li>
+
 
 
 </ul>
