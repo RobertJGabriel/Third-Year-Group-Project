@@ -1,8 +1,6 @@
 <?php
 include_once("../model/database.php");
 
-//echo $_GET['date'];
-
     $database = new databases();
 //get date and trainer id from GET
 
@@ -11,8 +9,6 @@ include_once("../model/database.php");
 
     $trainerIdValue = $_GET['trainerId'];
 //read trainer details for the specified day
-////echo $trainerIdValue;
-//echo $dateValue;
     $result = $database->getTrainerDaySchedule($trainerIdValue, $dateValue);
     $count=mysqli_num_rows($result);
 

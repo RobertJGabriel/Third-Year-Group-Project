@@ -60,7 +60,7 @@
     <div id="rightProfile">
 
 
-    <ul id="booking">
+    <ul id="booking" class="trainerTable">
 
         <li>
          <div id="date">
