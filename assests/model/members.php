@@ -304,6 +304,11 @@ $idMaker = 0;
     function getSingleTrainers($trainer){
          $result =    $this->database->getSingleTrainers( $trainer  );
       $count=mysqli_num_rows($result);
+     // echo $count;
+      //echo "<pre>";
+      //print_r($result);
+    //  echo "</pre>";
+      
       
 	  echo'<div><img id="trainerBookingImg" src="assests/img/profilePhotos/' . $trainer.  '.png" /></div>';
 	  
@@ -315,6 +320,7 @@ $idMaker = 0;
           //carries over the value of $i into next row of results as a starting value in for loop
           //that allows for continuation of displaying next results.
           $count--;
+          //echo $row['startTime'];
           
           $startTime = $row['startTime'];
           $finishTime = $startTime + $row['noOfHours'];

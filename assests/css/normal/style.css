@@ -824,6 +824,7 @@ img.trainerImg
 /*   for the booking page */
 
 #booking {
+  padding: 0px;
     width: 40%;
     min-width:300px;
     list-style:none;
@@ -973,6 +974,8 @@ display:none;
    min-width: 190px !important;
 }
 .trainerTable{
-  width: 80% !important;
-  
+  width: 80% !important;  
+}
+.ui-datepicker table {
+  font-size: 1em !important;
 }

@@ -296,7 +296,7 @@ WHERE EXISTS (SELECT *
     public
     function getSingleTrainers($trainer){
 ///Needs to be fixed
-
+//echo $trainer;
         $results = mysqli_query ( $this->con, "
 
 SELECT *
@@ -307,7 +307,7 @@ LEFT OUTER JOIN schedules
 ON m.memberId = schedules.trainerId
 WHERE EXISTS (SELECT *
               FROM trainerschedule as ts
-              WHERE m.status = 2 and ts.trainerId = '$trainer' ) ORDER BY startTimes ;" );
+              WHERE m.status = 2  and trainerschedule.trainerId = '$trainer' ) ORDER BY startTimes ;" );
         return $results;
 
 

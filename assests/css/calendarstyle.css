@@ -6,7 +6,7 @@ font-family: Helvetica, Arial, sans-serifs;
 #date
 {
 color: white;
-width: 180px;
+width: 260px;
 margin: 20px auto 20px;
 
 }
@@ -65,8 +65,8 @@ text-align: center;
 		}
 
 div.ui-datepicker{
- font-size:10px;
-    width: 180px;
+ font-size: 1em;
+    width: 250px;
     margin-left: 0px;
 }
 		
