@@ -73,9 +73,9 @@
         <div id="chartWrapper">
 
 			<div id="choices">
-				<div class="c" id="c1">Running Tracker</div>
-				<div class="c" id="c2">Weight Tracker</div>
-                <div class="c" id="c3">Weight Lifts</div>
+				<div class="c" id="c1"><img src="assests/img/icons/small_icons/person41.png" width="50" height="50"></div>
+				<div class="c" id="c2"><img src="assests/img/icons/small_icons/slim.png" width="50" height="50"></div>
+                <div class="c" id="c3"><img src="assests/img/icons/small_icons/exercising.png" width="50" height="50"></div>
 			</div>
 			
 			<div id="chartHolder">
