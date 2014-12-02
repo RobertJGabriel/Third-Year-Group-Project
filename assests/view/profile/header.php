@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
+    
+        <link rel="stylesheet" href="assests/css/CheatSheet/animations.css">
+    
     <link rel="stylesheet" type="text/css" href="assests/css/style.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src = "assests/javascript/javascript.js"></script>

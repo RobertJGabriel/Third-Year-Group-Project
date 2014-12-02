@@ -59,12 +59,14 @@
 
 
     <div id="rightProfile">
-
+	
+	<ul class="availableSlotsList">
 <?php
 
 $this->student->getSingleTrainers(htmlspecialchars($_GET["id"]));
 
 ?>
+	</ul>
     </div>  
 
 </div>
