@@ -1,5 +1,7 @@
 
 <div class="header" id="profileHeader">
+    	<div id="mobileButton">
+	</div>
     <div id="socialPicks">
         <ul>
             <li id="twitter"><a href="https://twitter.com/CIT_Gym" target="_blank"></a></li>
@@ -72,8 +74,8 @@
 
 
     <div id="rightProfile">
-
-<ul id="booking">
+        <h1 class="meetStaff" align="center">Schulde A Trainer</h1>
+<ul id="booking" >
 <li>
     <div id="date">
 

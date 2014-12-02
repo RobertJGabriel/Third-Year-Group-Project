@@ -1,3 +1,8 @@
+
+
+
+
+
 $(document).ready(function() {
 
     $( ".orRegister" ).click(function() {
@@ -141,7 +146,19 @@ $(document).ready(function() {
    
 });
 
+$(window).resize(function() {
+    //do something
 
+    var width = $(document).width();
+ 	var menu = document.getElementById("leftProfile");
+    if (width >= 639) {
+       
+                menu.style.display = "block";
+    } else { 
+        	menu.style.display = "none";
+        
+    }
+});
 function menuDisplay(){
 							//MobileChanges---Changed to leftProfile
 	var menu = document.getElementById("leftProfile");

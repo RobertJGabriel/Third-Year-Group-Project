@@ -463,7 +463,7 @@ position: absolute;
 	position: absolute;
 	width: 200px;
 	height: 300px;
-	border: 1px solid black;
+	      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 	background-color: #d8e3eb;
 	border-radius:5px;
 	display:block;
@@ -475,7 +475,7 @@ position: absolute;
 	background-color: #d8e3eb;
 	width: 200px;
 	height: 300px;
-	border: 1px solid black;
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 5px;
 	display:none;
 }
@@ -486,7 +486,7 @@ position: absolute;
 	background-color: #d8e3eb;
 	width: 200px;
 	height: 300px;
-	border: 1px solid black;
+	      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 5px;
 	display:none;
 }
@@ -837,6 +837,7 @@ img.trainerImg
 
 #booking>li {
     position:relative;
+
     float:left;
 }
 
@@ -846,9 +847,14 @@ img.trainerImg
 }
 
 #booking>li:not(:first-child) {
-    width:400px;
+   
     height:auto;
+
+    width: 200px;
+    float: left;
     margin-bottom:30px;
+    margin-top: 40px;
+    
   margin-left: 25px;
 }
 
@@ -905,17 +911,28 @@ padding: 10px;
 
 	.settings>li {
 		float:left;
+        width: 300px;
+        height: auto;
+        padding: 10px;
+        
 		margin-right:10px
 	}
 
 	.settings>li>form {
 		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
-		margin-left:auto;
+		margin-left:auto;    padding: 10px;
 		margin-right:auto;
 		background-color:#fff;
-		border-bottom:2px solid #206276
-	}
 
+	}
+	.settings>li>form >input{
+        
+     margin-bottom: 10px;
+        margin-top: 10px;
+        
+        
+        
+    }
 
 
 /* --------- end of settings ------------- */

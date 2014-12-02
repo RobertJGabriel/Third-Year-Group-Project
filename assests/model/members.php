@@ -257,7 +257,7 @@ $idMaker = 0;
         echo'</select>';
         echo '<input id="startTime" type="number" name="start" placeholder="Start Times" required disabled>';
        	echo '<input id="numberOfHours" type="number" name="hours" placeholder="Amount of Hours" required disabled>';
-        echo'<input type="submit">';
+        echo'<input type="submit" value="Save">';
         echo '   </form>';
     }
 

@@ -30,6 +30,7 @@ input {
 	position: fixed;
 	top: 1px;
 	width: 100%;
+    padding: 10px;
 	height:90px;
 	box-shadow: 0 5px 17px 0 rgba(0, 0, 0, 0.2);
 	background-color: white;
@@ -37,6 +38,53 @@ input {
     margin-bottom: 40px;
 	z-index: 2;
 }
+
+
+
+
+.forms{
+	width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    text-align: center;  
+}
+.forms > h2{
+  text-align: center;   
+    
+}
+
+.forms>input[type=submit]{
+    width: 190px;
+    border: 1px #5677fc solid ;
+    height: 45px;
+ background-color: #5677fc;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 1.1em;
+	margin:auto;
+}
+
+.forms>input[type=submit]:hover{
+		background-color: #DD2C00;   
+        border: 1px #DD2C00 solid ;
+}
+.forms>input[type=text],.forms>input[type=password],.forms>input[type=email]{
+ 
+    width: 190px;
+    height: 25px;
+    border: 2px #ebebeb solid;
+    border-radius: 3px #ebebeb solid;
+    margin-bottom: 5px;
+    text-align:center;
+}
+
+
+
+
+
+
 
 /*----Homepage----*/
 #wrapper {
@@ -129,9 +177,19 @@ input {
 	display: none;
 }
 
+
+/*           Hompage       */
+	#logo {
+		width:229px;
+		height:84px;
+		margin-left:auto;
+		margin-right:auto;
+            margin-top:0px;
+	}
+
 #logOutBox {
 	position: relative;
-	top: 5px;
+	top: 10px;
 	left: 10px;
 	float: left;
 	border: 1px solid #B51845;
@@ -148,79 +206,114 @@ input {
 	background-color: #B51845;
 	color: white;
 }
+	/* Left profile */
+	#profileMenu {
+		display: block;
 
-#leftProfile{
-	display: none;
-	overflow: scroll;
-	position: fixed;
-	top: 41px;
-	width: 200px;
-	height: 100%;
-	border: 1px solid #B51845;
-	text-align: center;
-	background-color: white;
-	z-index: 1;
-}
-
-#leftProfile li:first-child a:hover {
-	background-color: transparent;
-}
-
-#leftProfile ul{
-	position: relative;
-	top: 80px;
-	list-style-type: none;
-	margin-left: -15px;
-	width: 150px;
-}
-
-#leftProfile li {
-	margin-left: none;
-	background-color: white;
-	border: 1px solid black;
-	border-radius: 3px;
-	height: 30px;
-	margin-bottom: 10px;
-	line-height: 30px;
-}
-
-#leftProfile ul li:first-child{
-	border: none;
-	width: 60px;
-	height: 60px;
-	position: relative;
-	top: -70px;
-}
+        margin-top: 50px;
+	}
 	
-#leftProfile ul li:nth-child(2){
-	border: none;
-	font-size: 1.5em;
-	font-size: 50%;
-}
+	#leftProfile
+	{
+		display: block;
+		padding:0;
+		padding-top:5px;
+		width:100%;
+
+position: fixed;
+        z-index: 33;
+		float:left;
+		background:#9f123a;
+		margin-top:90px;
+	}
+
+
+	#leftProfile> ul{
+		list-style: none;
+
+	}
+
+	#leftProfile> ul> li:first-child ,#leftProfile> ul> li> img ,#leftProfile> ul> li> a>img
+	{
+		width:150px;
+		height:150px;
+		 text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+		border-radius:100px;
+	}
+
+	#usersName
+	{
+display: none;
+	}
+
+	.profileButton
+	{
+		height:40px;
+		line-height:40px;
+		width:100%;
+		border-radius:5px;
+		margin-top:10px; text-align: center;
+		text-align:center;
+		background:white;
+		border:solid #9f123a;
+		margin-left:-20px;
+	}
+
+	.profileButton> a
+	{
+		text-decoration:none;
+	
+		height:50px;
+		width:200px;
+        text-align: center;
+		color:#9f123a;
+	}
+	
+
 
 #mobileButton{
 	position: relative;
 	top: 9px;
 	left: -9px;
 	display: block;
-	width: 30px;
-	height: 30px;
-	background-image: url("../../img/icons/menu2.png");
-	background-color: grey;
+	width: 50px;
+	height: 50px;
+	background-image: url("../../img/icons/menu.png");
+background-position: center;
+    background-size: cover;
 	float: right;
 	border: none;
+
 }
 	
 #mobileButton:hover{cursor: pointer;}
 
-#leftProfile li a:hover{
-	background-color: #B51845;
-	color: white;
-}
 
-#leftProfile li a{
-	display: block;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 #mobileMenu ul li:last-child{
 	background-color: grey;
@@ -231,7 +324,7 @@ input {
 	position: fixed;
 	top: 1px;
 	width: 100%;
-	height: 50px;
+	height: 90px;
 	box-shadow: 0 5px 17px 0 rgba(0, 0, 0, 0.2);
 	background-color: white;
 	border-bottom: 2px solid #B51845;
@@ -245,10 +338,17 @@ input {
 }
 	
 #rightProfile{
+
 	clear: both;
-	position: relative;
-	top: 70px;
-	width: 100%;
+	
+position: absolute;
+    z-index: 2;
+width: 100%;
+			height:auto;
+			margin-top: 150px;
+
+		
+
 }
 
 .meetStaff{
@@ -256,42 +356,33 @@ input {
     background-color: white;
     color: #B51845;
 }
-	
-/* Trainers flip cards */
+	/* Trainers flip cards */
 #trainers{
-    margin-left: auto;
+    
+    width: 100%;
     height: 100%;
     list-style: none;
 }
 
 
 #trainers>li{
-	width: 180px;
+	 width: 180px;
 	padding: 10px;
     height: 300px;
     float: left;
-    margin-left: 10%;
-    margin-bottom: 40px;
-}
-
-.trainerImg {
-	position: relative;
-	top: 20px;
-	left: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
 }
 
 .fliped > .front
 {
 	position: absolute;
-	width: 220px;
-	height: 340px;
-	border: 0px solid black;
-  box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
-		background-color:#d8e3eb;
-		border-radius:5px;
+	width: 200px;
+	height: 300px;
+	      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 	background-color: #d8e3eb;
 	border-radius:5px;
-    cursor: pointer;
 	display:block;
 }
 
@@ -299,69 +390,208 @@ input {
 {
 	position: absolute;
 	background-color: #d8e3eb;
-	width: 220px;
-	height: 340px;
-	border: 0px solid black;
-    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
-	background-color:#d8e3eb;
-	border-radius:5px;
+	width: 200px;
+	height: 300px;
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 5px;
 	display:none;
 }
 
-.fliped:hover > .front
+.fliped > .backAdmin
 {
-	/*display:none;*/
+	position: absolute;
+	background-color: #d8e3eb;
+	width: 200px;
+	height: 300px;
+	      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	display:none;
+}
+
+/*.fliped:hover > .front
+{
+	display:none;
 }
 
 .fliped:hover > .back
 {
-	/*display:block;*/
+	display:block;
 }
+*/
 
+
+
+
+img.trainerImg
+{
+	position: relative;
+	top: 9px;
+	left: 9px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
 
 .trainerInfo
 {
 	position: relative;
 	top: 9px;
 	left: 9px;
-	border: 0px solid black;
-	width: 190px;
-	height: 310px;
+	border: 1px solid black;
+	width: 170px;
+	height: 270px;
 	background-color: white;
 	text-align:center;
 	padding:5px;
 }
 
-.trainerInfo input {
-	position: relative;
+.bookingButton
+{
+	position:absolute;
+	top:220px;
+	left:35px;
+	height:30px;
+	line-height:30px;
+	width:100px;
+	border-radius:15px;
+	margin:auto;
+	margin-top:10px;
+	text-align:center;
+	background:white;
+	color:#9f123a;
+	border:solid #9f123a;
 }
 
-	/*     End cards / Trainers */
+.bookingButton:hover
+{
+	background:#9f123a;
+	color:white;
+	cursor: pointer;
+}
+/* end Trainers flip cards */
+
+
+
+/*individula trainer booking page */
+.availableSlotsList
+{
+	list-style: none;
+	max-width:680px;
+	margin:auto;
+}
+.slot
+{
+	display: inline-table;
+	position: relative;
+	width: 200px;
+	height: 95px;
+	border-radius:15px;
+	text-align:center;
+	background:white;
+	color:#9f123a;
+	border:solid #d8e3eb;
+	padding-bottom:10px;
+	margin:10px;
+}
+.bookedBanner
+{
+	height:30px;
+	line-height:30px;
+	width:100%;
+	text-align:center;
+	background:#99CCFF;
+	color:white;
+	text-decoration:none;
+	padding:5px;
+}
+
+.bookNowButton
+{
+	height:30px;
+	line-height:30px;
+	width:100px;
+	border-radius:15px;
+	margin:auto;
+	text-align:center;
+	background:white;
+	color:#99CCFF;
+	border:solid #99CCFF;
+	text-decoration:none;
+	padding:5px;
+}
+.bookNowButton:hover
+{
+	background:#99CCFF;
+	color:white;
+	cursor: pointer;
+}
+.bookedNowButton
+{
+	height:30px;
+	line-height:30px;
+	width:100px;
+	margin:auto;
+	text-align:center;
+	background:#9f123a;
+	color:white;
+	text-decoration:none;
+	padding:5px;
+}
+
+#trainerBookingImg
+{
+	margin-left: -moz-calc(50% - 70px);
+    margin-left: -webkit-calc(50% - 70px);
+    margin-left:calc(50%-70px);
+	margin-top:10px;
+	height:210px;
+	width:135px;
+	border-right:0px;
+	border-radius: 15px;
+}
+/*end individula trainer booking page */
 
 /*-------Settings----------*/
 
-.settings {
-	margin-left:auto;
-	margin-right:auto;
-	width:80%;
-	height:auto;
-	margin-bottom:40px;
-	list-style:none
-}
 
-.settings>li {
-	float:left;
-	margin-right:10px
-}
 
-.settings>li>form {
-	box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
-	margin-left:auto;
-	margin-right:auto;
-	background-color:#fff;
-	border-bottom:2px solid #206276
-}
+/* ------------ Settings ---------- */
+
+
+
+
+	.settings {
+		margin-left:auto;
+		margin-right:auto;
+		width:460px;
+		height:auto;
+		margin-bottom:40px;
+		list-style:none
+	}
+
+	.settings>li {
+		float:left;
+        width: 300px;
+        height: auto;
+        padding: 10px;
+        
+		margin-right:10px
+	}
+
+	.settings>li>form {
+		box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+		margin-left:auto;    padding: 10px;
+		margin-right:auto;
+		background-color:#fff;
+
+	}
+	.settings>li>form >input{
+        
+     margin-bottom: 10px;
+        margin-top: 10px;
+        
+        
+        
+    }
 
 .forms>input[type=submit] {
 		width:190px;
