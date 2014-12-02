@@ -282,7 +282,7 @@ class schedules {
          
         $deldate = $_GET['deldate'];
         $this->database->deleteSchedule($id, $deldate);
-         // header('Location: ' . $_SERVER['HTTP_REFERER']);
+       header('Location: ' . $_SERVER['HTTP_REFERER']);
     
     
     }

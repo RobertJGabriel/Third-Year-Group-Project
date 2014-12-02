@@ -72,9 +72,9 @@ class members{
                     $this->sessionCookies();
                 }
 
-                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' .'index.php?profile=true');
+                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' .'p/index.php?profile=true');
             } else {
-                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' .'index.php');
+                header("location: " . "http://" . $_SERVER['SERVER_NAME'] .'/' .'p/index.php');
             }
 
         }
@@ -177,7 +177,7 @@ $idMaker = 0;
                 
                 
                 
-                echo '<li class = "fliped">';
+                        				echo '<li class = "fliped">';
                 echo ' <div class="backAdmin" id="back'. $idMaker . '">';
                 echo '    <div class="trainerInfo">' .  $row['fName'] . ' ' . $row['lName'];
                             echo '  <form id="booknow" action="index.php?updateuser=true" type="input" method="post" >';
@@ -255,7 +255,7 @@ $idMaker = 0;
         }
 
         echo'</select>';
-        echo '<input id="startTime" type="number" name="start" min="9" max="17" placeholder="Start Times" required disabled>';
+        echo '<input id="startTime" type="number" name="start" placeholder="Start Times" required disabled>';
        	echo '<input id="numberOfHours" type="number" name="hours" placeholder="Amount of Hours" required disabled>';
         echo'<input type="submit">';
         echo '   </form>';
@@ -304,8 +304,13 @@ $idMaker = 0;
     function getSingleTrainers($trainer){
          $result =    $this->database->getSingleTrainers( $trainer  );
       $count=mysqli_num_rows($result);
+     // echo $count;
+      //echo "<pre>";
+      //print_r($result);
+    //  echo "</pre>";
       
-	  echo'<div id="singleTrainers"><img id="trainerBookingImg" src="assests/img/profilePhotos/' . $trainer.  '.png" /></div>';
+      
+	  echo'<div><img id="trainerBookingImg" src="assests/img/profilePhotos/' . $trainer.  '.png" /></div>';
 	  
       if($count!=0){
         $j=null;
@@ -315,6 +320,7 @@ $idMaker = 0;
           //carries over the value of $i into next row of results as a starting value in for loop
           //that allows for continuation of displaying next results.
           $count--;
+          //echo $row['startTime'];
           
           $startTime = $row['startTime'];
           $finishTime = $startTime + $row['noOfHours'];

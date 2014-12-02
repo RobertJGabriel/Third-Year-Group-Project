@@ -75,7 +75,7 @@ VALUES ('" . $id . "','" . $date . "','" . $miles . "','" . $run  . "')" );
         $password = $_POST ['password'];
          mysqli_query ( $this->con, " UPDATE members
 SET fName='$fName', lName='$lName',address='$address',phone='$phone',email='$email',status = '$status',password='$password'
-WHERE memberId='$id'" );
+WHERE memberId='$id';" );
     }
 
 
@@ -296,7 +296,7 @@ WHERE EXISTS (SELECT *
     public
     function getSingleTrainers($trainer){
 ///Needs to be fixed
-
+//echo $trainer;
         $results = mysqli_query ( $this->con, "
 
 SELECT *
@@ -307,7 +307,7 @@ LEFT OUTER JOIN schedules
 ON m.memberId = schedules.trainerId
 WHERE EXISTS (SELECT *
               FROM trainerschedule as ts
-              WHERE m.status = 2 and ts.trainerId = '$trainer' ) ORDER BY startTimes ;" );
+              WHERE m.status = 2  and trainerschedule.trainerId = '$trainer' ) ORDER BY startTimes ;" );
         return $results;
 
 

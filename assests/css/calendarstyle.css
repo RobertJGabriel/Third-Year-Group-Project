@@ -6,9 +6,9 @@ font-family: Helvetica, Arial, sans-serifs;
 #date
 {
 color: white;
-width: 180px;
-margin-top: 20px;
-margin-left: 10px;
+width: 260px;
+margin: 20px auto 20px;
+
 }
 
 #day_calendar
@@ -65,9 +65,9 @@ text-align: center;
 		}
 
 div.ui-datepicker{
- font-size:10px;
-    width: 180px;
-    margin-left: -20px;
+ font-size: 1em;
+    width: 250px;
+    margin-left: 0px;
 }
 		
 /*-------------CalendarWeek--------------*/
