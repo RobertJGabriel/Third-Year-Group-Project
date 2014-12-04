@@ -312,7 +312,8 @@ body,html {
     position:fixed;
     float:left;
     background:#9f123a;
-    margin-top:71px
+    margin-top:71px;
+    border-right: white solid 2px;
 }
 
 #leftProfile> ul {
