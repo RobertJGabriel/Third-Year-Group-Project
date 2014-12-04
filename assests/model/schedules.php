@@ -127,13 +127,13 @@ class schedules {
             }
         }
 
-        echo ' <table >';
+       echo ' <table >';
 
         echo '<tr>';
-        echo '<th bgcolor="silver">' . 'Time' . '</th> ';
+        echo '<th>' . 'Time' . '</th> ';
         for($x = 1; $x <= count ( $trainersIds ); $x ++) {
             //display trainer image on the top of table
-            echo '<th bgcolor="silver"><img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'.  $uniqueTrainers[$x-1]  .'.png" ></th> ';
+            echo '<th><img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'.  $uniqueTrainers[$x-1]  .'.png" ></th> ';
         }
         echo ' <tr>';
 
@@ -145,7 +145,7 @@ class schedules {
         foreach ( $arr as &$value ) {
 
             echo '<tr>';
-            echo '<td bgcolor="silver">' . $value . '</td> ';
+            echo '<td>' . $value . '</td> ';
 
             //starts column for every trainer
             foreach ( $uniqueTrainers as $trId ) {
@@ -163,17 +163,17 @@ class schedules {
 
                             //checks if trainer time slot is booked/free
                             if ($hourlySchedule [$c] ['startTimes'] == $value) {
-                                echo '<td bgcolor="silver">' . 'Booked' . '</td> ';
+                                echo '<td>' . '<span class="tdBooked">Booked</span>' . '</td> ';
                                 break; // for loop
                             } else if ($hourlySchedule [$c] ['startTimes'] >= $value) {
-                                echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">Book</a></td> ';
+                                echo '<td><a class="tdBook" href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">Book Now</a></td> ';
                                 break;
                             } else if ($countUniqueId == $noOfRowsForEachTrainer [$trId]) {
-                                echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">Book</a></td> ';
+                                echo '<td><a class="tdBook" href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">Book Now</a></td> ';
                                 break;
                             }
                         } else {
-                            echo '<td>Not Working</td>';
+                            echo '<td><span class="tdNotWorking">Not Working</span></td>';
                             break; // for loop
                         }
                     }
