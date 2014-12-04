@@ -18,7 +18,7 @@ class members{
     var $weight;
     var $color;
     var $database;
-	var $folder = 'third-year-group-project/';
+	var $folder = 'p/';
 
 
     // -- Function Name : __construct

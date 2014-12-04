@@ -71,7 +71,7 @@
 
       function handleAuthResult(authResult) {
         var authorizeButton = document.getElementById('authorize-button');
-        var insertButton = document.getElementById('insert-button');
+        var insertButton = document.getElementById('insertButton');
 
         if (authResult && !authResult.error) {
 
