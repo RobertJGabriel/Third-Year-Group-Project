@@ -12,7 +12,16 @@ a {
 li {
     list-style-type:none
 }
-
+#map-canvas {
+    padding:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:0
+/* Set z-index to 0 as it will be on a layer below the contact form */
+}
 body,html {
     width:100%;
     height:100%;
@@ -162,7 +171,7 @@ input {
 }
 
 #topLogo {
-    display:none
+  
 }
 
 /*           Hompage       */
@@ -176,7 +185,7 @@ input {
 
 #logOutBox {
     position:relative;
-    top:10px;
+    margin-top: -55px;
     left:10px;
     float:left;
     border:1px solid #B51845;
@@ -209,7 +218,7 @@ input {
     z-index:33;
     float:left;
     background:#9f123a;
-    margin-top:90px
+    margin-top:105px
 }
 
 #leftProfile> ul {
@@ -547,3 +556,40 @@ img.trainerImg {
 }
 
 /*---------------------- END - ´Events ------------------*/
+
+
+
+
+
+/*---------- homepage --------- */
+
+
+
+#confirmButton {
+    display:none
+}
+
+#notWorkingButton {
+    opacity:.4;
+    width:190px;
+    border:1px #5677fc solid;
+    height:45px;
+    line-height:45px;
+    text-align:center;
+    background-color:#5677fc;
+    color:#fff;
+    cursor:default;
+    border-radius:3px;
+    font-size:1.1em;
+    margin:auto
+}
+
+.orRegister {
+    cursor:pointer;
+    text-decoration:underline
+}
+
+.orSign {
+    cursor:pointer;
+    text-decoration:underline
+}
