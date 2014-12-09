@@ -329,7 +329,11 @@ body,html {
     background:#9f123a;
     margin-top:71px;
 <<<<<<< HEAD
+<<<<<<< HEAD
     border-right: white solid 2px;
+=======
+	border-right:double 10px white;
+>>>>>>> FETCH_HEAD
 =======
 	border-right:double 10px white;
 >>>>>>> FETCH_HEAD
