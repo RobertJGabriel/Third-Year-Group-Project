@@ -14,7 +14,7 @@ class Controller {
     var $cardio;
 
     var $database;
-    
+    //contructor
     public
     function __construct()      {
         $this->student = new members();
