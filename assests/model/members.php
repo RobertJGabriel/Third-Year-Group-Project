@@ -255,9 +255,11 @@ $idMaker = 0;
         }
 
         echo'</select>';
-        echo '<input id="startTime" type="number" name="start" placeholder="Start Times" required disabled>';
-       	echo '<input id="numberOfHours" type="number" name="hours" placeholder="Amount of Hours" required disabled>';
-        echo'<input type="submit" value="Save">';
+        echo '<input id="startTime" type="number" name="start" min="9" max="18" placeholder="Start Times" required disabled>';
+       	echo '<input id="numberOfHours" type="number" name="hours" min="1" max="9" placeholder="Amount of Hours" required disabled>';
+		echo '<label id="invalidHours"></label>';
+		echo '<div id="notWorkingButton2">Save</div>';
+        echo'<input type="submit" value="Save" id="confirmButton">';
         echo '   </form>';
     }
 
