@@ -215,11 +215,14 @@ class schedules {
             echo '<h2>Cancell a booking</h2>';
             echo '   <select name="booking" required>';
             echo '<option value="" >Select</option>';
-
+          
             if($count!=0){
 
                 while ($row = $result->fetch_assoc()) {
-                    echo   ' <option value="'. $row['startTimes']  .  ',' . $row['dates']    .'">' .  $row[' dates'] . '' . $row['startTimes']   .'</option>';
+                      echo "<pre>";
+            print_r($row);
+            echo "</pre>";
+                    echo   ' <option value="'. $row['startTimes']  .  ',' . $row['dates']    .'">' .  $row['dates'] . ' at ' . $row['startTimes']   .':00</option>';
                 }
 
             } else {
