@@ -73,16 +73,9 @@
         </li>
 
         <li>
-
-
-
-
                 <div id="calendar_wrapper" class="left">
                     <h2 id="day"></h2>
                 </div>
-
-
-
                     <div id="day_calendar">
                     </div>
 

@@ -102,6 +102,12 @@ class schedules {
         while ( $row = $result->fetch_assoc () ) {
             array_push ( $hourlySchedule, $row );
         }
+        
+        /////////////////
+        //echo "<pre>";
+        //print_r($hourlySchedule);
+        //echo "</pre>";
+        /////////////////
 
         // stores trainers ids including duplicates
         $trainersIds = array ();
@@ -133,7 +139,7 @@ class schedules {
         echo '<th>' . 'Time' . '</th> ';
         for($x = 1; $x <= count ( $trainersIds ); $x ++) {
             //display trainer image on the top of table
-            echo '<th><img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'.  $uniqueTrainers[$x-1]  .'.png" ></th> ';
+            echo '<th><img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'.  $uniqueTrainers[$x-1]  .'.png" alt="'. $hourlySchedule[$x]['fName'].' ' . $hourlySchedule[$x]['lName'] .'"></th> ';
         }
         echo ' <tr>';
 
