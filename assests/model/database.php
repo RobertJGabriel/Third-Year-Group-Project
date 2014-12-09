@@ -166,22 +166,13 @@ WHERE memberId='$id';" );
         $results = mysqli_query ( $this->con, "SELECT * FROM members " );
         return $results;
     }
-
-
-
-
-
-
-
-
-
     // -- Function Name : getTraniersSchedule
     // -- Params : $s, $trainer
     // -- Purpose : Gets the trainers scheudle.
     public
     function getTraniersSchedule($s, $trainer) {
 
-        $results = mysqli_query ( $this->con, "SELECT *
+        $results = mysqli_query ( $this->con, "SELECT memberId, startTime, noOfHours, startTimes, fName, lName, date 
 FROM members as m
 left outer  JOIN trainerschedule
 ON m.memberId=trainerschedule.trainerId
@@ -189,7 +180,7 @@ LEFT OUTER JOIN schedules
 ON m.memberId = schedules.trainerId
 WHERE EXISTS (SELECT *
               FROM trainerschedule as ts
-              WHERE m.status = 2 and ts.trainerId = m.memberId and ts.date = '$s') ORDER BY startTimes ;" );
+              WHERE m.status = 2 and ts.trainerId = m.memberId and trainerschedule.date = '$s') ORDER BY memberId, startTimes ;" );
         return $results;
     }
 
