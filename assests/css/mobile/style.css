@@ -310,7 +310,7 @@ input {
 
 .meetStaff {
     width:100%;
-    background-color:#fff;
+
     color:#B51845
 }
 
@@ -617,6 +617,70 @@ img.trainerImg {
     text-decoration:none;
     padding:5px
 }
+
+.Settingforms{
+	float:left;
+	width: 200px;
+	margin-bottom: 30px;
+    padding: 10px;
+    background-color: white;
+	margin-left:30px;
+}
+.Settingforms > h2{
+  text-align: center;   
+    
+}
+
+
+.Settingforms>input[type=submit]{
+    width: 190px;
+    height: 45px;
+	background-color: #FFFFFF;   
+    border: 1px #9f123a solid ;
+	color:#9f123a;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+.Settingforms>input[type=submit]:hover{
+	background-color: #9f123a;   
+    border: 1px #FFFFFF solid ;
+	color:#FFFFFF;
+}
+.Settingforms>input[type=text],.Settingforms>input[type=password],.Settingforms>input[type=email],.Settingforms>input[type=number]{
+ 
+    width: 190px;
+    height: 25px;
+    border: 2px #ebebeb solid;
+    border-radius: 3px #ebebeb solid;
+    margin-bottom: 5px;
+    text-align:center;
+	
+}
+
+.Settingforms>input[type=color]
+{
+	width: 180px;
+    margin-bottom: 10px;
+    height: 50px;
+}
+
+.Settingforms>input[type=file]
+{
+    margin-bottom: 10px;
+}
+
+.Settingforms>textarea[type=text]{
+ 
+    width: 189px;
+    height: 50px;
+    border: 2px #ebebeb solid;
+    border-radius: 3px #ebebeb solid;
+    margin-bottom: 5px;
+    text-align:center;
+}
+
 
 #trainerBookingImg {
     margin-left:-moz-calc(50% - 70px);
