@@ -24,13 +24,13 @@
 
         <form name="register" class="forms" id="register" action="<?php $this->student->registration();  ?>" method="post">
             <h2>Enter details</h2>
-            <input type="text" name="fName" placeholder="First Name"required><br>
-            <input type="text" name="lName" placeholder="Last Name"required><br>
+            <input id="homeForm1" type="text" name="fName" placeholder="First Name"required><br>
+            <input id="homeForm2" type="text" name="lName" placeholder="Last Name"required><br>
 			<label id="studentNumberLabel"></label>
             <input id="studentNumberForm" type="text"  name="studentId" placeholder="Student ID"required><br>
-            <input type="email" name="email" placeholder="Email" required><br>
-            <input type="text" name="address" placeholder="Address"required><br>
-            <input type="text" name="phone" placeholder="phone"required><br>
+            <input id="homeForm3" type="email" name="email" placeholder="Email" required><br>
+            <input id="homeForm4" type="text" name="address" placeholder="Address"required><br>
+            <input id="homeForm5" type="text" name="phone" placeholder="phone"required><br>
             <input id="pass1" type="password" name="password" placeholder="Password" required><br>
             <input id="pass2" type="password" name="rpassword" placeholder="Re-enter Password" required><br>
             <div id="notWorkingButton">Sign Up</div>

@@ -1,8 +1,3 @@
-
-
-
-
-
 $(document).ready(function() {
 
     $( ".orRegister" ).click(function() {
@@ -13,8 +8,12 @@ $(document).ready(function() {
         switchBack();
     });
 
-    $( "#pass2" ).keyup(function() {
-        checkPass(); return false;
+    $( "#pass1" ).keyup(function() {
+checkPass(); return false;
+    });
+	
+	$( "#pass2" ).keyup(function() {
+checkPass(); return false;
     });
 
     $( ".front" ).click(function() {
@@ -25,10 +24,28 @@ $(document).ready(function() {
         backFlip(this.id);
     });
 
-
-	
 	$( "#studentNumberForm" ).keyup(function() {
-checkStudentNumber(); return false;
+	checkStudentNumber(); return false;
+    });
+	
+	$( "#homeForm1" ).keyup(function() {
+	displayButton(); return false;
+    });
+	
+	$( "#homeForm2" ).keyup(function() {
+	displayButton(); return false;
+    });
+	
+	$( "#homeForm3" ).keyup(function() {
+	displayButton(); return false;
+    });
+	
+	$( "#homeForm4" ).keyup(function() {
+	displayButton(); return false;
+    });
+	
+	$( "#homeForm5" ).keyup(function() {
+	displayButton(); return false;
     });
 	
 
@@ -69,6 +86,33 @@ checkStudentNumber(); return false;
             $("#logIn").slideDown('slow');});
         document.getElementById('left').style.marginTop = "0px";
     }
+		function checkPass()
+		{
+			var pass1 = document.getElementById('pass1');
+			var pass2 = document.getElementById('pass2');
+		   
+			if(pass2.value == "")
+			{
+				pass2.style.backgroundColor = "#ffffff";
+				confirmButton.style.display = "none";
+				notWorkingButton.style.display = "block";
+				return false;
+			}
+			else if(pass1.value == pass2.value)
+			{
+				pass2.style.backgroundColor = "#ffffff";
+				displayButton();
+				return true;
+			}
+			else
+			{
+				pass2.style.backgroundColor = "#ff6666";
+				confirmButton.style.display = "none";
+				notWorkingButton.style.display = "block";
+				return false;
+			}
+		}  	
+		
 		function checkStudentNumber()
 		{
 			var studentNumberDiv = document.getElementById('studentNumberForm');
@@ -100,32 +144,32 @@ checkStudentNumber(); return false;
 				return false;
 			}
 			
-		} 
-    function checkPass()
-    {
-        var pass1 = document.getElementById('pass1');
-        var pass2 = document.getElementById('pass2');
-
-        if(pass2.value == "")
-        {
-            pass2.style.backgroundColor = "#ffffff";
-            confirmButton.style.display = "none";
-            notWorkingButton.style.display = "block";
-        }
-        else if(pass1.value == pass2.value)
-        {
-            pass2.style.backgroundColor = "#ffffff";
-            confirmButton.style.display = "block";
-            notWorkingButton.style.display = "none";
-        }
-        else
-        {
-            pass2.style.backgroundColor = "#ff6666";
-            confirmButton.style.display = "none";
-            notWorkingButton.style.display = "block";
-        }
-    }
-
+		}  	
+		
+		function displayButton()
+		{
+			var pass1 = document.getElementById('pass1');
+			var pass2 = document.getElementById('pass2');
+			var studentNumber = document.getElementById('studentNumberForm').value;
+		    var firstLetter = studentNumber.charAt(0);
+			var numberLength = studentNumber.length;
+			var h1 = document.getElementById('homeForm1').value;
+			var h2 = document.getElementById('homeForm2').value;
+			var h3 = document.getElementById('homeForm3').value;
+			var h4 = document.getElementById('homeForm4').value;
+			var h5 = document.getElementById('homeForm5').value;
+			
+			if(pass1.value != "" && pass1.value == pass2.value && firstLetter == "R" && numberLength == 9 && h1 != "" && h2 != "" && h3 != "" && h4 != "" && h5 != "")
+			{
+				confirmButton.style.display = "block";
+				notWorkingButton.style.display = "none";
+			}
+			else
+			{
+				confirmButton.style.display = "none";
+				notWorkingButton.style.display = "block";
+			}
+		}
 
 
 
