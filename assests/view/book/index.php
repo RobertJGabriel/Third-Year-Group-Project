@@ -60,7 +60,7 @@
 
 
     <div id="rightProfile">
-        <h1 class="meetStaff" align="center">Schulde A Trainer</h1>
+        <h1 class="meetStaff" align="center">Schedule A Trainer</h1>
 <ul id="booking" >
 <li>
     <div id="date">

@@ -6,7 +6,7 @@
 
 a {
     text-decoration:none;
-    color:#000
+    color:#000;
 }
 
 li {
@@ -248,15 +248,18 @@ input {
     text-align:center;
     background:#fff;
     border:solid #9f123a;
-    margin-left:-20px
+    margin-left:-20px;
 }
 
-.profileButton> a {
+.profileButton > a {
     text-decoration:none;
     height:50px;
     width:200px;
     text-align:center;
-    color:#9f123a
+    color:#9f123a;
+	display: inline-block;
+	padding-left: 100px;
+	padding-right: 100px;
 }
 
 #mobileButton {

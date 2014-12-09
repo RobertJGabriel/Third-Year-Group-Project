@@ -188,6 +188,10 @@ $(document).ready(function() {
    
    });
    
+   var menu = document.getElementById("leftProfile");
+   
+   menu.style.display = "none";
+   
 });
 
 $(window).resize(function() {
