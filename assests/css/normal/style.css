@@ -133,6 +133,21 @@ body,html {
     font-size:1.1em;
     margin:auto
 }
+#notWorkingButton2 {
+    opacity:.4;
+    width:90%;
+    border:1px #5677fc solid;
+    height:45px;
+    line-height:45px;
+    text-align:center;
+    background-color:#5677fc;
+    color:#fff;
+    cursor:default;
+    border-radius:3px;
+    font-size:1.1em;
+    margin:auto;
+	margin-top:10px;
+}
 
 .orRegister {
     cursor:pointer;
@@ -313,7 +328,11 @@ body,html {
     float:left;
     background:#9f123a;
     margin-top:71px;
+<<<<<<< HEAD
     border-right: white solid 2px;
+=======
+	border-right:double 10px white;
+>>>>>>> FETCH_HEAD
 }
 
 #leftProfile> ul {
@@ -388,9 +407,9 @@ body,html {
     clear:both;
     position:absolute;
     z-index:2;
-    width:-moz-calc(100% - 260px);
-    width:-webkit-calc(100% - 260px);
-    width:calc(100% - 260px);
+    width:-moz-calc(100% - 300px);
+    width:-webkit-calc(100% - 300px);
+    width:calc(100% - 300px);
     margin-left:260px;
     height:auto;
     margin-top:150px

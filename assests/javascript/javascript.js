@@ -1,8 +1,3 @@
-
-
-
-
-
 $(document).ready(function() {
 
     $( ".orRegister" ).click(function() {
@@ -13,8 +8,12 @@ $(document).ready(function() {
         switchBack();
     });
 
-    $( "#pass2" ).keyup(function() {
-        checkPass(); return false;
+    $( "#pass1" ).keyup(function() {
+checkPass(); return false;
+    });
+	
+	$( "#pass2" ).keyup(function() {
+checkPass(); return false;
     });
 
     $( ".front" ).click(function() {
@@ -25,10 +24,28 @@ $(document).ready(function() {
         backFlip(this.id);
     });
 
-
-	
 	$( "#studentNumberForm" ).keyup(function() {
-checkStudentNumber(); return false;
+	checkStudentNumber(); return false;
+    });
+	
+	$( "#homeForm1" ).keyup(function() {
+	displayButton(); return false;
+    });
+	
+	$( "#homeForm2" ).keyup(function() {
+	displayButton(); return false;
+    });
+	
+	$( "#homeForm3" ).keyup(function() {
+	displayButton(); return false;
+    });
+	
+	$( "#homeForm4" ).keyup(function() {
+	displayButton(); return false;
+    });
+	
+	$( "#homeForm5" ).keyup(function() {
+	displayButton(); return false;
     });
 	
 
@@ -69,12 +86,41 @@ checkStudentNumber(); return false;
             $("#logIn").slideDown('slow');});
         document.getElementById('left').style.marginTop = "0px";
     }
+		function checkPass()
+		{
+			var pass1 = document.getElementById('pass1');
+			var pass2 = document.getElementById('pass2');
+		   
+			if(pass2.value == "")
+			{
+				pass2.style.backgroundColor = "#ffffff";
+				confirmButton.style.display = "none";
+				notWorkingButton.style.display = "block";
+				return false;
+			}
+			else if(pass1.value == pass2.value)
+			{
+				pass2.style.backgroundColor = "#ffffff";
+				displayButton();
+				return true;
+			}
+			else
+			{
+				pass2.style.backgroundColor = "#ff6666";
+				confirmButton.style.display = "none";
+				notWorkingButton.style.display = "block";
+				return false;
+			}
+		}  	
+		
 		function checkStudentNumber()
 		{
 			var studentNumberDiv = document.getElementById('studentNumberForm');
 			var studentNumber = document.getElementById('studentNumberForm').value;
 		    var firstLetter = studentNumber.charAt(0);
 			var numberLength = studentNumber.length;
+			var areTheyAllNumbers = studentNumber.substr(1, 8);
+			var testAreTheyAllNumbers = isNaN(areTheyAllNumbers)
 		   
 			if(studentNumber == "")
 			{
@@ -84,7 +130,7 @@ checkStudentNumber(); return false;
 				notWorkingButton.style.display = "block";
 				return false;
 			}
-			else if(firstLetter == "R" && numberLength == 9)
+			else if(firstLetter == "R" && numberLength == 9 && testAreTheyAllNumbers == false)
 			{
 				studentNumberDiv.style.backgroundColor = "#ffffff";
 				document.getElementById("studentNumberLabel").innerHTML = "";
@@ -94,38 +140,41 @@ checkStudentNumber(); return false;
 			else
 			{
 				studentNumberDiv.style.backgroundColor = "#ff6666";
-				document.getElementById("studentNumberLabel").innerHTML = "Please enter valid student number";
+				document.getElementById("studentNumberLabel").innerHTML = "Please enter valid student number e.g R00000001";
 				confirmButton.style.display = "none";
 				notWorkingButton.style.display = "block";
 				return false;
 			}
 			
-		} 
-    function checkPass()
-    {
-        var pass1 = document.getElementById('pass1');
-        var pass2 = document.getElementById('pass2');
-
-        if(pass2.value == "")
-        {
-            pass2.style.backgroundColor = "#ffffff";
-            confirmButton.style.display = "none";
-            notWorkingButton.style.display = "block";
-        }
-        else if(pass1.value == pass2.value)
-        {
-            pass2.style.backgroundColor = "#ffffff";
-            confirmButton.style.display = "block";
-            notWorkingButton.style.display = "none";
-        }
-        else
-        {
-            pass2.style.backgroundColor = "#ff6666";
-            confirmButton.style.display = "none";
-            notWorkingButton.style.display = "block";
-        }
-    }
-
+		}  	
+		
+		function displayButton()
+		{
+			var pass1 = document.getElementById('pass1');
+			var pass2 = document.getElementById('pass2');
+			var studentNumber = document.getElementById('studentNumberForm').value;
+		    var firstLetter = studentNumber.charAt(0);
+			var numberLength = studentNumber.length;
+			var areTheyAllNumbers = studentNumber.substr(1, 8);
+			var testAreTheyAllNumbers = isNaN(areTheyAllNumbers)
+			var h1 = document.getElementById('homeForm1').value;
+			var h2 = document.getElementById('homeForm2').value;
+			var h3 = document.getElementById('homeForm3').value;
+			var h4 = document.getElementById('homeForm4').value;
+			var h5 = document.getElementById('homeForm5').value;
+			
+			if(pass1.value != "" && pass1.value == pass2.value && firstLetter == "R" && testAreTheyAllNumbers == false && numberLength == 9 
+			&& h1 != "" && h2 != "" && h3 != "" && h4 != "" && h5 != "")
+			{
+				confirmButton.style.display = "block";
+				notWorkingButton.style.display = "none";
+			}
+			else
+			{
+				confirmButton.style.display = "none";
+				notWorkingButton.style.display = "block";
+			}
+		}
 
 
 
@@ -328,45 +377,41 @@ function timeEntered(){
 }
 
 function hoursEntered(){
-    var tim = document.getElementById('startTime').value;
-    var hou = document.getElementById('numberOfHours').value;
-    var listOfHou = [];
+    var times = document.getElementById('startTime').value;
+    var hours = document.getElementById('numberOfHours').value;
+    var listOfHours = [];
     var loopBreak = false;
+    
+    //check for out of range working hours limit - up to 19:00 
+ 
+if((parseInt(times) + parseInt(hours)) <= 19){
+    document.getElementById('invalidHours').innerHTML = "";
+     //document.getElementById('scheduleSubmit').removeAttribute('disabled');
+    document.getElementById('confirmButton').style.display='block';//.setAttribute('disabled', true);
+    document.getElementById('notWorkingButton2').style.display='none';
+    
+    
+    
     //generate arrar of hours from user
-    for(var k=0; k<hou; k++){
-        listOfHou[k] = k + parseInt(tim);     
+    for(var k=0; k<hours; k++){
+        listOfHours[k] = k + parseInt(times);     
     }
     //test for valid numbers/comparing values from db and from user
     for(var p=0; p<scheduledHours.length; p++){
-        for(var r=0; r<listOfHou.length; r++){
-            if(scheduledHours[p] == listOfHou[r]){
-                //match found, hours overlaping
-                //create element and display to the user
-//                var rem = document.getElementById('h3Id');
-//                if(rem){
-//                    rem.remove();                    
-//                }
-//                document.getElementById('startTime').value = "";
-//                document.getElementById('numberOfHours').value = "";
-//                //document.getElementById('numberOfHours').disabled = true;
-//                var h3element = document.createElement('h5');
-//                var h3id = document.createAttribute('id');
-//                h3id.value = "h3Id";
-//                h3element.setAttributeNode(h3id);
-//                scheduledHours.sort();
-//                h3element.innerHTML =  "These hour(s) are scheduled " + scheduledHours;
-//                //get element to insert before
-//                var insBefore = document.getElementById('startTime');
-//                var  parentElement = document.getElementById('setTime');
-//                parentElement.insertBefore(h3element, insBefore);
+        for(var r=0; r<listOfHours.length; r++){
+            if(scheduledHours[p] == listOfHours[r]){
+
                 loopBreak = true;
                 break;
             }
         }
         if(loopBreak){break;}
     }
-    
-   
+}else{
+    document.getElementById('invalidHours').innerHTML = "Working hours out of range.";
+    document.getElementById('confirmButton').style.display='none';//.setAttribute('disabled', true);
+    document.getElementById('notWorkingButton2').style.display='block';
+   }
 }
     
 }
