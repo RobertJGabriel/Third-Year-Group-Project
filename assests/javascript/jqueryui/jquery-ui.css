@@ -269,7 +269,7 @@
 	font-size: 1em;
 }
 .ui-widget-content {
-	border: 4px solid #aaaaaa;
+   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 	background: #ffffff url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x;
 	color: #222222;
 }
@@ -277,8 +277,8 @@
 	color: #222222;
 }
 .ui-widget-header {
-	border: 1px solid #aaaaaa;
-	background: #db4949 url("images/ui-bg_highlight-soft_75_db4949_1x100.png") 50% 50% repeat-x;
+
+	background-color: #D23F31;
 	color: #222222;
 	font-weight: bold;
 }

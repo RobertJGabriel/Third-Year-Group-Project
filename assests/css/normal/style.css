@@ -328,15 +328,7 @@ body,html {
     float:left;
     background:#9f123a;
     margin-top:71px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    border-right: white solid 2px;
-=======
 	border-right:double 10px white;
->>>>>>> FETCH_HEAD
-=======
-	border-right:double 10px white;
->>>>>>> FETCH_HEAD
 }
 
 #leftProfile> ul {
@@ -1000,7 +992,12 @@ border-left:none;
 	-webkit-transform-origin: 50% 100%; 
 
 }
-
+#events >li >h1{
+ color: #9F123A;   
+    font-weight: normal;
+    font-size: 16px;
+    
+}
 #events >li > * {
     overflow:hidden;
     text-overflow:ellipsis

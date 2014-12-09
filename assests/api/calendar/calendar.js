@@ -109,8 +109,35 @@
               
          request.execute(function(resp) {
            for (var i = 0; i < resp.items.length; i++) {
-             var li = document.createElement('li');
-                li.appendChild(document.createTextNode(resp.items[i].summary  + resp.items[i].description  + resp.items[i].location +  resp.items[i].start.dateTime) );
+            var li = document.createElement('li');
+ 
+            var h = document.createElement("H1");
+            var h2 = document.createElement("H4");
+            var t = document.createTextNode(resp.items[i].summary ); 
+               
+                h.appendChild(t);
+                li.appendChild(h);
+                li.appendChild(document.createElement("br"));
+               
+            var t = document.createTextNode(resp.items[i].description); 
+               
+           
+                li.appendChild(t);
+                li.appendChild(document.createElement("br"));
+                 
+            var t = document.createTextNode(resp.items[i].location  ) ; 
+                
+           
+                li.appendChild(t);
+                li.appendChild(   document.createElement("br"));
+               
+            var t = document.createTextNode( resp.items[i].start.dateTime ) ; 
+               
+       
+                li.appendChild(t);
+                    
+                    
+               
              document.getElementById('events').appendChild(li);
            }
          });
