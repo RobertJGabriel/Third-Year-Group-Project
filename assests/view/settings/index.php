@@ -61,74 +61,38 @@
 
 
     <div id="rightProfile">
+		
+		<h1 class="meetStaff" align="center">Update settings</h1>
+	
+		<div id="settingsContainer">
+            <form id="updateForm" name="information" class="Settingforms" action="index.php?updateprofile=true" method="post">
+                <h2>Update Information</h2>
 
-    <ul class="settings">
-
-<li>
-            <form name="information" class="forms" action="index.php?updateprofile=true" method="post">
-                <h1>Update Information</h1>
-
-                <input type="text" placeholder="first name " value="<?php echo   $_SESSION["fname"] ; ?>" name="fname"required>
-                <input type="text" placeholder="Last Name " value="<?php echo   $_SESSION["lname"] ; ?>" name="lname" required>
+                <input type="text" placeholder="first name " value="<?php echo   $_SESSION["fname"] ; ?>" name="fname">
+                <input type="text" placeholder="Last Name " value="<?php echo   $_SESSION["lname"] ; ?>" name="lname">
                 <textarea type="text" placeholder="Address" value="" name="address"><?php echo   $_SESSION["address"] ; ?></textarea>
-                <input type="number" placeholder="Phone "  value="<?php echo   $_SESSION["phone"] ; ?>"name="phone"required>
-                <input type="text" placeholder="Email "  value="<?php echo   $_SESSION["email"] ; ?>"name="email"required>
-                <input type="password" placeholder="password" name="password" required>
+                <input type="number" placeholder="Phone "  value="<?php echo   $_SESSION["phone"] ; ?>"name="phone">
+                <input type="text" placeholder="Email "  value="<?php echo   $_SESSION["email"] ; ?>"name="email">
+                <input type="password" placeholder="password" name="password">
 
                 <input type="submit" value="Submit">
             </form>
-</li>
 
-
-
-
-
-
-        <li>
-
-            <?php
-            $this->schedules->cancelBooking();
-
-            ?>
-
-        </li>
-
-
-
-
-
-
-
-
-
-
-        <li>
-
-            <form name="information" class="forms" action="index.php?photo=true" method="post" id="uploadProfile" enctype="multipart/form-data">
-                <h1>Upload Photo</h1>
+            <form id="photoForm" name="information" class="Settingforms" action="index.php?photo=true" method="post" id="uploadProfile" enctype="multipart/form-data">
+                <h2>Upload Photo</h2>
 
                 <input type="file" name="file" size="45" accept="image/jpeg, image/png" required>
                 <br>
 
                 <input type="submit" value="Submit">
             </form>
+			
+			<?php
+            $this->schedules->cancelBooking();
 
-</li>
-
-
-
-
-
-
-
-
-
-
-
-
-        </ul>
-
-
+            ?>
+			
+		</div>
     </div>
 </div>
 

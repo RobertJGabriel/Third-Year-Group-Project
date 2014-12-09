@@ -211,8 +211,8 @@ class schedules {
         if ($status == '1'){
 
 
-            echo '  <form id="cancelbooking" class="forms" action="index.php?cancelbooking=true" method="post" >';
-            echo '<h1>Cancell a booking</h1>';
+            echo '  <form id="cancelbooking" class="Settingforms" action="index.php?cancelbooking=true" method="post" >';
+            echo '<h2>Cancell a booking</h2>';
             echo '   <select name="booking" required>';
             echo '<option value="" >Select</option>';
 
