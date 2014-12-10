@@ -196,6 +196,15 @@ $(document).ready(function() {
    
    });
    
+   var menu = document.getElementById("leftProfile");
+   var width = $(document).width();
+   
+   if(width <= 640){
+   
+		menu.style.display = "none";
+		
+   }
+   
 });
 
 $(window).resize(function() {
