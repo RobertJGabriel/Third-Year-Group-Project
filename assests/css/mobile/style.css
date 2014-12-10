@@ -331,13 +331,13 @@ input {
     float:left;
     margin-left:20px;
     margin-right:20px;
-    margin-bottom:10px
+    margin-bottom:30px
 }
 
 .fliped > .front {
     position:absolute;
-    width:200px;
-    height:300px;
+    width:230px;
+    height:330px;
     box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
     background-color:#d8e3eb;
     border-radius:5px;
@@ -347,8 +347,8 @@ input {
 .fliped > .back {
     position:absolute;
     background-color:#d8e3eb;
-    width:200px;
-    height:300px;
+    width:230px;
+    height:330px;
     box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
     border-radius:5px;
     display:none
@@ -357,8 +357,8 @@ input {
 .fliped > .backAdmin {
     position:absolute;
     background-color:#d8e3eb;
-    width:200px;
-    height:300px;
+    width:230px;
+    height:330px;
     box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
     border-radius:5px;
     display:none
@@ -376,8 +376,8 @@ input {
 */
 img.trainerImg {
     position:relative;
-    top:9px;
-    left:9px;
+    top:24px;
+    left:24px;
     border:1px solid #000;
     border-radius:5px
 }
@@ -387,8 +387,8 @@ img.trainerImg {
     top:9px;
     left:9px;
     border:1px solid #000;
-    width:170px;
-    height:270px;
+    width:200px;
+    height:300px;
     background-color:#fff;
     text-align:center;
     padding:5px
@@ -397,7 +397,7 @@ img.trainerImg {
 .bookingButton {
     position:absolute;
     top:220px;
-    left:35px;
+    left:40px;
     height:30px;
     line-height:30px;
     width:100px;
@@ -561,12 +561,160 @@ img.trainerImg {
 /*---------------------- END - ´Events ------------------*/
 
 
+/* Booking Table CSS*/
 
+#day_calendar {
+	margin:0px;padding:0px;
+	width:100%;
+	box-shadow: 10px 10px 5px #888888;
+	border:1px solid #000000;
+	
+	-moz-border-radius-bottomleft:14px;
+	-webkit-border-bottom-left-radius:14px;
+	border-bottom-left-radius:14px;
+	
+	-moz-border-radius-bottomright:14px;
+	-webkit-border-bottom-right-radius:14px;
+	border-bottom-right-radius:14px;
+	
+	
+}#day_calendar table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+	text-align:center;
+}#day_calendar tr:last-child td:last-child {
+	-moz-border-radius-bottomright:14px;
+	-webkit-border-bottom-right-radius:14px;
+	border-bottom-right-radius:14px;
+}
+#day_calendar table tr:first-child td:first-child {
+	-moz-border-radius-topleft:14px;
+	-webkit-border-top-left-radius:14px;
+	border-top-left-radius:14px;
+}
+#day_calendar table tr:first-child td:last-child {
+	-moz-border-radius-topright:14px;
+	-webkit-border-top-right-radius:14px;
+	border-top-right-radius:14px;
+}#day_calendar tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:14px;
+	-webkit-border-bottom-left-radius:14px;
+	border-bottom-left-radius:14px;
+}
+#day_calendar th{
+border-bottom:1px solid #000000;
+border-left:1px solid #000000;
+}
+#day_calendar th:first-child{
+border-left:none;
+}
+#day_calendar td{
+	vertical-align:middle;
+	
+	background-color:#ffffff;
 
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:center;
+	padding:7px;
+	font-size:10px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+}#day_calendar tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}#day_calendar tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}#day_calendar tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+#day_calendar tr:first-child td{
+		background:-o-linear-gradient(bottom, #ff5656 5%, #7f0000 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ff5656), color-stop(1, #7f0000) );
+	background:-moz-linear-gradient( center top, #ff5656 5%, #7f0000 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff5656", endColorstr="#7f0000");	background: -o-linear-gradient(top,#ff5656,7f0000);
 
-/*---------- homepage --------- */
+	background-color:#ff5656;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#ffffff;
+}
+#day_calendar tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #ff5656 5%, #7f0000 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ff5656), color-stop(1, #7f0000) );
+	background:-moz-linear-gradient( center top, #ff5656 5%, #7f0000 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff5656", endColorstr="#7f0000");	background: -o-linear-gradient(top,#ff5656,7f0000);
 
+	background-color:#ff5656;
+}
+#day_calendar tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+#day_calendar tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}
 
+.tdNotWorking
+{
+	background:red;
+	color:white;
+	padding:5px;
+}
+
+.tdBooked
+{
+	background:purple;
+	color:white;
+	padding:5px;
+}
+
+.tdBook
+{
+	background:green;
+	text-decoration:none;
+	color:white;
+	padding:5px;
+}
+
+/* End Booking Table CSS*/
+
+/* ------------ Settings ---------- */
+.settings {
+    margin-left:auto;
+    margin-right:auto;
+    width:460px;
+    height:auto;
+    margin-bottom:40px;
+    list-style:none
+}
+
+.settings>li {
+    float:left;
+    width:300px;
+    height:auto;
+    padding:10px;
+    margin-right:10px
+}
+
+.settings>li>form {
+    box-shadow:0 8px 17px 0 rgba(0,0,0,0.2);
+    margin-left:auto;
+    padding:10px;
+    margin-right:auto;
+    background-color:#fff
+}
+
+.settings>li>form >input {
+    margin-bottom:10px;
+    margin-top:10px
+}
+
+/* --------- end of settings ------------- */
 
 #confirmButton {
     display:none

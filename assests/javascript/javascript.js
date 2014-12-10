@@ -189,8 +189,13 @@ $(document).ready(function() {
    });
    
    var menu = document.getElementById("leftProfile");
+   var width = $(document).width();
    
-   menu.style.display = "none";
+   if(width <= 640){
+   
+		menu.style.display = "none";
+		
+   }
    
 });
 
