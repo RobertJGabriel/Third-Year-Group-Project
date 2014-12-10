@@ -247,7 +247,7 @@ $idMaker = 0;
 
         if($count!=0){
             while ($row = $result->fetch_assoc()) {
-                echo   ' <option value="'. $row['memberId']  .'">' .  $row['fName'] . ' ' . $row['lName']   .'</option>';
+                echo   ' <option value="'. $row['memberId']  .'">' .  $row['fName'] . '' . $row['lName']   .'</option>';
             }
 
         } else {
@@ -276,7 +276,7 @@ $idMaker = 0;
             while ($row = $result->fetch_assoc()) {
 				echo '<li class = "fliped">';
                 echo ' <div class="back" id="back'. $idMaker . '">';
-                echo '    <div class="trainerInfo">' .  $row['fName'] . ' ' . $row['lName'];
+                echo '    <div class="trainerInfo">' .  $row['fName'] . '' . $row['lName'];
                 echo '   <p>' .  $row['email'] . '</p>';
 				echo '  <form id="booknow" type="input" method="post" >';
 				echo '	<a href="index.php?singleTrainer=true&id='.  $row['memberId'] . '">';

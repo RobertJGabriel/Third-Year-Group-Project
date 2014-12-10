@@ -1,4 +1,3 @@
-
 @import "http://fonts.googleapis.com/css?family=Roboto";
 
 * {
@@ -870,7 +869,6 @@ img.trainerImg {
 #day_calendar th{
 border-bottom:1px solid #000000;
 border-left:1px solid #000000;
-    min-width: 78px;
 }
 #day_calendar th:first-child{
 border-left:none;

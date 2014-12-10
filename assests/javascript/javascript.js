@@ -48,9 +48,6 @@ checkPass(); return false;
 	displayButton(); return false;
     });
 	
-    $( "#numberOfHours" ).keyup(function() {
-	hoursEntered(); return false;
-    });
 
 
         $("img").each(function () {
@@ -282,7 +279,6 @@ function initializeListeners(){
        
     var numberOfHours = document.getElementById('numberOfHours');
     numberOfHours.addEventListener('change', hoursEntered, false);
-    startTime.addEventListener('keyup', hoursEntered, false);
     
 
 //inner functions for event handling
