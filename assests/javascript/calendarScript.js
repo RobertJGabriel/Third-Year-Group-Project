@@ -18,5 +18,3 @@ $( "#date" ).datepicker({
               }
 
 			});
-
-
