@@ -306,10 +306,8 @@ $idMaker = 0;
     function getSingleTrainers($trainer){
          $result =    $this->database->getSingleTrainers( $trainer  );
       $count=mysqli_num_rows($result);
-     // echo $count;
-      //echo "<pre>";
-      //print_r($result);
-    //  echo "</pre>";
+      echo $count;
+   
       
       
 	  echo'<div><img id="trainerBookingImg" src="assests/img/profilePhotos/' . $trainer.  '.png" /></div>';
@@ -318,6 +316,11 @@ $idMaker = 0;
         $j=null;
         // loops through all returned rows
         while ($row = $result->fetch_assoc()) {
+            
+            echo "<pre>";
+            print_r($row);
+            echo "</pre>";
+            
           //$count counter breaks the loop if it is not the last results' row and
           //carries over the value of $i into next row of results as a starting value in for loop
           //that allows for continuation of displaying next results.

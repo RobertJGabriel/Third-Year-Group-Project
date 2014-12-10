@@ -159,27 +159,37 @@ checkPass(); return false;
 		    var firstLetter = studentNumber.charAt(0);
 			var numberLength = studentNumber.length;
 			var areTheyAllNumbers = studentNumber.substr(1, 8);
-			var testAreTheyAllNumbers = isNaN(areTheyAllNumbers)
+			var testAreTheyAllNumbers = isNaN(areTheyAllNumbers);
 			var h1 = document.getElementById('homeForm1').value;
 			var h2 = document.getElementById('homeForm2').value;
 			var h3 = document.getElementById('homeForm3').value;
 			var h4 = document.getElementById('homeForm4').value;
 			var h5 = document.getElementById('homeForm5').value;
+			var testArePhoneAllNumbers = isNaN(h5);
 			
 			if(pass1.value != "" && pass1.value == pass2.value && firstLetter == "R" && testAreTheyAllNumbers == false && numberLength == 9 
-			&& h1 != "" && h2 != "" && h3 != "" && h4 != "" && h5 != "")
+			&& h1 != "" && h2 != "" && h3 != "" && h4 != "" && h5 != "" && testArePhoneAllNumbers == false)
 			{
 				confirmButton.style.display = "block";
 				notWorkingButton.style.display = "none";
+				phoneNumberLabel.innerHTML = "";
+				homeForm5.style.backgroundColor = "#ffffff";
+			}
+			else if(testArePhoneAllNumbers == true)
+			{
+				phoneNumberLabel.innerHTML = "Please enter valid phone number"
+				confirmButton.style.display = "none";
+				notWorkingButton.style.display = "block";
+				homeForm5.style.backgroundColor = "#ff6666";
 			}
 			else
 			{
 				confirmButton.style.display = "none";
 				notWorkingButton.style.display = "block";
+				homeForm5.style.backgroundColor = "#ffffff";
+				phoneNumberLabel.innerHTML = "";
 			}
 		}
-
-
 
 
 
@@ -187,6 +197,7 @@ checkPass(); return false;
 
 
 //Mobile menu button
+
 
 $(document).ready(function() {
 
@@ -282,7 +293,7 @@ function initializeListeners(){
        
     var numberOfHours = document.getElementById('numberOfHours');
     numberOfHours.addEventListener('change', hoursEntered, false);
-    startTime.addEventListener('keyup', hoursEntered, false);
+    numberOfHours.addEventListener('keyup', hoursEntered, false);
     
 
 //inner functions for event handling
@@ -380,8 +391,8 @@ function timeEntered(){
     //if match is found error will display - time already set
 
        document.getElementById('numberOfHours').disabled = false;
-    var hou = document.getElementById('numberOfHours').value;
-    if(hou){
+    var hourNo = document.getElementById('numberOfHours').value;
+    if(hourNo){
         hoursEntered();
     }
     
@@ -396,7 +407,6 @@ function hoursEntered(){
     var loopBreak = false;
     
     //check for out of range working hours limit - up to 19:00 
- 
 if((parseInt(times) + parseInt(hours)) <= 19){
     document.getElementById('invalidHours').innerHTML = "";
      //document.getElementById('scheduleSubmit').removeAttribute('disabled');
@@ -405,7 +415,7 @@ if((parseInt(times) + parseInt(hours)) <= 19){
     
     
     
-    //generate arrar of hours from user
+    //generate array of hours from user
     for(var k=0; k<hours; k++){
         listOfHours[k] = k + parseInt(times);     
     }
@@ -422,7 +432,7 @@ if((parseInt(times) + parseInt(hours)) <= 19){
     }
 }else{
     document.getElementById('invalidHours').innerHTML = "Working hours out of range.";
-    document.getElementById('confirmButton').style.display='none';//.setAttribute('disabled', true);
+    document.getElementById('confirmButton').style.display='none';
     document.getElementById('notWorkingButton2').style.display='block';
    }
 }

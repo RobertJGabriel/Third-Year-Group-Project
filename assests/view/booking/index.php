@@ -60,59 +60,30 @@
 
 
     <div id="rightProfile">
-
         <h1 class="meetStaff" align="center">Make a Booking </h1>
-    <ul id="booking" class="trainerTable">
+    <div id="booking" class="trainerTable">
 
-        <li>
-         <div id="date">
+        
+        <div id="date">
 
             <input type="text" name="date" id="dateBox" hidden>
             <input type="text" name="id" id="idtrainer" hidden>
-         </div>
-        </li>
+        </div>
+        
+        <div id="calendar_wrapper" class="left">
+            <h2 id="day"></h2>
+        </div>
 
-        <li>
-                <div id="calendar_wrapper" class="left">
-                    <h2 id="day"></h2>
-                </div>
-                    <div id="day_calendar">
-                    </div>
-
-
-
-
-        </li>
-
-    </ul>
-
+        <div id="day_calendar">
+        </div>
+    </div>
 
     </div>
 
-
-
 </div>
-
-
-
-
-
-
-
-
-
 
 
 
 <script src="assests/javascript/jqueryui/external/jquery/jquery.js"></script>
             <script src="assests/javascript/jqueryui/jquery-ui.min.js"></script>
             <script src="assests/javascript/calendarScript.js"></script>
-
-
-
-
-
-
-
-
-

@@ -102,11 +102,18 @@ class schedules {
         while ( $row = $result->fetch_assoc () ) {
             array_push ( $hourlySchedule, $row );
         }
+
+        for( $f=0; $f<sizeof($hourlySchedule); $f++){
+            if(isset($hourlySchedule[$f]['dates']) && $hourlySchedule[$f]['dates'] != $hourlySchedule[$f]['date']){
+               // echo "t= ".$hourlySchedule[$f]['startTime']." ts= ". $hourlySchedule[$f]['startTimes'];
+                $hourlySchedule[$f]['startTimes']=0;
+            }
+        }
         
         /////////////////
         //echo "<pre>";
         //print_r($hourlySchedule);
-        //echo "</pre>";
+       // echo "</pre>";
         /////////////////
 
         // stores trainers ids including duplicates
@@ -137,16 +144,17 @@ class schedules {
 
         echo '<tr>';
         echo '<th>' . 'Time' . '</th> ';
+        
         for($x = 1; $x <= count ( $trainersIds ); $x ++) {
             //display trainer image on the top of table
-            echo '<th><img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'.  $uniqueTrainers[$x-1]  .'.png" alt="'. $hourlySchedule[$x]['fName'].' ' . $hourlySchedule[$x]['lName'] .'"></th> ';
+            echo '<th><img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'.  $uniqueTrainers[$x-1]  .'.png" alt="'. $hourlySchedule[$x-1]['fName'].' ' . $hourlySchedule[$x-1]['lName'] .'"></th> ';
         }
         echo ' <tr>';
 
         $arr = array (9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
        // echo "<pre>";
-    //    print_r($hourlySchedule);
-      //  echo "<pre>";
+       // print_r($hourlySchedule);
+       // echo "<pre>";
         //starts every row of the table
         foreach ( $arr as &$value ) {
 
@@ -218,7 +226,7 @@ class schedules {
 
 
             echo '  <form id="cancelbooking" class="Settingforms" action="index.php?cancelbooking=true" method="post" >';
-            echo '<h2>Cancell a booking</h2>';
+            echo '<h2>Cancel a booking</h2>';
             echo '   <select name="booking" required>';
             echo '<option value="" >Select</option>';
           

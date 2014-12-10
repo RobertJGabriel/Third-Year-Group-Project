@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+    
         <link rel="stylesheet" href="assests/css/CheatSheet/animations.css">
     
     <link rel="stylesheet" type="text/css" href="assests/css/style.css" />

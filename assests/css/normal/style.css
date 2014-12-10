@@ -1,4 +1,3 @@
-
 @import "http://fonts.googleapis.com/css?family=Roboto";
 
 * {
@@ -413,11 +412,12 @@ body,html {
 }
 
 .meetStaff {
-    color:#9f123a
+    color:#9f123a;
+	margin-top:-10px;
 }
 
 .overflow {
-    overflow:auto
+    overflow:auto;
 }
 
 /*End right profile set up*/
@@ -425,7 +425,9 @@ body,html {
 #trainers {
     width:100%;
     height:100%;
-    list-style:none
+    list-style:none;
+	max-width:750px;
+	margin:auto;
 }
 
 #trainers>li {
@@ -488,16 +490,6 @@ body,html {
     display:none
 }
 
-/*.fliped:hover > .front
-{
-	display:none;
-}
-
-.fliped:hover > .back
-{
-	display:block;
-}
-*/
 img.trainerImg {
     position:relative;
     top:9px;
@@ -547,70 +539,62 @@ img.trainerImg {
     margin:auto
 }
 
-
-
-.Settingforms{
-	float:left;
-	width: 200px;
-	margin-bottom: 30px;
-    padding: 10px;
-	margin-left:30px;
-}
-.Settingforms > h2{
-  text-align: center;   
-    
+.Settingforms {
+    float:left;
+    width:200px;
+    margin-bottom:30px;
+    padding:10px;
+    margin-left:30px
 }
 
-
-.Settingforms>input[type=submit]{
-    width: 190px;
-    height: 45px;
-	background-color: #FFFFFF;   
-    border: 1px #9f123a solid ;
-	color:#9f123a;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1.1em;
+.Settingforms > h2 {
+    text-align:center
 }
 
-.Settingforms>input[type=submit]:hover{
-	background-color: #9f123a;   
-    border: 1px #FFFFFF solid ;
-	color:#FFFFFF;
-}
-.Settingforms>input[type=text],.Settingforms>input[type=password],.Settingforms>input[type=email],.Settingforms>input[type=number]{
- 
-    width: 190px;
-    height: 25px;
-    border: 2px #ebebeb solid;
-    border-radius: 3px #ebebeb solid;
-    margin-bottom: 5px;
-    text-align:center;
-	
+.Settingforms>input[type=submit] {
+    width:190px;
+    height:45px;
+    background-color:#FFF;
+    border:1px #9f123a solid;
+    color:#9f123a;
+    cursor:pointer;
+    border-radius:5px;
+    font-size:1.1em
 }
 
-.Settingforms>input[type=color]
-{
-	width: 180px;
-    margin-bottom: 10px;
-    height: 50px;
+.Settingforms>input[type=submit]:hover {
+    background-color:#9f123a;
+    border:1px #FFF solid;
+    color:#FFF
 }
 
-.Settingforms>input[type=file]
-{
-    margin-bottom: 10px;
+.Settingforms>input[type=text],.Settingforms>input[type=password],.Settingforms>input[type=email],.Settingforms>input[type=number] {
+    width:190px;
+    height:25px;
+    border:2px #ebebeb solid;
+    border-radius:3px #ebebeb solid;
+    margin-bottom:5px;
+    text-align:center
 }
 
-.Settingforms>textarea[type=text]{
- 
-    width: 189px;
-    height: 50px;
-    border: 2px #ebebeb solid;
-    border-radius: 3px #ebebeb solid;
-    margin-bottom: 5px;
-    text-align:center;
+.Settingforms>input[type=color] {
+    width:180px;
+    margin-bottom:10px;
+    height:50px
 }
 
+.Settingforms>input[type=file] {
+    margin-bottom:10px
+}
+
+.Settingforms>textarea[type=text] {
+    width:189px;
+    height:50px;
+    border:2px #ebebeb solid;
+    border-radius:3px #ebebeb solid;
+    margin-bottom:5px;
+    text-align:center
+}
 
 .book {
     padding:0;
@@ -695,10 +679,8 @@ img.trainerImg {
 }
 
 #chartHolder {
-    width:600px;
+    width:715px;
     overflow:hidden;
-    margin-left: auto;
-    margin-right: auto;
     white-space:nowrap;
     display:inline-block
 }
@@ -828,7 +810,7 @@ img.trainerImg {
 
 #day_calendar {
 	margin:0px;padding:0px;
-	width:100%;
+	width:98%;
 	box-shadow: 10px 10px 5px #888888;
 	border:1px solid #000000;
 	
@@ -870,7 +852,6 @@ img.trainerImg {
 #day_calendar th{
 border-bottom:1px solid #000000;
 border-left:1px solid #000000;
-    min-width: 78px;
 }
 #day_calendar th:first-child{
 border-left:none;
@@ -928,6 +909,7 @@ border-left:none;
 	background:red;
 	color:white;
 	padding:5px;
+	font-size:13px;
 }
 
 .tdBooked
@@ -935,6 +917,7 @@ border-left:none;
 	background:purple;
 	color:white;
 	padding:5px;
+	font-size:13px;
 }
 
 .tdBook
@@ -943,6 +926,7 @@ border-left:none;
 	text-decoration:none;
 	color:white;
 	padding:5px;
+	font-size:13px;
 }
 
 /* End Booking Table CSS*/
@@ -994,12 +978,7 @@ border-left:none;
 	-webkit-transform-origin: 50% 100%; 
 
 }
-#events >li >h1{
- color: #9F123A;   
-    font-weight: normal;
-    font-size: 16px;
-    
-}
+
 #events >li > * {
     overflow:hidden;
     text-overflow:ellipsis
@@ -1064,10 +1043,17 @@ border-left:none;
 }
 
 /*End Hide Mobile set up for big screen*/
+
+#day_calendar
+{
+	max-width:100%;
+	overflow:auto;
+}
+
+
 /*peters tests*/
 #setTime {
-    width:40%;
-    min-width:180px
+    
 }
 
 #setTime input,#setTime select {

@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Gym System </title>
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+    <title>Gym System : By Project bird </title>
+    
     
         <link rel="stylesheet" href="assests/css/CheatSheet/animations.css">
     

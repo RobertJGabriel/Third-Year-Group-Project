@@ -172,15 +172,17 @@ WHERE memberId='$id';" );
     public
     function getTraniersSchedule($s, $trainer) {
 
-        $results = mysqli_query ( $this->con, "SELECT memberId, startTime, noOfHours, startTimes, fName, lName, date 
+
+               
+                $results = mysqli_query ( $this->con, "SELECT * 
 FROM members as m
 left outer  JOIN trainerschedule
-ON m.memberId=trainerschedule.trainerId
+ON m.memberId = trainerschedule.trainerId 
 LEFT OUTER JOIN schedules
 ON m.memberId = schedules.trainerId
 WHERE EXISTS (SELECT *
               FROM trainerschedule as ts
-              WHERE m.status = 2 and ts.trainerId = m.memberId and trainerschedule.date = '$s') ORDER BY memberId, startTimes ;" );
+              WHERE m.status = 2 and ts.trainerId = m.memberId and trainerschedule.date = '$s'   ) ORDER BY memberId, startTimes ;" );
         return $results;
     }
 
@@ -286,11 +288,11 @@ WHERE EXISTS (SELECT *
 
     public
     function getSingleTrainers($trainer){
-///Needs to be fixed
-//echo $trainer;
+
         $results = mysqli_query ( $this->con, "
 
-SELECT *
+
+SELECT memberId, startTime, noOfHours, startTimes, fName, lName, date 
 FROM members as m
 left outer  JOIN trainerschedule
 ON m.memberId=trainerschedule.trainerId
@@ -298,10 +300,19 @@ LEFT OUTER JOIN schedules
 ON m.memberId = schedules.trainerId
 WHERE EXISTS (SELECT *
               FROM trainerschedule as ts
-              WHERE m.status = 2  and trainerschedule.trainerId = '$trainer' ) ORDER BY startTimes ;" );
+              WHERE m.status = 2  and trainerschedule.trainerId = '$trainer' ) ORDER BY date, startTime ;" );
+
+//SELECT memberId, startTime, noOfHours, startTimes, fName, lName, date 
+//FROM members as m
+//left outer  JOIN trainerschedule
+//ON m.memberId=trainerschedule.trainerId
+//LEFT OUTER JOIN schedules
+//ON m.memberId = schedules.trainerId
+//WHERE EXISTS (SELECT *
+//              FROM trainerschedule as ts
+//              WHERE m.status = 2  and trainerschedule.trainerId = '$trainer' ) ORDER BY date, startTime ;" );
         return $results;
-
-
+        
     }
      public
     function getTrainerDaySchedule($trainerId, $date){

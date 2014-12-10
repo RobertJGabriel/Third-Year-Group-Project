@@ -30,6 +30,7 @@
             <input id="studentNumberForm" type="text"  name="studentId" placeholder="Student ID"required><br>
             <input id="homeForm3" type="email" name="email" placeholder="Email" required><br>
             <input id="homeForm4" type="text" name="address" placeholder="Address"required><br>
+            <label id="phoneNumberLabel"></label>
             <input id="homeForm5" type="text" name="phone" placeholder="phone"required><br>
             <input id="pass1" type="password" name="password" placeholder="Password" required><br>
             <input id="pass2" type="password" name="rpassword" placeholder="Re-enter Password" required><br>
