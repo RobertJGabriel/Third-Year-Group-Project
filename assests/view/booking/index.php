@@ -60,24 +60,24 @@
 
 
     <div id="rightProfile">
+	<div id="calendarCentre">
         <h1 class="meetStaff" align="center">Make a Booking </h1>
     <div id="booking" class="trainerTable">
 
         
         <div id="date">
-
             <input type="text" name="date" id="dateBox" hidden>
             <input type="text" name="id" id="idtrainer" hidden>
         </div>
         
-        <div id="calendar_wrapper" class="left">
+        <div id="calendar_wrapper" >
             <h2 id="day"></h2>
         </div>
-
+	</div>
+	</div>
         <div id="day_calendar">
         </div>
-    </div>
-
+    
     </div>
 
 </div>
