@@ -112,11 +112,11 @@
 
         <div id="container"  class="charts">        </div>
 	<div class="formHolder">
-     <form name="information" class="forms" action="index.php?workoutInput=true" method="post">
-
-                <h1>Input Weight</h1>
+     <form name="information"  class="workoutForms"  action="index.php?workoutInput=true" method="post">
+         			<label>Weight Lifted</label>
                    <input type="number" placeholder="Amount of sets"  min="1" max="3"name="setId">
                 <input type="number" placeholder="Amount of Reps"  min="1" max="100"name="reps">
+         <br>
                 <input type="number" placeholder="Amount of weight in kg"  min="1" max="999"name="weight">
                 <select name="type" >
                     <option value="Back Dumbbell">Back Dumbbell </option>

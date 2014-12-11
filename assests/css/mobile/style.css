@@ -133,26 +133,52 @@ input {
 /*----End-Homepage----*/
 /*----Workout----*/
 #choices {
-    width:90%;
-    margin-left:5%
+    width:220px;
+    height: 70px;
+    margin-left:auto;
+    margin-right: auto;
 }
 
 .c {
     float:left;
-    border:1px solid grey;
+ 
     margin-right:10px;
     padding:5px;
+    border:1px solid grey;
+    border-radius: 100px;
     background-color:#fff
+    /*
+    border:1px solid grey;
+    background-color:#fff
+    */
 }
 
 #chartHolder {
     width:90%;
     margin-top:20px;
     margin-left:5%;
-    white-space:nowrap;
+
     display:inline-block
 }
+.charts {
 
+    margin-top:10px;
+    margin-left:15px;
+    border-radius:5px;
+        margin-left:auto;
+    margin-right: auto;
+    width: 450px;
+}
+.formHolder {
+    padding: 5px;
+width: 440px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 #chartHolder1 {
     display:block
 }
@@ -165,6 +191,53 @@ input {
     display:none
 }
 
+/* I added this to tweak the mobile stuff */
+.workoutForms{
+    width: 200px;
+    padding: 5px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.workoutForms>label{
+text-align: center;
+}
+
+.workoutForms>input[type=number] {
+    width:190px;
+    height:25px;
+    border:2px #ebebeb solid;
+    border-radius:3px #ebebeb solid;
+    margin-bottom:5px;
+    margin-top: 5px;
+    text-align:center
+}
+workoutForms>input[type=number] {
+    width:190px;
+    height:25px;
+    border:2px #ebebeb solid;
+    border-radius:3px #ebebeb solid;
+    margin-bottom:5px;
+    text-align:center
+}
+
+.workoutForms>input[type=submit] {
+  width: 190px;
+height: 45px;
+background-color: #FFF;
+border: 1px solid #9F123A;
+color: #9F123A;
+cursor: pointer;
+border-radius: 5px;
+font-size: 1.1em;
+}
+
+.workoutForms>input[type=submit]:hover {
+    background:#9f123a;
+    color:#fff;
+    cursor:pointer;
+    border:solid #fff
+}
 /*----End-Workout----*/
 #socialPicks {
     display:none
