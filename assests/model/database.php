@@ -289,28 +289,19 @@ WHERE EXISTS (SELECT *
     public
     function getSingleTrainers($trainer){
 
-        $results = mysqli_query ( $this->con, "
+        $results = mysqli_query ( $this->con, 
+            "SELECT * 
+            FROM trainerschedule
+            left JOIN schedules
+            ON (trainerschedule.trainerId = schedules.trainerId  and trainerschedule.date = schedules.dates)
+            where trainerschedule.trainerId = '".$trainer."'
+            order by date, startTimes
+            
+             
+            ");
 
-
-SELECT memberId, startTime, noOfHours, startTimes, fName, lName, date 
-FROM members as m
-left outer  JOIN trainerschedule
-ON m.memberId=trainerschedule.trainerId
-LEFT OUTER JOIN schedules
-ON m.memberId = schedules.trainerId
-WHERE EXISTS (SELECT *
-              FROM trainerschedule as ts
-              WHERE m.status = 2  and trainerschedule.trainerId = '$trainer' ) ORDER BY date, startTime ;" );
-
-//SELECT memberId, startTime, noOfHours, startTimes, fName, lName, date 
-//FROM members as m
-//left outer  JOIN trainerschedule
-//ON m.memberId=trainerschedule.trainerId
-//LEFT OUTER JOIN schedules
-//ON m.memberId = schedules.trainerId
-//WHERE EXISTS (SELECT *
-//              FROM trainerschedule as ts
-//              WHERE m.status = 2  and trainerschedule.trainerId = '$trainer' ) ORDER BY date, startTime ;" );
+            
+            
         return $results;
         
     }
@@ -322,10 +313,6 @@ WHERE EXISTS (SELECT *
         return $results;
     }
     
-    
-    
-    
-    
        public function deleteSchedule($id, $date){
         echo "deleting sched.....";
         $sql = "DELETE FROM trainerschedule WHERE trainerId = '".$id."' AND date = '".$date."';";
@@ -333,7 +320,6 @@ WHERE EXISTS (SELECT *
         $results = mysqli_query($this->con, $sql);    
 echo $results;
     }
-
 
 }
 

@@ -53,8 +53,8 @@ class members{
             $email = stripslashes($email );
             // To protect MySQL injection (more detail about MySQL injection)
             $password = stripslashes($password);
-            //	$email = mysql_real_escape_string($email);
-            //	$password = mysql_real_escape_string($password);
+            $email = mysql_real_escape_string($email);
+            $password = mysql_real_escape_string($password);
             $result =  $this->database->login($email,$password);
             $count=mysqli_num_rows($result);
 
@@ -212,12 +212,7 @@ $idMaker = 0;
         } else {
             echo 'No Trainers :(';
         }
-        
-        
-        
-        
-        
-        
+
 
     }
 
@@ -299,40 +294,42 @@ $idMaker = 0;
 
     }
 
-
-
-
     public
     function getSingleTrainers($trainer){
+
          $result =    $this->database->getSingleTrainers( $trainer  );
       $count=mysqli_num_rows($result);
-      echo $count;
-   
-      
       
 	  echo'<div><img id="trainerBookingImg" src="assests/img/profilePhotos/' . $trainer.  '.png" /></div>';
 	  
       if($count!=0){
-        $j=null;
+          $defId = $trainer;
+        $j=0;
+          $dat="1700-10-10";
         // loops through all returned rows
         while ($row = $result->fetch_assoc()) {
-            
-            echo "<pre>";
-            print_r($row);
-            echo "</pre>";
+            if(isset($row['trainerId'])){
+                $defId = $row['trainerId'];
+            }else{
+                $row['trainerId'] = $trainer;
+                }
             
           //$count counter breaks the loop if it is not the last results' row and
           //carries over the value of $i into next row of results as a starting value in for loop
           //that allows for continuation of displaying next results.
           $count--;
-          //echo $row['startTime'];
-          
+            if($dat != $row['date']){
+                $dat = $row['date'];
+                $j = 0;
+            }
+             
           $startTime = $row['startTime'];
           $finishTime = $startTime + $row['noOfHours'];
-          if($j == null){
-            //initialize $i only for first row of results
+          if($j == 0){
+            //initialize $i only for first row of results for set
             $i = $startTime;
           }
+            
 		  
           //loop through each results' row, if time is booked and not last row: break and jump to next rsults' row
           // otherwise time is ready for booking
@@ -343,6 +340,7 @@ $idMaker = 0;
               echo '<h3> Date '. $row['date'] . '</h3>';
               echo '<a class="bookedNowButton" >Booked </a>';
               echo '</li>';
+            
               if($count!=0){
                 $j = ++$i;
                 break;
@@ -351,10 +349,13 @@ $idMaker = 0;
               echo '<li class = "slot">';
               echo '<h3> Start Time '. $i .':00</h3>';
               echo '<h3> Date '. $row['date'] . '</h3>';
-              echo '   <a class="bookNowButton" href="index.php?booked='. $row['memberId']  .'&time=' .$i    .'&dates='.$row['date'].'" >Book now </a>';
+                
+              echo '   <a class="bookNowButton" onclick="init(this);" href="index.php?booked='. $defId  .'&time=' .$i    .'&dates='.$row['date'].'" >Book now </a>';
               echo '</li>';
                 }
+        
               }
+        
             }
         }
     }

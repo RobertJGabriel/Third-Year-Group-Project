@@ -146,7 +146,7 @@
 
       function makeInsertApiCall(trainerId,time,dates) {
           
-            alert('Added to Caldenar');         
+            alert('Added to Calendar');         
           
       gapi.client.load('calendar', 'v3', function() {
           var request = gapi.client.calendar.events.insert({

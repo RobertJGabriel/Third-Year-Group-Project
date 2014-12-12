@@ -105,16 +105,10 @@ class schedules {
 
         for( $f=0; $f<sizeof($hourlySchedule); $f++){
             if(isset($hourlySchedule[$f]['dates']) && $hourlySchedule[$f]['dates'] != $hourlySchedule[$f]['date']){
-               // echo "t= ".$hourlySchedule[$f]['startTime']." ts= ". $hourlySchedule[$f]['startTimes'];
+              
                 $hourlySchedule[$f]['startTimes']=0;
             }
         }
-        
-        /////////////////
-        //echo "<pre>";
-        //print_r($hourlySchedule);
-       // echo "</pre>";
-        /////////////////
 
         // stores trainers ids including duplicates
         $trainersIds = array ();
@@ -152,9 +146,7 @@ class schedules {
         echo ' <tr>';
 
         $arr = array (9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
-       // echo "<pre>";
-       // print_r($hourlySchedule);
-       // echo "<pre>";
+
         //starts every row of the table
         foreach ( $arr as &$value ) {
 
@@ -171,7 +163,7 @@ class schedules {
                     //checks if result row is for specified trainer
                     if ($hourlySchedule [$c] ['memberId'] == $trId) {
                         $countUniqueId ++;
-//echo "start time " + $hourlySchedule [$c] ['startTime'] ;
+
                         //checks if trainer is working at specified time
                         if (($hourlySchedule [$c] ['startTime'] <= $value) && ($value < $hourlySchedule [$c] ['startTime'] + $hourlySchedule [$c] ['noOfHours'])) {
 
@@ -180,10 +172,10 @@ class schedules {
                                 echo '<td>' . '<span class="tdBooked">Booked</span>' . '</td> ';
                                 break; // for loop
                             } else if ($hourlySchedule [$c] ['startTimes'] >= $value) {
-                                echo '<td><a class="tdBook" href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">Book Now</a></td> ';
+                                echo '<td><a class="tdBook"onclick="init(this);" href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">Book Now</a></td> ';
                                 break;
                             } else if ($countUniqueId == $noOfRowsForEachTrainer [$trId]) {
-                                echo '<td><a class="tdBook" href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">Book Now</a></td> ';
+                                echo '<td><a class="tdBook" onclick="init(this);" href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">Book Now</a></td> ';
                                 break;
                             }
                         } else {
