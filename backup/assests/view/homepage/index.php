@@ -1,7 +1,7 @@
 
 <div class="header">
     <div id="logo">
-        <img src="assests/img/logo.jpg" alt="Cit Logo">
+        <img src="assets/img/logo.jpg" alt="Cit Logo">
     </div>
 
 

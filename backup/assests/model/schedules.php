@@ -107,10 +107,10 @@ class schedules {
                                 echo '<td bgcolor="silver">' . 'Booked' . '</td> ';
                                 break; // for loop
                             } else if ($hourlySchedule [$c] ['startTimes'] >= $value) {
-                              echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="150" height="200" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
+                              echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="150" height="200" src="assets/img/profilePhotos/'. $trId .'.png" ></a></td> ';
                                 break;
                             } else if ($countUniqueId == $noOfRowsForEachTrainer [$trId]) {
-                                echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="100" height="150" src="assests/img/profilePhotos/'. $trId .'.png" ></a></td> ';
+                                echo '<td bgcolor="silver"><a href="index.php?booked='.$trId  .'&time=' .  $value    .'&dates='.$date.'">'  . '<img class="bookingPhoto" width="100" height="150" src="assets/img/profilePhotos/'. $trId .'.png" ></a></td> ';
                                 break;
                             }
                         } else {

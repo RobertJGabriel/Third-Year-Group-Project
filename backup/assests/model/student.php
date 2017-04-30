@@ -171,7 +171,7 @@ $this->database->updateUser();
 
                 echo '   </div>';
                 echo '  <div class="front">';
-                echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="300" />';
+                echo '      <img class="trainerImg" src="assets/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="300" />';
                 echo '  </div>';
                 echo '</li>';
 
@@ -231,7 +231,7 @@ echo '<input type="number" name="start">';
                 echo '   </form>';
                 echo '   </div>';
                 echo '  <div class="front">';
-                echo '      <img class="trainerImg" src="assests/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="300" />';
+                echo '      <img class="trainerImg" src="assets/img/profilePhotos/' .$row['memberId'] . '.png" width="180" height="300" />';
                 echo '  </div>';
                 echo '</li>';
 
@@ -250,7 +250,7 @@ echo '<input type="number" name="start">';
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
         if( $_FILES['file']['name'] != "" ){
-            copy ( $_FILES['file']['tmp_name'], 'assests/img/profilePhotos/' .    $_SESSION["id"] .".png")   or die( "Could not copy file" );
+            copy ( $_FILES['file']['tmp_name'], 'assets/img/profilePhotos/' .    $_SESSION["id"] .".png")   or die( "Could not copy file" );
             header("Location: {$_SERVER['HTTP_REFERER']}
 
 			");

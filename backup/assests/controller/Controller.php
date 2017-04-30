@@ -1,9 +1,9 @@
 <?php
 
-include_once("assests/model/student.php");
-include_once("assests/model/weight.php");
-include_once("assests/model/schedules.php");
-include_once("assests/model/database.php");
+include_once("assets/model/student.php");
+include_once("assets/model/weight.php");
+include_once("assets/model/schedules.php");
+include_once("assets/model/database.php");
 
 class Controller {
     var $student;
@@ -25,13 +25,13 @@ class Controller {
         if(isset($_SESSION['id'])){
 
             if (isset($_GET['profile'])){
- include('assests/view/profile.php');
+ include('assets/view/profile.php');
             } else
                 if (isset($_GET['booking'])){
-                    include('assests/view/booking.php');
+                    include('assets/view/booking.php');
                 } else
                     if (isset($_GET['settings']))        {
-                        include('assests/view/settings.php');
+                        include('assets/view/settings.php');
                     } else
                         if (isset($_GET['logout']))        {
                             $this->student->logout();
@@ -54,7 +54,7 @@ class Controller {
                                             }
                                             else
                                                 if (isset($_GET['workout'])){
-                                                    include('assests/view/workout.php');
+                                                    include('assets/view/workout.php');
                                                 }
                                                 else if(isset($_GET['workoutInput'])){
 
@@ -66,7 +66,7 @@ class Controller {
                                                 }
                                                 else if(isset($_GET['admin'])){
 
-                                                    include('assests/view/admin.php');
+                                                    include('assets/view/admin.php');
                                                 }
                                                 else if(isset($_GET['updateuser'])){
 
@@ -74,11 +74,11 @@ class Controller {
                                                 }
 
                                                 else {
-                                                include('assests/view/profile.php');
+                                                include('assets/view/profile.php');
                                                 }
 
         } else {
-            include('assests/view/homepage.php');
+            include('assets/view/homepage.php');
         }
 
     }

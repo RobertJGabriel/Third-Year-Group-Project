@@ -3,7 +3,7 @@ $(function() {
     var months = [];
     var days = [];
     var switch1 = true;
-    $.get('assests/model/cardioValues.php', function(data) {
+    $.get('assets/model/cardioValues.php', function(data) {
 
         data = data.split('/');
         for (var i in data) {

@@ -1,6 +1,6 @@
 <?php 
 // comment
-	include_once("assests/controller/Controller.php");
+	include_once("assets/controller/Controller.php");
 
 	$controller = new Controller();
 	$controller->invoke();
